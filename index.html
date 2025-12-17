@@ -13,11 +13,17 @@
     <p>My works.</p>
   </header>
 
+  <div id="filter-bar">
+    <button data-category="all" class="active">All</button>
+    <button data-category="Synthesis">Synthesis</button>
+    <button data-category="sound-design">Sound Design</button>
+  </div>
+
   <main>
     <section>
       <h2>Sound Design Example</h2>
 
-      <div class = "audio item">
+      <div class = "audio-item" data-category="sound-design">
         <h3>Collision 1</h3>
         <p>First example.</p>
         <audio controls preload="none">
@@ -27,7 +33,7 @@
     </section>
 
     <section>
-      <div class = "audio item">
+      <div class = "audio-item" data-category="sound-design">
         <h3>Collision 2</h3>
         <p>Second example.</p>
         <audio controls preload="none">
@@ -37,7 +43,7 @@
     </section>
 
     <section>
-      <div class = "audio item">
+      <div class = "audio-item" data-category="sound-design">
         <h3>Collision 3</h3>
         <p>Third example.</p>
         <audio controls preload="none">
@@ -45,8 +51,20 @@
         </audio>
       </div>
     </section>
+ 
+
+      <section>
+      <div class = "audio-item" data-category="sound-design">
+        <h3>Collision 4</h3>
+        <p>Fourth example.</p>
+        <audio controls preload="none">
+          <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
+        </audio>
+      </div>
+    </section>
   </main>
 
   <script src="js/player.js"></script>
+  <script src="js/filtering.js"></script>
 </body>
 </html>
