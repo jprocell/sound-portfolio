@@ -79,3 +79,110 @@ audio {
   background: #e91e63;
   color: #fff;
 }
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  background-color: #111;
+  margin: 0;
+}
+
+.nav-bar li a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.nav-bar li a:hover,
+.nav-bar li a.active {
+  color: #e91e63;
+}
+
+#hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #222;
+  color: #eee;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#audio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.audio-item {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 1rem;
+  background-color: #222;
+  color: #eee;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#bio-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+#bio-content a {
+  color: #e91e63;
+  text-decoration: none;
+}
+
+#bio-content a:hover {
+  text-decoration: underline;
+}
+
+.blog-entry {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #222;
+  color: #eee;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.blog-entry h2 {
+  margin-top: 0;
+  color: #e91e63;
+}
+
+#contact-info {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  line-height: 1.6;
+  color: #eee;
+}
+
+#contact-info a {
+  color: #e91e63;
+  text-decoration: none;
+}
+
+#contact-info a:hover {
+  text-decoration: underline;
+}

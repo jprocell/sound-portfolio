@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Josh — Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/player.js" defer></script>
+  <script src="js/filtering.js" defer></script>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-bar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="works.html" class="active">Works</a></li>
+      <li><a href="other.html">Other</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Josh</h1>
+    <p>My works.</p>
+  </header>
+
+  <div id="filter-bar">
+    <button data-category="all" class="active">All</button>
+    <button data-category="Synthesis">Synthesis</button>
+    <button data-category="sound-design">Sound Design</button>
+  </div>
+
+  <main>
+    <section id="audio-gallery">
+      <div class="audio-item" data-category="sound-design">
+        <h3>Collision 1</h3>
+        <p>First example.</p>
+        <audio controls preload="none">
+          <source src="audio-samples/sound-design/collision/bass.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="audio-item" data-category="sound-design">
+        <h3>Collision 2</h3>
+        <p>Second example.</p>
+        <audio controls preload="none">
+          <source src="audio-samples/sound-design/collision/lead.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="audio-item" data-category="sound-design">
+        <h3>Collision 3</h3>
+        <p>Third example.</p>
+        <audio controls preload="none">
+          <source src="audio-samples/sound-design/collision/pads.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="audio-item" data-category="sound-design">
+        <h3>Collision 4</h3>
+        <p>Fourth example.</p>
+        <audio controls preload="none">
+          <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
+        </audio>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
