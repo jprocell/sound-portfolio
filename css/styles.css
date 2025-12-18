@@ -1,44 +1,137 @@
+/* =========================== */
+/* Base Styles for All Pages */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #0f0f0f;
-  color: #eaeaea;
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+  background: #0F0F0F;
+  color: #EAEAEA;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
 }
 
-header {
-  padding: 3rem 1.5rem 2rem;
-  border-bottom: 1px solid #222;
+/* =========================== */
+/* Navigation Bar */
+.nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  margin: 0;
+  background: transparent;
+  position: absolute;  /* nav floats at top */
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-main {
-  max-width: 800px;
-  padding: 2rem 1.5rem;
+.nav-bar li a {
+  color: #EEE;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
 }
 
-section {
-  margin-bottom: 3rem;
+.nav-bar li a:hover,
+.nav-bar li a.active {
+  color: #4FC3F7; /* blue accent */
 }
 
-h1 {
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
+/* =========================== */
+/* Hero Section (Home Page) */
+#hero {
+  display: flex;                /* full-screen flex container */
+  flex-direction: column;       /* stack children vertically */
+  justify-content: center;      /* center vertically */
+  align-items: center;          /* center horizontally */
+  height: 100vh;                /* full viewport height */
+  padding: 0 2rem;
+  background: #0F0F0F;          /* can replace with image later */
+  text-align: center;           /* centers text as fallback */
 }
 
-h2 {
-  margin-bottom: 1rem;
+#hero .hero-card {
+  display: flex;
+  flex-direction: column;       /* ensure h1 and p stack vertically */
+  align-items: center;          /* center horizontally */
+  gap: 1rem;                    /* spacing between h1 and p */
+  background: transparent;
+}
+
+#hero h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 4rem;
+  margin: 0;
+  color: #4FC3F7;
+}
+
+#hero p {
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #aaa;
+  color: #EAEAEAAA; /* subtle secondary text */
+  margin: 0;
+}
+
+/* =========================== */
+/* Bio Page Content */
+#bio-content {
+  max-width: 700px;
+  margin: 8rem auto 2rem auto; /* top margin avoids nav overlap */
+  padding: 2rem;
+}
+
+#bio-content h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #4FC3F7;
+  text-align: center;  /* center heading */
+}
+
+#bio-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#bio-content a {
+  color: #4FC3F7;
+  text-decoration: none;
+}
+
+#bio-content a:hover {
+  text-decoration: underline;
+}
+
+/* =========================== */
+/* Audio Gallery (Works Page) */
+#audio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .audio-item {
-  margin-bottom: 2rem;
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 1rem;
+  background-color: #222;
+  color: #EEE;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.audio-item h3 {
+  margin-bottom: 0.25rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.audio-item p {
+  margin-top: 0;
+  color: #AAA;
 }
 
 audio {
@@ -46,15 +139,8 @@ audio {
   margin-top: 0.5rem;
 }
 
-.audio-item h3 {
-  margin-bottom: 0.25rem;
-}
-
-.audio-item p {
-  margin-top: 0;
-  color: #aaa;
-}
-
+/* =========================== */
+/* Filter Bar for Works Page */
 #filter-bar {
   text-align: center;
   margin-bottom: 2rem;
@@ -62,7 +148,7 @@ audio {
 
 #filter-bar button {
   background: #222;
-  color: #eee;
+  color: #EEE;
   border: none;
   padding: 0.5rem 1rem;
   margin: 0 0.25rem;
@@ -76,110 +162,39 @@ audio {
 }
 
 #filter-bar button.active {
-  background: #e91e63;
-  color: #fff;
+  background: #4FC3F7;
+  color: #FFF;
 }
 
-.nav-bar {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  background-color: #111;
-  margin: 0;
-}
-
-.nav-bar li a {
-  color: #eee;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s;
-}
-
-.nav-bar li a:hover,
-.nav-bar li a.active {
-  color: #e91e63;
-}
-
-#hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #222;
-  color: #eee;
-}
-
-#hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-#hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#audio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.audio-item {
-  flex: 1 1 300px;
-  max-width: 400px;
-  padding: 1rem;
-  background-color: #222;
-  color: #eee;
-  border-radius: 8px;
-  text-align: center;
-}
-
-#bio-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  line-height: 1.6;
-  font-size: 1.1rem;
-  color: #eee;
-}
-
-#bio-content a {
-  color: #e91e63;
-  text-decoration: none;
-}
-
-#bio-content a:hover {
-  text-decoration: underline;
-}
-
+/* =========================== */
+/* Blog / Other Page Entries */
 .blog-entry {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1.5rem 2rem;
   background-color: #222;
-  color: #eee;
+  color: #EEE;
   border-radius: 8px;
   line-height: 1.6;
 }
 
 .blog-entry h2 {
   margin-top: 0;
-  color: #e91e63;
+  color: #4FC3F7;
 }
 
+/* =========================== */
+/* Contact Page */
 #contact-info {
   max-width: 600px;
   margin: 2rem auto;
   padding: 1rem 2rem;
   line-height: 1.6;
-  color: #eee;
+  color: #EEE;
 }
 
 #contact-info a {
-  color: #e91e63;
+  color: #4FC3F7;
   text-decoration: none;
 }
 
