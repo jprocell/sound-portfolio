@@ -128,6 +128,38 @@ body {
   text-align: center;
 }
 
+/* ============================= */
+/* Other stuff */
+
+#other-content {
+  max-width: 700px;
+  margin: 8rem auto 2rem auto;
+  padding: 2rem;
+} 
+
+#other-content h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #4FC3F7;
+  text-align: center;  /* center heading */
+}
+
+#other-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.other-link {
+  color: #4FC3F7;
+  text-decoration: none;
+}
+
+.other-link:hover {
+  text-decoration: underline;
+}
+
 
 /* =========================== */
 /* Audio Gallery (Works Page) */
