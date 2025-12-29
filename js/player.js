@@ -9,3 +9,9 @@ players.forEach(player => {
     });
   });
 });
+
+document.addEventListener("contextmenu", (e) => {
+  if (e.target.closest("audio")) {
+    e.preventDefault();
+  }
+});

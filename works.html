@@ -8,7 +8,7 @@
   <script src="js/player.js" defer></script>
   <script src="js/filtering.js" defer></script>
 </head>
-<body>
+<body class = "works-page">
 
   <nav>
     <ul class="nav-bar">
@@ -20,23 +20,29 @@
     </ul>
   </nav>
 
-  <header>
-    <h1>Josh</h1>
-    <p>My works.</p>
-  </header>
-
-  <div id="filter-bar">
-    <button data-category="all" class="active">All</button>
-    <button data-category="Synthesis">Synthesis</button>
-    <button data-category="sound-design">Sound Design</button>
-  </div>
-
   <main>
+    <section id="works-content">
+      <h1>Work Samples</h1>
+      <p>Various projects I've done or was a part of.</p>
+    </section>
+
+    <div id="filter-bar">
+      <button data-category="all" class="active">All</button>
+      <button data-category="synthesis">Synthesis</button>
+      <button data-category="sound-design">Sound Design</button>
+    </div>
+
+
     <section id="audio-gallery">
       <div class="audio-item" data-category="sound-design">
         <h3>Collision 1</h3>
         <p>First example.</p>
-        <audio controls preload="none">
+        <audio
+          class="audio-player"
+          controls
+          controlslist="nodownload noplaybackrate"
+          preload="metadata"
+        >
           <source src="audio-samples/sound-design/collision/bass.wav" type="audio/wav">
         </audio>
       </div>
@@ -44,7 +50,12 @@
       <div class="audio-item" data-category="sound-design">
         <h3>Collision 2</h3>
         <p>Second example.</p>
-        <audio controls preload="none">
+        <audio
+          class="audio-player"
+          controls
+          controlslist="nodownload noplaybackrate"
+          preload="metadata"
+        >
           <source src="audio-samples/sound-design/collision/lead.wav" type="audio/wav">
         </audio>
       </div>
@@ -52,7 +63,12 @@
       <div class="audio-item" data-category="sound-design">
         <h3>Collision 3</h3>
         <p>Third example.</p>
-        <audio controls preload="none">
+        <audio
+          class="audio-player"
+          controls
+          controlslist="nodownload noplaybackrate"
+          preload="metadata"
+        >
           <source src="audio-samples/sound-design/collision/pads.wav" type="audio/wav">
         </audio>
       </div>
@@ -60,7 +76,12 @@
       <div class="audio-item" data-category="sound-design">
         <h3>Collision 4</h3>
         <p>Fourth example.</p>
-        <audio controls preload="none">
+        <audio
+          class="audio-player"
+          controls
+          controlslist="nodownload noplaybackrate"
+          preload="metadata"
+        >
           <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
         </audio>
       </div>
