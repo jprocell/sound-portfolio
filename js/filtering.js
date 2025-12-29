@@ -1,28 +1,26 @@
-const filterButtons = document.querySelectorAll("#filter-bar button");
-const audioItems = document.querySelectorAll(".audio-item");
-const audioPlayers = document.querySelectorAll("audio");
+// filtering.js
 
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const category = button.dataset.category;
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll("#filter-bar button");
+  const projects = document.querySelectorAll(".project-item");
 
-    // Update active button
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      // Add active class to clicked button
+      button.classList.add("active");
 
-    // Pause all audio when filter changes
-    audioPlayers.forEach(player => {
-      player.pause();
-      player.currentTime = 0;
-    });
+      const category = button.getAttribute("data-category");
 
-    // Show/hide items
-    audioItems.forEach(item => {
-      if (category === "all" || item.dataset.category === category) {
-        item.style.display = "block";
-      } else {
-        item.style.display = "none";
-      }
+      // Show/hide projects based on category
+      projects.forEach(project => {
+        if (category === "all" || project.getAttribute("data-category") === category) {
+          project.style.display = "flex";  // show matching project
+        } else {
+          project.style.display = "none";  // hide non-matching
+        }
+      });
     });
   });
 });

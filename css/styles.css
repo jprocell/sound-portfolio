@@ -43,21 +43,21 @@ body {
 /* =========================== */
 /* Hero Section (Home Page) */
 #hero {
-  display: flex;                /* full-screen flex container */
-  flex-direction: column;       /* stack children vertically */
-  justify-content: center;      /* center vertically */
-  align-items: center;          /* center horizontally */
-  height: 100vh;                /* full viewport height */
+  display: flex;                
+  flex-direction: column;       
+  justify-content: center;      
+  align-items: center;          
+  height: 100vh;                
   padding: 0 2rem;
-  background: #0F0F0F;          /* can replace with image later */
-  text-align: center;           /* centers text as fallback */
+  background: #0F0F0F;          
+  text-align: center;           
 }
 
 #hero .hero-card {
   display: flex;
-  flex-direction: column;       /* ensure h1 and p stack vertically */
-  align-items: center;          /* center horizontally */
-  gap: 1rem;                    /* spacing between h1 and p */
+  flex-direction: column;       
+  align-items: center;          
+  gap: 1rem;                    
   background: transparent;
 }
 
@@ -88,7 +88,7 @@ body {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  /* center heading */
+  text-align: center;  
 }
 
 #bio-content p {
@@ -106,8 +106,7 @@ body {
 }
 
 /* ============================= */
-/* Sample works stuff */
-
+/* Works Page Content */
 #works-content {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
@@ -119,7 +118,7 @@ body {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  /* center heading */
+  text-align: center;  
 }
 
 #works-content p {
@@ -129,70 +128,67 @@ body {
 }
 
 /* ============================= */
-/* Other stuff */
-
-#other-content {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-} 
-
-#other-content h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;  /* center heading */
-}
-
-#other-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.other-link {
-  color: #4FC3F7;
-  text-decoration: none;
-}
-
-.other-link:hover {
-  text-decoration: underline;
-}
-
-
-/* =========================== */
-/* Audio Gallery (Works Page) */
-#audio-gallery {
+/* Project Items (Works Page) */
+.project-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.audio-item {
-  flex: 1 1 300px;
-  max-width: 400px;
-  padding: 1rem;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1000px;  /* expand horizontally */
+  margin: 2rem auto;
+  padding: 2rem;
   background-color: #222;
   color: #EEE;
   border-radius: 8px;
-  text-align: center;
 }
 
-.audio-item h3 {
-  margin-bottom: 0.25rem;
+.project-item h3 {
+  text-align: center;
+  color: #4FC3F7;
+  margin-bottom: 0.5rem;
   font-family: 'Roboto Mono', monospace;
 }
 
-.audio-item p {
-  margin-top: 0;
+.project-item p {
+  text-align: center;
   color: #AAA;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
-audio {
+/* Row for individual sample: text + audio */
+.project-sample-row {
+  display: flex;
+  flex-wrap: wrap; /* wrap on small screens */
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Left column: description text */
+.sample-text {
+  flex: 1 1 40%;
+  color: #DDD;
+  font-size: 1rem;
+}
+
+/* Right column: audio player */
+.sample-audio {
+  flex: 1 1 55%;
+}
+
+.sample-audio audio {
   width: 100%;
-  margin-top: 0.5rem;
+}
+
+/* On small screens, stack text above audio */
+@media (max-width: 768px) {
+  .project-sample-row {
+    flex-direction: column;
+  }
+  .sample-text,
+  .sample-audio {
+    flex: 1 1 100%;
+  }
 }
 
 /* =========================== */
@@ -223,7 +219,7 @@ audio {
 }
 
 /* =========================== */
-/* Blog / Other Page Entries */
+/* Other / Blog Page Entries */
 .blog-entry {
   max-width: 800px;
   margin: 2rem auto;
@@ -239,25 +235,43 @@ audio {
   color: #4FC3F7;
 }
 
-/* ============================= */
-/* Contact stuff */
-
-#contact {
+/* =========================== */
+/* Other Page Content */
+#other-content {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 } 
 
-#contact h1 {
+#other-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  /* center heading */
+  text-align: center;  
 }
 
-#contact p {
+#other-content p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+/* =========================== */
+/* Contact Page */
+#contact-info {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  line-height: 1.6;
+  color: #EEE;
+}
+
+#contact-info a {
+  color: #4FC3F7;
+  text-decoration: none;
+}
+
+#contact-info a:hover {
+  text-decoration: underline;
 }
