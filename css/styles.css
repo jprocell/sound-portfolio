@@ -288,3 +288,26 @@ body {
   margin-bottom: 1rem;
   text-align: center;
 }
+
+/* =========================== */
+/* Bio Page */
+#bio-content {
+  max-width: 700px;
+  margin: 8rem auto 2rem auto;
+  padding: 2rem;
+} 
+
+#bio-content h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #4FC3F7;
+  text-align: center;  
+}
+
+#bio-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
