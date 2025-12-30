@@ -85,7 +85,8 @@ body {
 
 #works-content h1 {
   font-family: 'Roboto Mono', monospace;
-  font-size: 3rem;
+  font-size: 4rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
   text-align: center;
@@ -313,3 +314,41 @@ body {
   margin-bottom: 1rem;
   text-align: center;
 }
+
+/* Mini floating waveform bottom-left */
+#mini-waveform {
+  position: fixed;
+  bottom: 1rem;   /* distance from bottom */
+  left: 1rem;     /* distance from left */
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;       /* spacing between bars */
+  height: 50px;   /* total height of the waveform */
+  width: 120px;   /* total width of the waveform */
+  z-index: 9999;  /* ensure it sits above other content */
+  pointer-events: none; /* doesn't block clicks */
+}
+
+/* individual bars */
+.wave-bar {
+  background-color: #4FC3F7; /* blue accent */
+  width: 4px;
+  height: 10%;               /* initial height */
+  transition: height 0.05s linear; /* smooth animation */
+  border-radius: 2px;
+}
+
+
+@keyframes wave {
+  0%, 100% { height: 10px; }
+  50% { height: 40px; }
+}
+
+/* Hide on mobile */
+@media (max-width: 1024px) {
+  #mini-waveform {
+    display: none;
+  }
+}
+
+
