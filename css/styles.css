@@ -43,21 +43,21 @@ body {
 /* =========================== */
 /* Hero Section (Home Page) */
 #hero {
-  display: flex;                
-  flex-direction: column;       
-  justify-content: center;      
-  align-items: center;          
-  height: 100vh;                
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   padding: 0 2rem;
-  background: #0F0F0F;          
-  text-align: center;           
+  background: #0F0F0F;
+  text-align: center;
 }
 
 #hero .hero-card {
   display: flex;
-  flex-direction: column;       
-  align-items: center;          
-  gap: 1rem;                    
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   background: transparent;
 }
 
@@ -81,14 +81,14 @@ body {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
-} 
+}
 
 #works-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  
+  text-align: center;
 }
 
 #works-content p {
@@ -119,7 +119,7 @@ body {
   height: 100%;
   z-index: 10;
   overflow: hidden;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.45s ease-in-out;
 }
 
 .project-image img {
@@ -129,6 +129,18 @@ body {
   display: block;
 }
 
+/* Desktop hover only */
+@media (hover: hover) {
+  .project-item:hover .project-image {
+    transform: translateY(-100%);
+  }
+}
+
+/* Mobile tap reveal */
+.project-item.active .project-image {
+  transform: translateY(-100%);
+}
+
 /* Content underneath */
 .project-content {
   position: relative;
@@ -136,11 +148,6 @@ body {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-}
-
-.project-item:hover .project-image,
-.project-item.active .project-image {
-  transform: translateY(-100%);
 }
 
 /* Project header */
@@ -222,12 +229,7 @@ body {
 }
 
 /* =========================== */
-/* Other pages and contact remain unchanged */
-/* You can keep previous CSS for bio, other, contact pages here */
-
-
-/* =========================== */
-/* Other / Blog Page Entries */
+/* Blog / Other Page Entries */
 .blog-entry {
   max-width: 800px;
   margin: 2rem auto;
@@ -249,7 +251,7 @@ body {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
-} 
+}
 
 #other-content h1 {
   font-family: 'Roboto Mono', monospace;
@@ -257,7 +259,7 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  
+  text-align: center;
 }
 
 #other-content p {
@@ -272,7 +274,7 @@ body {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
-} 
+}
 
 #contact-info h1 {
   font-family: 'Roboto Mono', monospace;
@@ -280,7 +282,7 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  
+  text-align: center;
 }
 
 #contact-info p {
@@ -295,7 +297,7 @@ body {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
-} 
+}
 
 #bio-content h1 {
   font-family: 'Roboto Mono', monospace;
@@ -303,7 +305,7 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   color: #4FC3F7;
-  text-align: center;  
+  text-align: center;
 }
 
 #bio-content p {
