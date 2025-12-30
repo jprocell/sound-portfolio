@@ -8,6 +8,7 @@
   <script src="js/player.js" defer></script>
   <script src="js/filtering.js" defer></script>
   <script src="js/prevent.js" defer></script>
+  <script src="js/hover-reveal.js" defer></script>
 </head>
 <body class="works-page">
 
@@ -35,73 +36,69 @@
 
     <section id="audio-gallery">
 
-      <!-- Collision Project -->
+      <!-- Project Module -->
       <div class="project-item" data-category="sound-design">
-        <h3>Collision Project</h3>
-        <p>An early assignment within my sound design class. The goal was to get familiar with physical modeling and Ableton's Collision instrument.</p>
-
-        <div class="project-sample-row">
-          <div class="sample-text">Bass: A deep, resonant bass.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/sound-design/collision/bass.wav" type="audio/wav">
-            </audio>
-          </div>
+        <div class="project-image">
+          <img
+            src="images/collision-cover-1000.jpg"
+            srcset="
+              images/collision-cover-600.jpg 600w,
+              images/collision-cover-1000.jpg 1000w,
+              images/collision-cover-2000.jpg 2000w
+            "
+            sizes="(max-width: 768px) 100vw, 1000px"
+            alt="Collision Project Cover"
+            loading="lazy"
+          >
         </div>
+        <div class="project-content">
+          <h3>Collision Project</h3>
+          <p>An early assignment within my sound design class. The goal was to get familiar with physical modeling and Ableton's Collision instrument.</p>
 
-        <div class="project-sample-row">
-          <div class="sample-text">Lead: A bright lead.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/sound-design/collision/lead.wav" type="audio/wav">
-            </audio>
+          <!-- Sample 1 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Bass: A deep, resonant bass sound.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/collision/bass.wav" type="audio/wav">
+              </audio>
+            </div>
           </div>
-        </div>
 
-        <div class="project-sample-row">
-          <div class="sample-text">Pads: A warm, organ-like pad.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/sound-design/collision/pads.wav" type="audio/wav">
-            </audio>
+          <!-- Sample 2 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Lead: Bright lead sound.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/collision/lead.wav" type="audio/wav">
+              </audio>
+            </div>
           </div>
-        </div>
 
-        <div class="project-sample-row">
-          <div class="sample-text">Pluck: A warm pluck.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
-            </audio>
+          <!-- Sample 3 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Pads: Organ-like atmospheric pads.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/collision/pads.wav" type="audio/wav">
+              </audio>
+            </div>
           </div>
-        </div>
 
+          <!-- Sample 4 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Pluck: Short percussive pluck sound.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <!-- Example Synthesis Project -->
-      <div class="project-item" data-category="synthesis">
-        <h3>Analog Synth Project</h3>
-        <p>This project demonstrates various synthesized textures and presets created using modular analog synths.</p>
-
-        <div class="project-sample-row">
-          <div class="sample-text">Lead: Bright analog lead tone.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/synthesis/analog/lead.wav" type="audio/wav">
-            </audio>
-          </div>
-        </div>
-
-        <div class="project-sample-row">
-          <div class="sample-text">Pad: Warm analog pad for background.</div>
-          <div class="sample-audio">
-            <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="audio-samples/synthesis/analog/pad.wav" type="audio/wav">
-            </audio>
-          </div>
-        </div>
-
-      </div>
+      <!---Insert ye other projects here-->
 
     </section>
   </main>
