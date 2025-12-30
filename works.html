@@ -39,17 +39,25 @@
       <!-- Project Module -->
       <div class="project-item" data-category="sound-design">
         <div class="project-image">
-          <img
-            src="images/collision-cover-1000.jpg"
-            srcset="
-              images/collision-cover-600.jpg 600w,
-              images/collision-cover-1000.jpg 1000w,
-              images/collision-cover-2000.jpg 2000w
-            "
-            sizes="(max-width: 768px) 100vw, 1000px"
-            alt="Collision Project Cover"
-            loading="lazy"
-          >
+          <picture>
+            <!-- Mobile-specific image -->
+            <source
+              media="(max-width: 768px)"
+              srcset="images/collision-mobile.jpg"
+            >
+            <!-- Desktop responsive images -->
+            <img
+              src="images/collision-cover-1000.jpg"
+              srcset="
+                images/collision-cover-600.jpg 600w,
+                images/collision-cover-1000.jpg 1000w,
+                images/collision-cover-2000.jpg 2000w
+              "
+              sizes="(max-width: 768px) 100vw, 1000px"
+              alt="Collision Project Cover"
+              loading="lazy"
+            >
+          </picture>
         </div>
         <div class="project-content">
           <h3>Collision Project</h3>
