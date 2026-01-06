@@ -38,6 +38,96 @@
     <section id="audio-gallery">
 
       <!-- Project Module -->
+      <div class="project-item" data-category="synthesis">
+        <div class="project-image">
+          <picture>
+            <!-- Mobile-specific image -->
+            <source
+              media="(max-width: 768px)"
+              srcset="images/simpler-mobile.jpg"
+            >
+            <!-- Desktop responsive images -->
+            <img
+              src="images/simpler-cover-1500.jpg"
+              srcset="
+                images/simpler-cover-600.jpg 600w,
+                images/simpler-cover-1000.jpg 1000w,
+                images/simpler-cover-1500.jpg 1500w
+              "
+              sizes="(max-width: 768px) 100vw, 1000px"
+              alt="Simpler Project Cover"
+              loading="lazy"
+            >
+          </picture>
+        </div>
+        <div class="project-content">
+          <h3>Sampling Project</h3>
+          <p>An assignment within my Synthesis II class. We were provided a 30 second sample of cows mooing and asked to create various instruments only using the sample and Ableton's Simpler instrument. A quick musical idea was composed with these instruments, the isolated tracks are provided as well.</p>
+
+          <!-- Sample 1 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Mix: The combination of the tracks below within a short melodic idea.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/depeche-beat-mix.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+          
+          <!-- Sample 2 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Bass: Derived from sine-like waveforms found within the cow's moo.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/depeche-beat-bass.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+          <!-- Sample 3 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Pad: Created by manipulating the sampler to loop a miniscule section indefinitely, while paired with a pad envelope, chorus, and reverb. </div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/depeche-beat-pad.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+          <!-- Sample 4 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Pluck: Created used a similar method to that of the pad, but with a percussive envelope.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/depeche-beat-pluck.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+          <!-- Sample 5 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Drums: A variety of drum set sounds created using the sample and various parameters within Simpler.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/depeche-beat-drums.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+          <!-- Sample 6 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Aux Percussion: Additional percussion created that didn't fit within the musical idea created above.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/synthesis/sampling/aux-percussion.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project Module -->
       <div class="project-item" data-category="sound-design">
         <div class="project-image">
           <picture>
