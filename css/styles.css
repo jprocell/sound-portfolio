@@ -244,6 +244,7 @@ body {
 .modal-audio {
   margin-bottom: 1.5rem;
   background: #1a1a1a;
+  border: 1px solid #444;
   padding: 1rem;
   border-radius: 6px;
 }
@@ -251,7 +252,8 @@ body {
 .modal-audio p.label {
   margin: 0;
   font-weight: bold;
-  color: #EEE;
+  color: #EEE;  
+  margin-top: 0rem;
 }
 
 .modal-audio p.desc {
@@ -265,6 +267,52 @@ body {
   margin-top: 0.25rem;
 }
 
+.modal-videos {
+  margin-top: 2rem;
+}
+
+.modal-video {
+  margin-bottom: 2rem;
+}
+
+.video-label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #EEE;
+}
+
+.modal-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+}
+
+.modal-video-box {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+}
+
+.modal-video-box .label {
+  font-weight: bold;
+  color: #EEE;
+  margin-bottom: 0.25rem;
+  margin-top: 0rem;
+}
+
+.modal-video-box .desc {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 0.5rem;
+}
+
+.modal-video-box iframe {
+  width: 100%;
+  height: 315px; /* standard 16:9 */
+  border-radius: 4px;
+}
 
 /* Project sample rows inside modal */
 .project-sample-row {
