@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         // Fetch project JSON
-        const response = await fetch(`/json/${projectKey}.json`);
+        const response = await fetch(`/sound-portfolio/json/${projectKey}.json`);
         if (!response.ok) throw new Error("Project JSON not found");
 
         const project = await response.json();
