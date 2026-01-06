@@ -77,13 +77,19 @@ body {
 
 /* =========================== */
 /* Works Page Content */
-#works-content {
+#works-content,
+#other-content,
+#contact-info,
+#bio-content {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 }
 
-#works-content h1 {
+#works-content h1,
+#other-content h1,
+#contact-info h1,
+#bio-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: 4rem;
   margin-top: 0.5rem;
@@ -92,7 +98,10 @@ body {
   text-align: center;
 }
 
-#works-content p {
+#works-content p,
+#other-content p,
+#contact-info p,
+#bio-content p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -165,13 +174,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;      
-  background: rgba(15, 15, 15, 0.95); 
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.95);
   display: flex;
   justify-content: center;
-  align-items: flex-start; 
+  align-items: flex-start;
   z-index: 1000;
-  overflow-y: auto;    
+  overflow-y: auto;
   padding: 2rem;
 
   /* Animation setup */
@@ -224,97 +233,73 @@ body {
 }
 
 /* ===================== */
-/* Project Modal Content Styling */
+/* Modal Content Styling */
 .modal-body h2 {
   color: #4FC3F7;
   margin-top: 0;
   margin-bottom: 1rem;
   font-family: 'Roboto Mono', monospace;
   font-size: 2.5rem;
-  text-align: center; /* Center the modal title */
+  text-align: center;
 }
 
 .modal-body p {
   color: #DDD;
   margin-bottom: 1.5rem;
-  text-align: left; /* Keep description aligned left */
+  text-align: left;
 }
 
-/* Audio sample container */
-.modal-audio {
-  margin-bottom: 1.5rem;
-  background: #1a1a1a;
-  border: 1px solid #444;
-  padding: 1rem;
-  border-radius: 6px;
-}
-
-.modal-audio p.label {
-  margin: 0;
-  font-weight: bold;
-  color: #EEE;  
-  margin-top: 0rem;
-}
-
-.modal-audio p.desc {
-  margin: 0.25rem 0 0.5rem 0;
-  font-size: 0.95rem;
-  color: #CCC;
-}
-
-.modal-audio audio {
-  width: 100%;
-  margin-top: 0.25rem;
-}
-
-.modal-videos {
-  margin-top: 2rem;
-}
-
-.modal-video {
-  margin-bottom: 2rem;
-}
-
-.video-label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #EEE;
-}
-
-.modal-video iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-}
-
+/* ===================== */
+/* Audio & Video Boxes (Unified) */
+.modal-audio,
 .modal-video-box {
   margin-bottom: 1.5rem;
   padding: 1rem;
   border: 1px solid #444;
-  border-radius: 8px;
+  border-radius: 6px;
   background-color: #1a1a1a;
 }
 
+.modal-audio p.label,
 .modal-video-box .label {
   font-weight: bold;
   color: #EEE;
+  margin-top: 0;
   margin-bottom: 0.25rem;
-  margin-top: 0rem;
 }
 
+.modal-audio p.desc,
 .modal-video-box .desc {
   font-size: 0.95rem;
-  color: #ddd;
-  margin-bottom: 0.5rem;
+  color: #CCC;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
+.modal-audio audio,
 .modal-video-box iframe {
   width: 100%;
-  height: 315px; /* standard 16:9 */
+  margin-top: 0.25rem;
   border-radius: 4px;
 }
 
-/* Project sample rows inside modal */
+/* Video Section Wrapper */
+.modal-videos {
+  margin-top: 2rem;
+}
+
+.modal-video-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-video-box iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+/* ===================== */
+/* Project Sample Rows inside Modal */
 .project-sample-row {
   display: flex;
   flex-wrap: wrap;
@@ -352,33 +337,6 @@ body {
 .blog-entry h2 {
   margin-top: 0;
   color: #4FC3F7;
-}
-
-#other-content,
-#contact-info,
-#bio-content {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-}
-
-#other-content h1,
-#contact-info h1,
-#bio-content h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;
-}
-
-#other-content p,
-#contact-info p,
-#bio-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
 /* =========================== */
