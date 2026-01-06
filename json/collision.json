@@ -1,0 +1,16 @@
+{
+    "title": "Collision Project",
+    "description": "Early sound design assignment using Ableton's Collision instrument.",
+    "audio": [
+      {
+        "label": "Bass",
+        "desc": "Bass patch",
+        "src": "audio-samples/sound-design/collision/bass.wav"
+      },
+      {
+        "label": "Lead",
+        "desc": "Lead melody",
+        "src": "audio-samples/sound-design/collision/lead.wav"
+      }
+    ]
+}

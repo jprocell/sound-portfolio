@@ -4,64 +4,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBody = modal.querySelector(".modal-body");
   const closeBtn = modal.querySelector(".modal-close");
 
-    const projectData = {
-    foley: {
-        title: "Foley Project",
-        description: "Simulating nature soundscapes with crickets, frogs, and bottle rockets.",
-        audio: [
-        { label: "Summer Evening", desc: "Crickets, cicadas, and bottle rockets.", src: "audio-samples/sound-design/foley/summer-evening.wav" },
-        { label: "Thunderstorm", desc: "Rain sheets and roaring thunder.", src: "audio-samples/sound-design/foley/thunderstorm.wav" }
-        ]
-    },
-    sampling: {
-        title: "Sampling Project",
-        description: "Synthesis II class assignment using a cow sample to create multiple instruments.",
-        audio: [
-        { label: "Mix", desc: "Full mix of instruments derived from cow sample.", src: "audio-samples/synthesis/sampling/depeche-beat-mix.wav" },
-        { label: "Bass", desc: "Bassline only.", src: "audio-samples/synthesis/sampling/depeche-beat-bass.wav" }
-        ]
-    },
-    collision: {
-        title: "Collision Project",
-        description: "Early sound design assignment with Ableton's Collision instrument.",
-        audio: [
-        { label: "Bass", desc: "Deep bass sound from Collision.", src: "audio-samples/sound-design/collision/bass.wav" },
-        { label: "Lead", desc: "Lead instrument using Collision.", src: "audio-samples/sound-design/collision/lead.wav" }
-        ]
-    }
-    };
-
   projectCards.forEach(card => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", async () => {
       const projectKey = card.getAttribute("data-project");
-      const project = projectData[projectKey];
 
-      modalBody.innerHTML = `
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
-        ${project.audio
+      try {
+        // Fetch the JSON for the clicked project
+        const response = await fetch(`../json/${projectKey}.json`);
+        if (!response.ok) throw new Error("Project JSON not found");
+
+        const project = await response.json();
+
+        // Build modal content with placeholder audio elements
+        modalBody.innerHTML = `
+          <h2>${project.title}</h2>
+          <p>${project.description}</p>
+          ${project.audio
             .map(
-            sample => `
+              (sample, index) => `
             <div class="modal-audio">
-            <p class="label">${sample.label}</p>
-            ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
-            <audio controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="${sample.src}" type="audio/wav">
-            </audio>
+              <p class="label">${sample.label}</p>
+              ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
+              <audio controls controlslist="nodownload noplaybackrate" preload="none" data-src="${sample.src}">
+                Your browser does not support the audio element.
+              </audio>
             </div>
-        `
+          `
             )
             .join("")}
         `;
 
+        // Lazy-load audio sources after inserting HTML
+        const audioElements = modalBody.querySelectorAll("audio");
+        audioElements.forEach(audio => {
+          const src = audio.dataset.src;
+          const sourceEl = document.createElement("source");
+          sourceEl.src = src;
+          sourceEl.type = "audio/wav";
+          audio.appendChild(sourceEl);
+          audio.load(); // load the audio only now
+        });
 
-      // Show modal with animation
-      modal.classList.remove("hidden");
-      setTimeout(() => {
-        modal.classList.add("show");
-      }, 20); // tiny delay to trigger CSS transition
+        // Show modal with animation
+        modal.classList.remove("hidden");
+        setTimeout(() => modal.classList.add("show"), 20);
 
-      document.body.style.overflow = "hidden"; // disable page scroll
+        // Disable page scroll
+        document.body.style.overflow = "hidden";
+
+      } catch (err) {
+        console.error("Error loading project JSON:", err);
+      }
     });
   });
 
@@ -69,11 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("show");
 
-    // Wait for animation to finish before hiding completely
     setTimeout(() => {
       modal.classList.add("hidden");
       modalBody.innerHTML = "";
-      document.body.style.overflow = ""; // restore page scroll
-    }, 300); // match the CSS transition duration
+      document.body.style.overflow = ""; // restore scroll
+    }, 300);
   });
 });

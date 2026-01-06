@@ -1,0 +1,16 @@
+{
+    "title": "Foley Project",
+    "description": "Simulating nature soundscapes with crickets, frogs, and bottle rockets.",
+    "audio": [
+      {
+        "label": "Summer Evening",
+        "desc": "Evening sounds with crickets and frogs",
+        "src": "audio-samples/sound-design/foley/summer-evening.wav"
+      },
+      {
+        "label": "Thunderstorm",
+        "desc": "Rain sheets and roaring thunder",
+        "src": "audio-samples/sound-design/foley/thunderstorm.wav"
+      }
+    ]
+}

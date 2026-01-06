@@ -1,0 +1,16 @@
+{
+    "title": "Sampling Project",
+    "description": "Synthesis II class assignment using a cow sample to create multiple instruments.",
+    "audio": [
+        {
+        "label": "Mix",
+        "desc": "Overall track mix",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-mix.wav"
+        },
+        {
+        "label": "Bass",
+        "desc": "Bassline only",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-bass.wav"
+        }
+    ]
+}
