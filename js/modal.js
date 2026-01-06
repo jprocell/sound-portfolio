@@ -70,18 +70,29 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
 
-        // Lazy-load audio sources AFTER DOM insertion
+        // Lazy-load audio sources after inserting HTML
         const audioElements = modalBody.querySelectorAll("audio");
         audioElements.forEach(audio => {
-          const src = audio.dataset.src;
-          if (!src) return;
+        const src = audio.dataset.src;
+        const sourceEl = document.createElement("source");
+        sourceEl.src = src;
+        sourceEl.type = "audio/wav";
+        audio.appendChild(sourceEl);
+        audio.load(); // load the audio only now
 
-          const source = document.createElement("source");
-          source.src = src;
-          source.type = "audio/wav";
-          audio.appendChild(source);
-          audio.load();
+        // Attach "only one audio at a time" listener
+        audio.addEventListener("play", () => {
+            audioElements.forEach(a => {
+            if (a !== audio) a.pause();
+            });
         });
+        });
+
+        // Disable right-click on all modal audio
+        audioElements.forEach(audio => {
+        audio.addEventListener("contextmenu", (e) => e.preventDefault());
+        });
+
 
         // Show modal (animated)
         modal.classList.remove("hidden");
