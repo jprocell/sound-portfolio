@@ -37,7 +37,56 @@
 
     <section id="audio-gallery">
 
-      <!-- Project Module -->
+      <!-- Foley Project Module -->
+      <div class="project-item" data-category="sound-design">
+        <div class="project-image">
+          <picture>
+            <!-- Mobile-specific image -->
+            <source
+              media="(max-width: 768px)"
+              srcset="images/collision-mobile.jpg"
+            >
+            <!-- Desktop responsive images -->
+            <img
+              src="images/foley-cover-1000.jpg"
+              srcset="
+                images/foley-cover-600.jpg 600w,
+                images/foley-cover-1000.jpg 1000w,
+                images/foley-cover-2000.jpg 2000w
+              "
+              sizes="(max-width: 768px) 100vw, 1000px"
+              alt="Foley Project Cover"
+              loading="lazy"
+            >
+          </picture>
+        </div>
+        <div class="project-content">
+          <h3>Foley Project</h3>
+          <p>Simulating nature soundscapes with a variety of FM and envelope techniques within Albeton's Operator synth.</p>
+
+          <!-- Sample 1 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Summer Evening: A hot summer evening is simulated with various crickets, cicadas, and frogs singing as bottle rockets are fired off.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/foley/summer-evening.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+
+          <!-- Sample 2 -->
+          <div class="project-sample-row">
+            <div class="sample-text">Thunderstorm: A heavy thunderstorm is simulated with multiple sheets of rain, droplets, and roaring thunder.</div>
+            <div class="sample-audio">
+              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
+                <source src="audio-samples/sound-design/foley/thunderstorm.wav" type="audio/wav">
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sampling Project Module -->
       <div class="project-item" data-category="synthesis">
         <div class="project-image">
           <picture>
@@ -127,7 +176,7 @@
         </div>
       </div>
 
-      <!-- Project Module -->
+      <!-- Collision Project Module -->
       <div class="project-item" data-category="sound-design">
         <div class="project-image">
           <picture>
