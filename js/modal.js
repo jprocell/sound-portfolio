@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBody = modal.querySelector(".modal-body");
   const closeBtn = modal.querySelector(".modal-close");
 
-  // Placeholder project data
   const projectData = {
     foley: {
       title: "Foley Project",
@@ -32,13 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Open modal when a project card is clicked
   projectCards.forEach(card => {
     card.addEventListener("click", () => {
       const projectKey = card.getAttribute("data-project");
       const project = projectData[projectKey];
 
-      // Build modal content
       modalBody.innerHTML = `
         <h2>${project.title}</h2>
         <p>${project.description}</p>
@@ -57,12 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       modal.classList.remove("hidden");
+
+      // Disable body scroll
+      document.body.style.overflow = "hidden";
     });
   });
 
   // Close modal
   closeBtn.addEventListener("click", () => {
     modal.classList.add("hidden");
-    modalBody.innerHTML = ""; // clear previous content
+    modalBody.innerHTML = "";
+
+    // Restore body scroll
+    document.body.style.overflow = "";
   });
 });
