@@ -1,24 +1,19 @@
-// filtering.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll("#filter-bar button");
-  const projects = document.querySelectorAll(".project-item");
+  const projects = document.querySelectorAll(".project-card"); // changed from .project-item
 
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
-      // Remove active class from all buttons
       filterButtons.forEach(btn => btn.classList.remove("active"));
-      // Add active class to clicked button
       button.classList.add("active");
 
-      const category = button.getAttribute("data-category");
+      const category = button.dataset.category;
 
-      // Show/hide projects based on category
       projects.forEach(project => {
-        if (category === "all" || project.getAttribute("data-category") === category) {
-          project.style.display = "flex";  // show matching project
+        if (category === "all" || project.dataset.category === category) {
+          project.style.display = "block";  // show matching
         } else {
-          project.style.display = "none";  // hide non-matching
+          project.style.display = "none";   // hide non-matching
         }
       });
     });
