@@ -1,6 +1,6 @@
 {
-    "title": "Collision Project",
-    "description": "Early sound design assignment using Ableton's Collision instrument.",
+    "title": "Collision",
+    "description": "Collision is Ableton's physical modeling synthesizer. Physical modeling synthesis, per Wikipedia, is a sound synthesis method in which the waveform of the sound to be generated is computed using a mathematical model. This type of synthesis is popularly used for more percussive instrumentation, for example, simulating mallet type instruments. This exercise was for me to get familiar with the synthesizer. As such, various instruments were created by manipulating the synth's parameters and model.",
     "audio": [
       {
         "label": "Bass",
@@ -9,8 +9,18 @@
       },
       {
         "label": "Lead",
-        "desc": "Lead melody",
+        "desc": "Lead patch",
         "src": "audio-samples/sound-design/collision/lead.wav"
+      },
+      {
+        "label": "Pad",
+        "desc": "Pad patch, this one was particularly my favorite as it was rather Organ-like.",
+        "src": "audio-samples/sound-design/collision/pads.wav"
+      },
+      {
+        "label": "Pluck",
+        "desc": "Pluck patch",
+        "src": "audio-samples/sound-design/collision/pluck.wav"
       }
     ]
 }

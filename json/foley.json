@@ -1,15 +1,15 @@
 {
-    "title": "Foley Project",
-    "description": "Simulating nature soundscapes with crickets, frogs, and bottle rockets.",
+    "title": "Foley",
+    "description": "Foley, per the Merriam-Webster dictionary, is defined as sound effects created for a film. This was an exercise at using Ableton's instrumentation to create sounds that mimic the world around us. Using Ableton's Operator instrument, various FM and noise tricks were applied to create life-like soundscapes. This exercise provided a means to synthesize field recordings, in the case I can't go outside and record something.",
     "audio": [
       {
         "label": "Summer Evening",
-        "desc": "Evening sounds with crickets and frogs",
+        "desc": "Evening sounds with crickets, cicadas, and frogs singing as a bottle rocket is ignited into the sky.",
         "src": "audio-samples/sound-design/foley/summer-evening.wav"
       },
       {
         "label": "Thunderstorm",
-        "desc": "Rain sheets and roaring thunder",
+        "desc": "Heavy sheets of rain, droplets, and roaring thunder.",
         "src": "audio-samples/sound-design/foley/thunderstorm.wav"
       }
     ]
