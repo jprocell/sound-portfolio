@@ -20,81 +20,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Build modal content
         modalBody.innerHTML = `
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
+          <h2>${project.title}</h2>
+          <p>${project.description}</p>
 
-        ${project.audio
+          ${project.audio
             .map(
-            sample => `
-            <div class="modal-audio">
+              sample => `
+              <div class="modal-audio">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
                 <audio
-                controls
-                controlslist="nodownload noplaybackrate"
-                preload="none"
-                data-src="${sample.src}">
-                Your browser does not support the audio element.
+                  controls
+                  controlslist="nodownload noplaybackrate"
+                  preload="metadata">
+                  <source src="${sample.src}" type="audio/wav">
+                  Your browser does not support the audio element.
                 </audio>
-            </div>
+              </div>
             `
             )
             .join("")}
 
-        ${
+          ${
             videos.length
-            ? `
-                <div class="modal-videos">
-                ${videos
-                    .map(
-                    video => `
-                        <div class="modal-video-box">
-                        ${video.label ? `<p class="label">${video.label}</p>` : ""}
-                        ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
-                        <iframe
-                            src="https://www.youtube.com/embed/${video.id}"
-                            title="${video.caption || video.label || project.title}"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                        </div>
-                    `
-                    )
-                    .join("")}
+              ? `
+            <div class="modal-videos">
+              ${videos
+                .map(
+                  video => `
+                <div class="modal-video-box">
+                  ${video.label ? `<p class="label">${video.label}</p>` : ""}
+                  ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
+                  <iframe
+                    src="https://www.youtube.com/embed/${video.id}"
+                    title="${video.caption || video.label || project.title}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy">
+                  </iframe>
                 </div>
-            `
-            : ""
-        }
+              `
+                )
+                .join("")}
+            </div>
+          `
+              : ""
+          }
         `;
 
-
-        // Lazy-load audio sources after inserting HTML
+        // Get all audio elements inside modal
         const audioElements = modalBody.querySelectorAll("audio");
-        audioElements.forEach(audio => {
-        const src = audio.dataset.src;
-        const sourceEl = document.createElement("source");
-        sourceEl.src = src;
-        sourceEl.type = "audio/wav";
-        audio.appendChild(sourceEl);
-        audio.load(); // load the audio only now
 
-        // Attach "only one audio at a time" listener
-        audio.addEventListener("play", () => {
+        // Only allow one audio to play at a time
+        audioElements.forEach(audio => {
+          audio.addEventListener("play", () => {
             audioElements.forEach(a => {
-            if (a !== audio) a.pause();
+              if (a !== audio) a.pause();
             });
-        });
-        });
+          });
 
-        // Disable right-click on all modal audio
-        audioElements.forEach(audio => {
-        audio.addEventListener("contextmenu", (e) => e.preventDefault());
+          // Disable right-click on audio
+          audio.addEventListener("contextmenu", e => e.preventDefault());
         });
 
-
-        // Show modal (animated)
+        // Show modal with animation
         modal.classList.remove("hidden");
         setTimeout(() => modal.classList.add("show"), 20);
 
@@ -110,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close modal
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("show");
-
     setTimeout(() => {
       modal.classList.add("hidden");
       modalBody.innerHTML = "";
