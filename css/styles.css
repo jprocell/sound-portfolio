@@ -1,5 +1,5 @@
 /* =========================== */
-/* Base Styles for All Pages */
+/* Base / Global Styles */
 * {
   box-sizing: border-box;
 }
@@ -99,6 +99,33 @@ body {
 }
 
 /* =========================== */
+/* Works Page Filter Bar */
+#filter-bar {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#filter-bar button {
+  background: #222;
+  color: #EEE;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+#filter-bar button:hover {
+  background: #555;
+}
+
+#filter-bar button.active {
+  background: #4FC3F7;
+  color: #FFF;
+}
+
+/* =========================== */
 /* Works Page Grid Layout */
 #works-gallery {
   display: grid;
@@ -109,11 +136,10 @@ body {
   padding: 0 1.5rem;
 }
 
-/* Individual project card/module */
 .project-card {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3; /* maintain 4:3 ratio */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
@@ -132,28 +158,20 @@ body {
   transform: scale(1.03);
 }
 
-/* Stack to 1 column on small screens */
-@media (max-width: 768px) {
-  #works-gallery {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-/* ===================== */
-/* Project Modal */
+/* =========================== */
+/* Project Modal / Popup */
 #project-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;       /* Full viewport height */
-  background: rgba(15, 15, 15, 0.95); /* Semi-transparent overlay */
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.95);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Start at top for scrollable content */
+  align-items: flex-start;
   z-index: 1000;
-  overflow-y: auto;    /* Scroll if content is taller than viewport */
+  overflow-y: auto;
   padding: 2rem;
 }
 
@@ -189,12 +207,10 @@ body {
   color: #4FC3F7;
 }
 
-/* Scrollable modal body */
 .modal-body {
-  margin-top: 2rem; /* Leave space below close button */
+  margin-top: 2rem;
 }
 
-/* Modal content elements */
 .modal-body h2 {
   color: #4FC3F7;
   margin-top: 0;
@@ -221,6 +237,15 @@ body {
   width: 100%;
 }
 
+/* Project sample rows inside modal */
+.project-sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .sample-text {
   flex: 1 1 40%;
   color: #DDD;
@@ -235,46 +260,8 @@ body {
   width: 100%;
 }
 
-/* Stack on small screens */
-@media (max-width: 768px) {
-  .project-sample-row {
-    flex-direction: column;
-  }
-  .sample-text,
-  .sample-audio {
-    flex: 1 1 100%;
-  }
-}
-
 /* =========================== */
-/* Filter Bar */
-#filter-bar {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-#filter-bar button {
-  background: #222;
-  color: #EEE;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-#filter-bar button:hover {
-  background: #555;
-}
-
-#filter-bar button.active {
-  background: #4FC3F7;
-  color: #FFF;
-}
-
-/* =========================== */
-/* Blog / Other Page Entries */
+/* Blog / Other / Bio / Contact Pages */
 .blog-entry {
   max-width: 800px;
   margin: 2rem auto;
@@ -290,60 +277,16 @@ body {
   color: #4FC3F7;
 }
 
-/* =========================== */
-/* Other Page Content */
-#other-content {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-}
-
-#other-content h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;
-}
-
-#other-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* =========================== */
-/* Contact Page */
-#contact-info {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-}
-
-#contact-info h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;
-}
-
-#contact-info p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* =========================== */
-/* Bio Page */
+#other-content,
+#contact-info,
 #bio-content {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 }
 
+#other-content h1,
+#contact-info h1,
 #bio-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: 4rem;
@@ -353,46 +296,62 @@ body {
   text-align: center;
 }
 
+#other-content p,
+#contact-info p,
 #bio-content p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* Mini floating waveform bottom-left */
+/* =========================== */
+/* Mini Floating Waveform */
 #mini-waveform {
   position: fixed;
-  bottom: 1rem;   /* distance from bottom */
-  left: 1rem;     /* distance from left */
+  bottom: 1rem;
+  left: 1rem;
   display: flex;
   align-items: flex-end;
-  gap: 2px;       /* spacing between bars */
-  height: 50px;   /* total height of the waveform */
-  width: 120px;   /* total width of the waveform */
-  z-index: 9999;  /* ensure it sits above other content */
-  pointer-events: none; /* doesn't block clicks */
+  gap: 2px;
+  height: 50px;
+  width: 120px;
+  z-index: 9999;
+  pointer-events: none;
 }
 
-/* individual bars */
 .wave-bar {
-  background-color: #4FC3F7; /* blue accent */
+  background-color: #4FC3F7;
   width: 4px;
-  height: 10%;               /* initial height */
-  transition: height 0.05s linear; /* smooth animation */
+  height: 10%;
+  transition: height 0.05s linear;
   border-radius: 2px;
 }
-
 
 @keyframes wave {
   0%, 100% { height: 10px; }
   50% { height: 40px; }
 }
 
-/* Hide on mobile */
+/* =========================== */
+/* Media Queries */
 @media (max-width: 1024px) {
   #mini-waveform {
     display: none;
   }
 }
 
+@media (max-width: 768px) {
+  #works-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
+  .project-sample-row {
+    flex-direction: column;
+  }
+
+  .sample-text,
+  .sample-audio {
+    flex: 1 1 100%;
+  }
+}
