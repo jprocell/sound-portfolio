@@ -8,7 +8,7 @@
   <script src="js/player.js" defer></script>
   <script src="js/filtering.js" defer></script>
   <script src="js/prevent.js" defer></script>
-  <script src="js/hover-reveal.js" defer></script>
+  <script src="js/modal.js" defer></script>
   <script src="js/mini-waveform.js" defer></script>
 </head>
 <body class="works-page">
@@ -29,226 +29,41 @@
       <p>Various projects I've done or was a part of.</p>
     </section>
 
+    <!-- Filter bar -->
     <div id="filter-bar">
       <button data-category="all" class="active">All</button>
       <button data-category="synthesis">Synthesis</button>
       <button data-category="sound-design">Sound Design</button>
     </div>
 
-    <section id="audio-gallery">
-
-      <!-- Foley Project Module -->
-      <div class="project-item" data-category="sound-design">
-        <div class="project-image">
-          <picture>
-            <!-- Mobile-specific image -->
-            <source
-              media="(max-width: 768px)"
-              srcset="images/collision-mobile.jpg"
-            >
-            <!-- Desktop responsive images -->
-            <img
-              src="images/foley-cover-1000.jpg"
-              srcset="
-                images/foley-cover-600.jpg 600w,
-                images/foley-cover-1000.jpg 1000w,
-                images/foley-cover-2000.jpg 2000w
-              "
-              sizes="(max-width: 768px) 100vw, 1000px"
-              alt="Foley Project Cover"
-              loading="lazy"
-            >
-          </picture>
-        </div>
-        <div class="project-content">
-          <h3>Foley Project</h3>
-          <p>Simulating nature soundscapes with a variety of FM and envelope techniques within Albeton's Operator synth.</p>
-
-          <!-- Sample 1 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Summer Evening: A hot summer evening is simulated with various crickets, cicadas, and frogs singing as bottle rockets are fired off.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/foley/summer-evening.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 2 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Thunderstorm: A heavy thunderstorm is simulated with multiple sheets of rain, droplets, and roaring thunder.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/foley/thunderstorm.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-        </div>
+    <!-- Grid container for project modules -->
+    <section id="works-gallery">
+      <div class="project-card" data-project="foley" data-category="sound-design">
+        <img src="images/foley-cover-1000.jpg" alt="Foley Project Cover">
       </div>
 
-      <!-- Sampling Project Module -->
-      <div class="project-item" data-category="synthesis">
-        <div class="project-image">
-          <picture>
-            <!-- Mobile-specific image -->
-            <source
-              media="(max-width: 768px)"
-              srcset="images/simpler-mobile.jpg"
-            >
-            <!-- Desktop responsive images -->
-            <img
-              src="images/simpler-cover-1500.jpg"
-              srcset="
-                images/simpler-cover-600.jpg 600w,
-                images/simpler-cover-1000.jpg 1000w,
-                images/simpler-cover-1500.jpg 1500w
-              "
-              sizes="(max-width: 768px) 100vw, 1000px"
-              alt="Simpler Project Cover"
-              loading="lazy"
-            >
-          </picture>
-        </div>
-        <div class="project-content">
-          <h3>Sampling Project</h3>
-          <p>An assignment within my Synthesis II class. We were provided a 30 second sample of cows mooing and asked to create various instruments only using the sample and Ableton's Simpler instrument. A quick musical idea was composed with these instruments, the isolated tracks are provided as well.</p>
-
-          <!-- Sample 1 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Mix: The combination of the tracks below within a short melodic idea.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/depeche-beat-mix.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-          
-          <!-- Sample 2 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Bass: Derived from sine-like waveforms found within the cow's moo.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/depeche-beat-bass.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 3 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Pad: Created by manipulating the sampler to loop a miniscule section indefinitely, while paired with a pad envelope, chorus, and reverb. </div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/depeche-beat-pad.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 4 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Pluck: Created used a similar method to that of the pad, but with a percussive envelope.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/depeche-beat-pluck.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 5 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Drums: A variety of drum set sounds created using the sample and various parameters within Simpler.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/depeche-beat-drums.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 6 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Aux Percussion: Additional percussion created that didn't fit within the musical idea created above.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/synthesis/sampling/aux-percussion.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-        </div>
+      <div class="project-card" data-project="sampling" data-category="synthesis">
+        <img src="images/simpler-cover-1500.jpg" alt="Sampling Project Cover">
       </div>
 
-      <!-- Collision Project Module -->
-      <div class="project-item" data-category="sound-design">
-        <div class="project-image">
-          <picture>
-            <!-- Mobile-specific image -->
-            <source
-              media="(max-width: 768px)"
-              srcset="images/collision-mobile.jpg"
-            >
-            <!-- Desktop responsive images -->
-            <img
-              src="images/collision-cover-1000.jpg"
-              srcset="
-                images/collision-cover-600.jpg 600w,
-                images/collision-cover-1000.jpg 1000w,
-                images/collision-cover-2000.jpg 2000w
-              "
-              sizes="(max-width: 768px) 100vw, 1000px"
-              alt="Collision Project Cover"
-              loading="lazy"
-            >
-          </picture>
-        </div>
-        <div class="project-content">
-          <h3>Collision Project</h3>
-          <p>An early assignment within my sound design class. The goal was to get familiar with physical modeling and Ableton's Collision instrument.</p>
-
-          <!-- Sample 1 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Bass: A deep, resonant bass sound.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/collision/bass.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 2 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Lead: Bright lead sound.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/collision/lead.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 3 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Pads: Organ-like atmospheric pads.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/collision/pads.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-          <!-- Sample 4 -->
-          <div class="project-sample-row">
-            <div class="sample-text">Pluck: Short percussive pluck sound.</div>
-            <div class="sample-audio">
-              <audio class="audio-player" controls controlslist="nodownload noplaybackrate" preload="metadata">
-                <source src="audio-samples/sound-design/collision/pluck.wav" type="audio/wav">
-              </audio>
-            </div>
-          </div>
-
-        </div>
+      <div class="project-card" data-project="collision" data-category="sound-design">
+        <img src="images/collision-cover-1000.jpg" alt="Collision Project Cover">
       </div>
 
-      <!---Insert ye other projects here-->
-
+      <!-- Add more project cards as needed -->
     </section>
+
+    <!-- Modal for project details -->
+    <div id="project-modal" class="hidden">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <!-- Content injected dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+
   </main>
 
   <!-- Mini floating waveform -->

@@ -1,0 +1,30 @@
+{
+    "title": "Foley",
+    "description": "Foley, per the Merriam-Webster dictionary, is defined as sound effects created for a film. This was an exercise at using Ableton's instrumentation to create sounds that mimic the world around us. Using Ableton's Operator instrument, various FM and noise tricks were applied to create life-like soundscapes. This exercise provided a means to synthesize field recordings, in the case I can't go outside and record something.",
+    "audio": [
+      {
+        "label": "Summer Evening",
+        "desc": "Evening sounds with crickets, cicadas, and frogs singing as a bottle rocket is ignited into the sky.",
+        "src": "audio-samples/sound-design/foley/summer-evening.wav"
+      },
+      {
+        "label": "Thunderstorm",
+        "desc": "Heavy sheets of rain, droplets, and roaring thunder.",
+        "src": "audio-samples/sound-design/foley/thunderstorm.wav"
+      }
+    ],
+    "videos": [
+      {
+        "type": "youtube",
+        "id": "c9ZqCr-FxQc",
+        "label": "Summer Evening Ableton Project",
+        "caption": "Recording of my Ableton project with the Summer Evening soundscape playing. Views of each synthesizer track are shown."
+      },
+      {
+        "type": "youtube",
+        "id": "8fhPtL8F3Y4",
+        "label": "Thunderstorm Ableton Project",
+        "caption": "Recording of my Ableton project with the Thunderstorm soundscape playing. Views of each synthesizer track are shown. The LFOs on the droplets are applied to give a random on/off status for each to help add to the randomness of rain."
+      }
+    ]
+}

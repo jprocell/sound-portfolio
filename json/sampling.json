@@ -1,0 +1,41 @@
+{
+    "title": "Sampling",
+    "description": "A Synthesis II class assignment where we were provided a 30 second sample of cows mooing. We were tasked with creating various instruments using this sample and Ableton's Simpler instrument. While not all sounds were pristine, the project was an exercise of scrubbing a sample and dissecting each individual instrument's sound while manipulating sampling, envelope, and filter parameters.",
+    "audio": [
+        {
+        "label": "Original Sample",
+        "desc": "The sample we were provided with to create the other instrumentation.",
+        "src": "audio-samples/synthesis/sampling/herd-of-cows-mooing.mp3"
+        },
+        {
+        "label": "Mix",
+        "desc": "Overall track mix using the instruments created for this project. I got told it was \"Depeche Mode-like\"",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-mix.wav"
+        },
+        {
+        "label": "Drums",
+        "desc": "Drum kit only",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-drums.wav"
+        },
+        {
+        "label": "Bass",
+        "desc": "Bassline only",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-bass.wav"
+        },
+        {
+        "label": "Pad",
+        "desc": "Pad only",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-pad.wav"
+        },
+        {
+        "label": "Pluck",
+        "desc": "Pluck only",
+        "src": "audio-samples/synthesis/sampling/depeche-beat-pluck.wav"
+        },
+        {
+        "label": "Aux Percussion",
+        "desc": "Auxiliary percussion that didn't quite fit the tune created above",
+        "src": "audio-samples/synthesis/sampling/aux-percussion.wav"
+        }
+    ]
+}

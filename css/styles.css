@@ -1,5 +1,5 @@
 /* =========================== */
-/* Base Styles for All Pages */
+/* Base / Global Styles */
 * {
   box-sizing: border-box;
 }
@@ -98,112 +98,8 @@ body {
   text-align: center;
 }
 
-/* ============================= */
-/* Project Modules */
-.project-item {
-  position: relative;
-  overflow: hidden;
-  width: 90%;
-  max-width: 1000px;
-  margin: 2rem auto;
-  border-radius: 8px;
-  background-color: #222;
-  cursor: pointer;
-}
-
-/* Project image overlay */
-.project-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  overflow: hidden;
-  transition: transform 0.45s ease-in-out;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Desktop hover only */
-@media (hover: hover) {
-  .project-item:hover .project-image {
-    transform: translateY(-100%);
-  }
-}
-
-/* Mobile tap reveal */
-.project-item.active .project-image {
-  transform: translateY(-100%);
-}
-
-/* Content underneath */
-.project-content {
-  position: relative;
-  z-index: 1;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Project header */
-.project-content h3 {
-  text-align: center;
-  color: #4FC3F7;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 2.5rem;
-}
-
-.project-content p {
-  text-align: center;
-  color: #AAA;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-
-/* Rows for text + audio */
-.project-sample-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.sample-text {
-  flex: 1 1 40%;
-  color: #DDD;
-  font-size: 1rem;
-}
-
-.sample-audio {
-  flex: 1 1 55%;
-}
-
-.sample-audio audio {
-  width: 100%;
-}
-
-/* Stack on small screens */
-@media (max-width: 768px) {
-  .project-sample-row {
-    flex-direction: column;
-  }
-  .sample-text,
-  .sample-audio {
-    flex: 1 1 100%;
-  }
-}
-
 /* =========================== */
-/* Filter Bar */
+/* Works Page Filter Bar */
 #filter-bar {
   text-align: center;
   margin-bottom: 2rem;
@@ -230,7 +126,219 @@ body {
 }
 
 /* =========================== */
-/* Blog / Other Page Entries */
+/* Works Page Grid Layout */
+#works-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+/* =========================== */
+/* Project Modal / Popup */
+#project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;      
+  background: rgba(15, 15, 15, 0.95); 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  z-index: 1000;
+  overflow-y: auto;    
+  padding: 2rem;
+
+  /* Animation setup */
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* prevent clicks when hidden */
+}
+
+#project-modal.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#project-modal.hidden {
+  display: none; /* fallback for JS toggle */
+}
+
+.modal-content {
+  background-color: #222;
+  border-radius: 8px;
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #EEE;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #4FC3F7;
+}
+
+.modal-body {
+  margin-top: 2rem;
+}
+
+/* ===================== */
+/* Project Modal Content Styling */
+.modal-body h2 {
+  color: #4FC3F7;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2.5rem;
+  text-align: center; /* Center the modal title */
+}
+
+.modal-body p {
+  color: #DDD;
+  margin-bottom: 1.5rem;
+  text-align: left; /* Keep description aligned left */
+}
+
+/* Audio sample container */
+.modal-audio {
+  margin-bottom: 1.5rem;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.modal-audio p.label {
+  margin: 0;
+  font-weight: bold;
+  color: #EEE;  
+  margin-top: 0rem;
+}
+
+.modal-audio p.desc {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: #CCC;
+}
+
+.modal-audio audio {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.modal-videos {
+  margin-top: 2rem;
+}
+
+.modal-video {
+  margin-bottom: 2rem;
+}
+
+.video-label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #EEE;
+}
+
+.modal-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+}
+
+.modal-video-box {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+}
+
+.modal-video-box .label {
+  font-weight: bold;
+  color: #EEE;
+  margin-bottom: 0.25rem;
+  margin-top: 0rem;
+}
+
+.modal-video-box .desc {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 0.5rem;
+}
+
+.modal-video-box iframe {
+  width: 100%;
+  height: 315px; /* standard 16:9 */
+  border-radius: 4px;
+}
+
+/* Project sample rows inside modal */
+.project-sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sample-text {
+  flex: 1 1 40%;
+  color: #DDD;
+  font-size: 1rem;
+}
+
+.sample-audio {
+  flex: 1 1 55%;
+}
+
+.sample-audio audio {
+  width: 100%;
+}
+
+/* =========================== */
+/* Blog / Other / Bio / Contact Pages */
 .blog-entry {
   max-width: 800px;
   margin: 2rem auto;
@@ -246,60 +354,16 @@ body {
   color: #4FC3F7;
 }
 
-/* =========================== */
-/* Other Page Content */
-#other-content {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-}
-
-#other-content h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;
-}
-
-#other-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* =========================== */
-/* Contact Page */
-#contact-info {
-  max-width: 700px;
-  margin: 8rem auto 2rem auto;
-  padding: 2rem;
-}
-
-#contact-info h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  color: #4FC3F7;
-  text-align: center;
-}
-
-#contact-info p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* =========================== */
-/* Bio Page */
+#other-content,
+#contact-info,
 #bio-content {
   max-width: 700px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 }
 
+#other-content h1,
+#contact-info h1,
 #bio-content h1 {
   font-family: 'Roboto Mono', monospace;
   font-size: 4rem;
@@ -309,46 +373,62 @@ body {
   text-align: center;
 }
 
+#other-content p,
+#contact-info p,
 #bio-content p {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* Mini floating waveform bottom-left */
+/* =========================== */
+/* Mini Floating Waveform */
 #mini-waveform {
   position: fixed;
-  bottom: 1rem;   /* distance from bottom */
-  left: 1rem;     /* distance from left */
+  bottom: 1rem;
+  left: 1rem;
   display: flex;
   align-items: flex-end;
-  gap: 2px;       /* spacing between bars */
-  height: 50px;   /* total height of the waveform */
-  width: 120px;   /* total width of the waveform */
-  z-index: 9999;  /* ensure it sits above other content */
-  pointer-events: none; /* doesn't block clicks */
+  gap: 2px;
+  height: 50px;
+  width: 120px;
+  z-index: 9999;
+  pointer-events: none;
 }
 
-/* individual bars */
 .wave-bar {
-  background-color: #4FC3F7; /* blue accent */
+  background-color: #4FC3F7;
   width: 4px;
-  height: 10%;               /* initial height */
-  transition: height 0.05s linear; /* smooth animation */
+  height: 10%;
+  transition: height 0.05s linear;
   border-radius: 2px;
 }
-
 
 @keyframes wave {
   0%, 100% { height: 10px; }
   50% { height: 40px; }
 }
 
-/* Hide on mobile */
+/* =========================== */
+/* Media Queries */
 @media (max-width: 1024px) {
   #mini-waveform {
     display: none;
   }
 }
 
+@media (max-width: 768px) {
+  #works-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
+  .project-sample-row {
+    flex-direction: column;
+  }
+
+  .sample-text,
+  .sample-audio {
+    flex: 1 1 100%;
+  }
+}
