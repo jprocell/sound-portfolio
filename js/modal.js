@@ -4,32 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBody = modal.querySelector(".modal-body");
   const closeBtn = modal.querySelector(".modal-close");
 
-  const projectData = {
+    const projectData = {
     foley: {
-      title: "Foley Project",
-      description: "Simulating nature soundscapes with crickets, frogs, and bottle rockets.",
-      audio: [
-        { label: "Summer Evening", src: "audio-samples/sound-design/foley/summer-evening.wav" },
-        { label: "Thunderstorm", src: "audio-samples/sound-design/foley/thunderstorm.wav" }
-      ]
+        title: "Foley Project",
+        description: "Simulating nature soundscapes with crickets, frogs, and bottle rockets.",
+        audio: [
+        { label: "Summer Evening", desc: "Crickets, cicadas, and bottle rockets.", src: "audio-samples/sound-design/foley/summer-evening.wav" },
+        { label: "Thunderstorm", desc: "Rain sheets and roaring thunder.", src: "audio-samples/sound-design/foley/thunderstorm.wav" }
+        ]
     },
     sampling: {
-      title: "Sampling Project",
-      description: "Synthesis II class assignment using a cow sample to create multiple instruments.",
-      audio: [
-        { label: "Mix", src: "audio-samples/synthesis/sampling/depeche-beat-mix.wav" },
-        { label: "Bass", src: "audio-samples/synthesis/sampling/depeche-beat-bass.wav" }
-      ]
+        title: "Sampling Project",
+        description: "Synthesis II class assignment using a cow sample to create multiple instruments.",
+        audio: [
+        { label: "Mix", desc: "Full mix of instruments derived from cow sample.", src: "audio-samples/synthesis/sampling/depeche-beat-mix.wav" },
+        { label: "Bass", desc: "Bassline only.", src: "audio-samples/synthesis/sampling/depeche-beat-bass.wav" }
+        ]
     },
     collision: {
-      title: "Collision Project",
-      description: "Early sound design assignment with Ableton's Collision instrument.",
-      audio: [
-        { label: "Bass", src: "audio-samples/sound-design/collision/bass.wav" },
-        { label: "Lead", src: "audio-samples/sound-design/collision/lead.wav" }
-      ]
+        title: "Collision Project",
+        description: "Early sound design assignment with Ableton's Collision instrument.",
+        audio: [
+        { label: "Bass", desc: "Deep bass sound from Collision.", src: "audio-samples/sound-design/collision/bass.wav" },
+        { label: "Lead", desc: "Lead instrument using Collision.", src: "audio-samples/sound-design/collision/lead.wav" }
+        ]
     }
-  };
+    };
 
   projectCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -40,18 +40,20 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2>${project.title}</h2>
         <p>${project.description}</p>
         ${project.audio
-          .map(
+            .map(
             sample => `
-          <div class="modal-audio">
-            <p>${sample.label}</p>
+            <div class="modal-audio">
+            <p class="label">${sample.label}</p>
+            ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
             <audio controls controlslist="nodownload noplaybackrate" preload="metadata">
-              <source src="${sample.src}" type="audio/wav">
+                <source src="${sample.src}" type="audio/wav">
             </audio>
-          </div>
+            </div>
         `
-          )
-          .join("")}
-      `;
+            )
+            .join("")}
+        `;
+
 
       // Show modal with animation
       modal.classList.remove("hidden");

@@ -223,31 +223,48 @@ body {
   margin-top: 2rem;
 }
 
+/* ===================== */
+/* Project Modal Content Styling */
 .modal-body h2 {
   color: #4FC3F7;
   margin-top: 0;
   margin-bottom: 1rem;
   font-family: 'Roboto Mono', monospace;
+  font-size: 2.5rem;
+  text-align: center; /* Center the modal title */
 }
 
 .modal-body p {
   color: #DDD;
   margin-bottom: 1.5rem;
+  text-align: left; /* Keep description aligned left */
 }
 
+/* Audio sample container */
 .modal-audio {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
-.modal-audio p {
-  margin: 0 0 0.25rem 0;
+.modal-audio p.label {
+  margin: 0;
   font-weight: bold;
   color: #EEE;
 }
 
+.modal-audio p.desc {
+  margin: 0.25rem 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: #CCC;
+}
+
 .modal-audio audio {
   width: 100%;
+  margin-top: 0.25rem;
 }
+
 
 /* Project sample rows inside modal */
 .project-sample-row {
