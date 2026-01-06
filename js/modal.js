@@ -53,19 +53,25 @@ document.addEventListener("DOMContentLoaded", () => {
           .join("")}
       `;
 
+      // Show modal with animation
       modal.classList.remove("hidden");
+      setTimeout(() => {
+        modal.classList.add("show");
+      }, 20); // tiny delay to trigger CSS transition
 
-      // Disable body scroll
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // disable page scroll
     });
   });
 
   // Close modal
   closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    modalBody.innerHTML = "";
+    modal.classList.remove("show");
 
-    // Restore body scroll
-    document.body.style.overflow = "";
+    // Wait for animation to finish before hiding completely
+    setTimeout(() => {
+      modal.classList.add("hidden");
+      modalBody.innerHTML = "";
+      document.body.style.overflow = ""; // restore page scroll
+    }, 300); // match the CSS transition duration
   });
 });
