@@ -1,0 +1,56 @@
+{
+    "title": "Layering",
+    "description": "An excerise in creating instruments commonly heard in various genres of music. All instruments were created from scratch within Phaseplant using various oscillators, filtering, envelopes, and effects with various macros assigned to parameters. This is structured to resemble the process taken when creating a preset pack to distribute to a wider user base. I put the instruments over basic drum loops to give a sense of their use in context. The first track gave me bomb defusal vibes whereas the second made me feel like I was playing Tetris in space. As such, you'll see two tracks below with their individual instruments as well.",
+    "audio": [
+      {
+        "label": "Mix 1 - Bomb Defusal",
+        "desc": "Part of the bomb defusal track, this track is the culmination of all the instruments put together. The drums heard are of a standard Ableton sample loop.",
+        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-mix.wav"
+      },
+      {
+        "label": "808 Bass",
+        "desc": "Part of the bomb defusal track, this bass was created to resemble a classic 808 bass. Additional customization was added through the mod wheel to add a transient click to the attack.",
+        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-808-bass.wav"
+      },
+      {
+        "label": "FM Pluck",
+        "desc": "Part of the bomb defusal track, this pluck was created using FM. Additional customization was added through velocity control and the mod wheel. The mod wheel controls the amount of distortion applied onto a percussive envelope whereas the velocity controls how much FM is applied.",
+        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-fm-pluck.wav"
+      },
+      {
+        "label": "KG Lead",
+        "desc": "Part of the bomb defusal track, this lead was famously used in a track from Kool & the Gang. Personalization was incorporated by adding audio effects including overdrive, delay, and trace gate. The trace gate can be heard being toggled during the second half of the track, this accomplished by MIDI automation.",
+        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-kg-lead.wav"
+      },
+      {
+        "label": "Wavetable Pad",
+        "desc": "Part of the bomb defusal track, this pad was constructed using two different wavetables. Different length LFOs are incorporated to add movement the pad. The LFOs vary volume of each wavetable and the wavetable frame. The modwheel was also tied to the filter cutoff.",
+        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-wavetable-pad.wav"
+      },
+      {
+        "label": "Mix 2 - Space Tetris",
+        "desc": "Part of the space tetris track, this track is the culmination of all the instruments put together. The drums heard are of a standard Ableton sample loop.",
+        "src": "audio-samples/synthesis/presets/space-tetris-beat-mix.wav"
+      },
+      {
+        "label": "FM Bass",
+        "desc": "Part of the space tetris track, this bass was created using FM. A percussive envelope adds FM to the carrier while the mod wheel adds a quick pitch shift transient to add extra punch.",
+        "src": "audio-samples/synthesis/presets/space-tetris-beat-fm-bass.wav"
+      },
+      {
+        "label": "Wavetable Bell Pluck",
+        "desc": "Part of the space tetris track, this pluck was made only using two wavetables. Random LFOs are applied onto each wavetable frame. The modwheel was mapped to the filter cutoff and each wavetable's detune parameter.",
+        "src": "audio-samples/synthesis/presets/space-tetris-beat-wavetable-bell-pluck.wav"
+      },
+      {
+        "label": "Theremin Lead",
+        "desc": "Part of the space tetris track, this lead was made to mimic a Theremin. Composed only of an oscillator, overdrive, filter and some modulation. The mod wheel was mapped to an LFO amount that controls the amount of pitch shift and velocity is tied to filter cutoff.",
+        "src": "audio-samples/synthesis/presets/space-tetris-beat-theremin-lead.wav"
+      },
+      {
+        "label": "Layered Pad",
+        "desc": "Part of the space tetris track, this pad is comprised of an analog oscillator layered on top of a xylophone sample. Distortion and filtering are applied to both individually. An additional modulator envelope is applied onto the distortion drive amount for the analog oscillator.",
+        "src": "audio-samples/synthesis/presets/space-tetris-beat-layered-pad.wav"
+      }
+    ]
+}
