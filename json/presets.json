@@ -1,6 +1,6 @@
 {
     "title": "Layering",
-    "description": "An excerise in creating instruments commonly heard in various genres of music. All instruments were created from scratch within Phaseplant using various oscillators, filtering, envelopes, and effects with various macros assigned to parameters. This is structured to resemble the process taken when creating a preset pack to distribute to a wider user base. I put the instruments over basic drum loops to give a sense of their use in context. The first track gave me bomb defusal vibes whereas the second made me feel like I was playing Tetris in space. As such, you'll see two tracks below with their individual instruments as well.",
+    "description": "An excerise in creating instruments commonly heard in various genres of music. All instruments were created within Phaseplant using various oscillators, filtering, envelopes, and effects with various macros assigned to parameters. This is structured to resemble the process taken when creating a preset pack to distribute to user base. \n\nI put the instruments over basic drum loops to give a sense of their use in context. The first track gave me bomb defusal vibes whereas the second made me feel like I was playing Tetris in space. As such, you'll see two tracks below with their individual instruments as well.",
     "audio": [
       {
         "label": "Mix 1 - Bomb Defusal",

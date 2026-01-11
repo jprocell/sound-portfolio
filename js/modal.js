@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Build modal content
         modalBody.innerHTML = `
           <h2>${project.title}</h2>
-          <p>${project.description}</p>
+          <p class="project-description">${project.description}</p>
 
           ${project.audio
             .map(

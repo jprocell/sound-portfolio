@@ -4,7 +4,7 @@
     "audio": [
         {
         "label": "Original Sample",
-        "desc": "The sample we were provided with to create the other instrumentation.",
+        "desc": "The sample we were provided to create the other instrumentation.",
         "src": "audio-samples/synthesis/sampling/herd-of-cows-mooing.mp3"
         },
         {

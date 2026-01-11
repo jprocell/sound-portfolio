@@ -77,11 +77,16 @@ body {
 
 /* =========================== */
 /* Works Page Content */
-#works-content,
 #other-content,
 #contact-info,
 #bio-content {
   max-width: 700px;
+  margin: 8rem auto 2rem auto;
+  padding: 2rem;
+}
+
+#works-content {
+  max-width: 1000px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 }
@@ -165,6 +170,10 @@ body {
 
 .project-card:hover {
   transform: scale(1.03);
+}
+
+.project-description {
+  white-space: pre-line;
 }
 
 /* =========================== */
