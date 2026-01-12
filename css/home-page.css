@@ -1,0 +1,34 @@
+/* =========================== */
+/* Hero Section (Home Page) */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 2rem;
+  background: #0F0F0F;
+  text-align: center;
+}
+
+#hero .hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+}
+
+#hero h1 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 4rem;
+  margin: 0;
+  color: #4FC3F7;
+}
+
+#hero p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  color: #EAEAEAAA;
+  margin: 0;
+}
