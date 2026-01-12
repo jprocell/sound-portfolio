@@ -1,0 +1,27 @@
+/* ===================== */
+/* Mini Floating Waveform */
+#mini-waveform {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 50px;
+  width: 120px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.wave-bar {
+  background-color: #4FC3F7;
+  width: 4px;
+  height: 10%;
+  transition: height 0.05s linear;
+  border-radius: 2px;
+}
+
+@keyframes wave {
+  0%, 100% { height: 10px; }
+  50% { height: 40px; }
+}
