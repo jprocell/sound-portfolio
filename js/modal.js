@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const project = await response.json();
 
-        // Support both "video"/"videos" and SoundCloud integration
+        // Support both "video" and "videos", and SoundCloud integration
         const videos = project.videos || project.video || [];
         const soundcloud = project.soundcloud || [];
 
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2>${project.title}</h2>
           <p class="project-description">${project.description}</p>
 
-          ${(project.audio || [])
-            .map(
+          ${project.audio
+            ?.map(
               sample => `
               <div class="modal-audio">
                 <p class="label">${sample.label}</p>
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `
             )
-            .join("")}
+            .join("") || ""}
 
           ${
             videos.length
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           ${
             soundcloud.length
-              ? `
+              ? ` 
             <div class="modal-soundcloud">
               ${soundcloud
                 .map(
@@ -81,11 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   ${sc.caption ? `<p class="desc">${sc.caption}</p>` : ""}
                   <iframe
                     width="100%"
-                    height="166"
+                    height="300"
                     scrolling="no"
                     frameborder="no"
                     allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false">
+                    src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
                   </iframe>
                 </div>
               `
