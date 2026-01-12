@@ -331,6 +331,36 @@ body {
   width: 100%;
 }
 
+/* ===================== */
+/* SoundCloud Boxes in Modal */
+.modal-soundcloud-box {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+}
+
+.modal-soundcloud-box p.label {
+  font-weight: bold;
+  color: #EEE;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.modal-soundcloud-box p.desc {
+  font-size: 0.95rem;
+  color: #CCC;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.modal-soundcloud-box iframe {
+  width: 100%;
+  height: 166px;
+  border-radius: 4px;
+}
+
+
 /* =========================== */
 /* Blog / Other / Bio / Contact Pages */
 .blog-entry {

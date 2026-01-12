@@ -15,15 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const project = await response.json();
 
-        // Support both "video" and "videos"
+        // Support both "video"/"videos" and SoundCloud integration
         const videos = project.videos || project.video || [];
+        const soundcloud = project.soundcloud || [];
 
         // Build modal content
         modalBody.innerHTML = `
           <h2>${project.title}</h2>
           <p class="project-description">${project.description}</p>
 
-          ${project.audio
+          ${(project.audio || [])
             .map(
               sample => `
               <div class="modal-audio">
@@ -58,6 +59,33 @@ document.addEventListener("DOMContentLoaded", () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                     loading="lazy">
+                  </iframe>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          `
+              : ""
+          }
+
+          ${
+            soundcloud.length
+              ? `
+            <div class="modal-soundcloud">
+              ${soundcloud
+                .map(
+                  sc => `
+                <div class="modal-soundcloud-box">
+                  ${sc.label ? `<p class="label">${sc.label}</p>` : ""}
+                  ${sc.caption ? `<p class="desc">${sc.caption}</p>` : ""}
+                  <iframe
+                    width="100%"
+                    height="166"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false">
                   </iframe>
                 </div>
               `
