@@ -19,3 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".bio-tab");
+  const panels = document.querySelectorAll(".bio-panel");
+
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      tab.classList.add("active");
+
+      const panel = tab.dataset.panel;
+      document
+        .querySelector(`.bio-panel[data-panel="${panel}"]`)
+        .classList.add("active");
+    });
+  });
+});

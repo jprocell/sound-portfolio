@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/bio-page.css">
+  <script src="js/filtering.js" defer></script>
 </head>
 <body class="bio-page">
 
@@ -22,7 +23,200 @@
   <main>
     <section id="bio-content">
       <h1>About Josh</h1>
-      <p>Were you expecting much?</p>
+
+      <div class="bio-tabs">
+        <button class="bio-tab active" data-panel="personal">Personal</button>
+        <button class="bio-tab" data-panel="audio">Audio / Music / Media</button>
+        <button class="bio-tab" data-panel="engineering">Engineering</button>
+      </div>
+
+      <div class="bio-panels">
+
+        <!-- Personal -->
+        <div class="bio-panel active" data-panel="personal">
+          <div class="bio-split">
+            <div class="bio-media">
+              <img src="images/personal-1.jpg" alt="">
+              <img src="images/personal-2.jpg" alt="">
+            </div>
+            <div class="bio-text">
+              <p>So you want to know a bit about me? Growing up I was always a nerd. Straight-A student, glued to the TV playing video games, and falling asleep to math and science videos. But, as is the case with everyone, I changed as I went to college and graduated. I'll admit I still fall asleep to math and science videos occasionally though. I had always had an interest in technology, I was one to open up my laptop or learn about jailbreaking iPhones when they first came out to have cool animations. As such it only made sense I would end up studying electrical engineering in college.</p>
+              <p>In 5th grade I would sign up for orchestra and play the viola. That would be the only year I played a string instrument, but it did open a whole other world for me. From here I'd become a band geek all the way up until college when Covid would put music on pause. I'd play French Horn for a year in middle school, I was horrible at it. I would swap to percussion and found my calling. I'd play percussion throughout middle and high school, eventually being exposed to drumline. Marching percussion would take over my life for the better, I still look back to many fond memories and people I would meet through the activity. I would partipate in scholastic competitions, and eventually make my way to independent organizations as I kept wanting to push myself. Then, covid would hit the world, I was just about at the end of my marching career as there's age limits, and I took the pandemic as a sign to move on with my life. I would stop playing music for a few years.</p>
+              <p>I went insane those few years and realized it was because I had stopped playing music. I had graduated college and was working a corporate job that I hated. I decided to buy a guitar and some pedals one day. Then I'd get a hold of a drum kit. And eventually I just had to have a bass to accompany. Before I knew it, I was re-enrolled in school for audio technology as I wanted to start producing and engineering music. Getting back into playing music had me find myself and my passions. Now I play in a few bands, have intentions of pursuing production and audio engineering professionally, and created a mini studio in my apartment.</p>
+              <p>So that's my story, I've been doing music for over 15 years now, it's how I express myself and what keeps me going.</p>
+              <p>Now for some other fun facts about me. I'm currently a technical writer. I'm taking Spanish lessons with a teacher in Mexico, we're good friends. I have a nice apartment in South Austin, I always get compliments on all my art and furniture when someone visits for the first time. I've traveled to Europe twice now, once solo and once with my best friend. I got sent to Taiwan for a work trip at my old job. I go to the gym almost daily, I hate it. My morning routine usually involves a tea or coffee and sitting in silence until I'm awake. I read 40+ books in 2025. I'm a regular at the taco stand near me, the cashier gives me book and comic recommendations. I'm a Spurs fan. I've seen over 400 artists live at concerts and festivals. I enjoy going to thrift stores and have lucked out with some music gear. I enjoy walking to the dive bar near my apartment. I've recently been having more interest in clothing and furniture.</p>
+              <p>That's a short summary. I don't find myself rather interesting, but I'm always willing to talk more whenever anyone asks. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio / Music -->
+        <div class="bio-panel" data-panel="audio">
+          <div class="bio-split">
+            <div class="bio-media">
+              <img src="images/audio-1.jpg" alt="">
+            </div>
+            <div class="bio-text">
+              <p>As mentioned on the previous page, I've been doing music for 15+ years now. A majority of that time as a percussionist, both classical and marching. Nowadays my time is spent on a drum set, producing, or occasionally guitar, bass, or piano.</p>
+              <p>As I'm looking more into producing, audio engineering, and media work, I have gotten accustomed with a variety of tools, both hardware and software. Here is a list of what I have experience with:</p>
+              <ul class="bio-list two-col">
+                <li>Ableton Live</li>
+                <li>Pro Tools</li>
+                <li>Audacity</li>
+                <li>Reaper</li>
+                <li>Kilohearts Phaseplant</li>
+                <li>AIR Music Technology Plug-ins</li>
+                <li>Valhalla DSP Plug-ins</li>
+                <li>Korg, Yamaha, Novation, and T.C. Electronic Hardware</li>
+                <li>Neve Studio Consoles</li>
+                <li>DaVinci Resolve</li>
+                <li>Adobe Premiere</li>
+                <li>Inkscape</li>
+              </ul>
+
+              <p>In addition to the tools listed above, a full list of my current gear can be found here:</p>
+
+              <!---This is the clickable dropdown menu-->
+              <details class="bio-dropdown">
+                <summary>
+                  <span class="arrow"></span>
+                  My Gear
+                </summary>
+
+                <div class="dropdown-content">
+                  <ul>
+                    <li>Hardware Synths
+                      <ul>
+                        <li>Korg Triton Rack Unit</li>
+                        <li>Novation Bass Station II</li>
+                        <li>Yamaha AN200</li>
+                        <li>Yamaha PSR-36</li>
+                        <li>Yamaha SY77</li>
+                      </ul>
+                    </li>
+                    <li>Rack Gear
+                      <ul>
+                        <li>Behringer Ultrapatch Pro PX3000</li>
+                        <li>Behringer UMC1820 Audio Interface</li>
+                        <li>T.C. Electronic G-Force Multi-Effects Processor</li>
+                      </ul>
+                    </li>
+                    <li>Amps and Cabs
+                      <ul>
+                        <li>Fender Deluxe Reverb</li>
+                        <li>Sunn Coliseum-300</li>
+                        <li>Ampeg 8x10</li>
+                      </ul>
+                    </li>
+                    <li>Acoustic Instruments
+                      <ul>
+                        <li>2002 Fender Japan Jazz Bass</li>
+                        <li>2021 Fender Jazzmaster</li>
+                        <li>2022 Squire Stratocaster</li>
+                        <li>Sigma Acoustic Guitar</li>
+                      </ul>
+                    </li>
+                    <li>Drum Gear
+                      <ul>
+                        <li>DW 5000 Series Double Bass Drum Pedal</li>
+                        <li>Ludwig Supraphonix 14 x 6.5 Snare Drum</li>
+                        <li>I can't remember my cymbals off the top of my head, they're in my car rn.</li>
+                      </ul>
+                    </li>
+                    <li>Other Gear
+                      <ul>
+                        <li>Akai MPK249 MIDI Keyboard</li>
+                        <li>Boss DD-8 Delay Pedal</li>
+                        <li>Boss TU-3 Chromatic Tuner Pedal</li>
+                        <li>Chase Bliss Generation Loss MkII Pedal</li>
+                        <li>EarthQuakerDevices Sunn Life Pedal</li>
+                        <li>Electro-Harmonix Freeze Pedal</li>
+                        <li>Electro-Harmonix Russian Big Muff Pedal</li>
+                        <li>Mackie ProFX16v3 16-Channel Mixer</li>
+                        <li>Otari MX5050 BII-2 Reel-to-Reel</li>
+                        <li>Roland Re-20 Pedal</li>
+                        <li>SansAmp GT2 Pedal</li>
+                        <li>Sennheiser HD 280 Pro Headphones</li>
+                        <li>Sherman Filterbank</li>
+                        <li>Tascam Portastudio 488 Mk II</li>
+                        <li>T.C. Electronic Hall of Fame 2 Reverb Pedal</li>
+                        <li>Maestro Echoplex EP-3</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+
+              <p>Mainly for memory sake, a brief summary of my music 'career' can be found below:</p>
+              <!---This is the clickable dropdown menu-->
+              <details class="bio-dropdown">
+                <summary>
+                  <span class="arrow"></span>
+                  History
+                </summary>
+
+                <div class="dropdown-content">
+                  <ul>
+                    <li>2025
+                      <ul>
+                        <li>Album Release: Topology - Of a Slow Collapse</li>
+                        <li>Drummed for: tethered to doubt and Mr. Kat</li>
+                        <li>Second, third, and fourth semesters of audio engineering at ACC</li>
+                      </ul>
+                    </li>
+                    <li>2024
+                      <ul>
+                        <li>Album Release: disavowal - tethered to doubt</li>
+                        <li>Played bass for: tethered to doubt</li>
+                        <li>First semester of audio engineering at ACC</li>
+                      </ul>
+                    </li>
+                    <li>2020
+                      <ul>
+                        <li>Auditioned and performed with Violet Crown, an independent percussion organization formerly based in San Antonio</li>
+                        <li>Received DCI contract for Madison Scouts, don't think this one counts much as I hadn't even attended a spring camp when Covid struck</li>
+                        <li>Went on music hiatus</li>
+                      </ul>
+                    </li>
+                    <li>2019
+                      <ul>
+                        <li>Drummed in UTSA's drumline</li>
+                      </ul>
+                    </li>
+                    <li>Pre-2019
+                      <ul>
+                        <li>High School Percussionist</li>
+                        <li>Received John Phillip Sousa award</li>
+                        <li>Founding member of Sun City Indoor, an independent percussion ensemble</li>
+                        <li>Founding member of Chapin High Indoor, a scholastic percussion ensemble</li>
+                        <li>Qualified to perform at the Texas State Solo & Ensemble competition every year of high school</li>
+                      </ul>
+                    </li>
+                    <li>2010
+                      <ul>
+                        <li>I signed up for orchestra in 5th grade and started playing music</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering -->
+        <div class="bio-panel" data-panel="engineering">
+          <div class="bio-split">
+            <div class="bio-media">
+              <img src="images/engineering-1.jpg" alt="">
+            </div>
+            <div class="bio-text">
+              <p>Engineering bio text goes here.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   </main>
 

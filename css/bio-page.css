@@ -1,7 +1,7 @@
 /* =========================== */
 /* Bio Page Content */
 #bio-content {
-  max-width: 700px;
+  max-width: 1300px;
   margin: 8rem auto 2rem auto;
   padding: 2rem;
 }
@@ -17,11 +17,13 @@
 
 #bio-content p {
   font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #EAEAEA;
   margin-bottom: 1rem;
-  text-align: center;
-}
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;}
 
 /* ===================== */
 /* Bio Tabs – match Works filter bar */
@@ -75,23 +77,54 @@
 /* Bio Personal Split Layout */
 .bio-split {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
   align-items: start;
   position: relative;
   margin-top: 1.5rem;
 }
 
+
 /* Vertical divider */
 .bio-split::before {
   content: "";
   position: absolute;
-  left: 33%;
+  left: 50%;
   top: 0;
   bottom: 0;
   width: 1px;
-  background: #444;
+  background: #666;
+  transform: translateX(-0.5px);
+  z-index: 1;
 }
+
+.bio-media,
+.bio-text {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  grid-column: 2;
+  padding-left: 2rem;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Left column spacing */
+.bio-media {
+  grid-column: 1;
+  padding-right: 2rem;
+}
+
+/* Right column spacing + text rules */
+.bio-text {
+  grid-column: 2;
+  padding-left: 2rem;
+  text-align: left;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 
 /* Left column (images) */
 .bio-media img {
@@ -105,6 +138,9 @@
   margin-top: 0;
   text-align: left;
   color: #DDD;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  color: #DDD;
 }
 
 /* ===================== */
@@ -117,4 +153,72 @@
   .bio-split::before {
     display: none;
   }
+}
+
+.bio-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.bio-list.two-col {
+  columns: 2;
+  column-gap: 3rem;
+}
+
+.bio-list li {
+  break-inside: avoid;
+  margin-bottom: 0.5rem;
+}
+
+.bio-dropdown {
+  margin-top: 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.bio-dropdown summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bio-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.bio-dropdown .arrow {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #EAEAEA;
+  transition: transform 0.2s ease;
+}
+
+.bio-dropdown[open] .arrow {
+  transform: rotate(90deg);
+}
+
+.dropdown-content {
+  margin-top: 0.75rem;
+}
+
+.dropdown-content ul {
+  padding-left: 1.2rem;
+}
+
+.dropdown-content ul ul {
+  margin-top: 0.25rem;
+  margin-left: 1.2rem;
+  list-style: circle;
+}
+
+.dropdown-content li {
+  margin-bottom: 0.4rem;
 }
