@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("click", async () => {
       const projectKey = card.dataset.project;
 
-      const GH_BASE = "/sound-portfolio";
+      const GH_BASE = "/sound-portfolio/";
 
       try {
         const response = await fetch(GH_BASE + "json/" + projectKey + ".json");
