@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activeRow = null;
 
-  // GitHub Pages base URL for your repo
-  const baseURL = "https://jprocell.github.io/sound-portfolio/";
-
   const formatTime = s => {
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60).toString().padStart(2, "0");
@@ -24,15 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectKey = card.dataset.project;
 
       try {
-        // Fetch JSON from GitHub Pages
-        const res = await fetch(`${baseURL}json/${projectKey}.json`);
+        // Fetch JSON relative to works.html
+        const res = await fetch(`json/${projectKey}.json`);
         if (!res.ok) throw new Error("Project JSON not found");
         const project = await res.json();
 
         const videos = project.videos || project.video || [];
         const soundcloud = project.soundcloud || [];
 
-        // Build modal content with custom audio players
+        // Build modal content
         modalBody.innerHTML = `
           <h2>${project.title}</h2>
           <p class="project-description">${project.description}</p>
@@ -40,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${project.audio
             ?.map(
               sample => `
-              <div class="modal-audio" data-src="${baseURL}${sample.src}">
+              <div class="modal-audio" data-src="${sample.src}">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
                 <div class="player-controls">
@@ -113,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         `;
 
-        // Initialize audio player functionality
+        // Initialize audio players
         const audioRows = modalBody.querySelectorAll(".modal-audio");
 
         audioRows.forEach(row => {
@@ -148,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
               sharedAudio.play();
               activeRow = row;
 
-              // Reset all rows
+              // Reset all other rows
               audioRows.forEach(r => {
                 const p = r.querySelector(".play-btn");
                 const f = r.querySelector(".progress-fill");
@@ -160,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   if (p) p.textContent = "▶";
                   if (f) f.style.width = "0%";
                   if (c) c.textContent = "0:00";
-                  // Load duration for all rows immediately
+                  // preload duration for all rows
                   const temp = new Audio(r.dataset.src);
                   temp.addEventListener("loadedmetadata", () => {
                     if (d) d.textContent = formatTime(temp.duration);
