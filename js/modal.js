@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${project.audio
             ?.map(sample => {
               // PREPEND './' to make the path work on GH Pages
-              const audioSrc = GH_BASE + row.dataset.src;
+              const audioSrc = GH_BASE + row.dataset.src
               return `
               <div class="modal-audio" data-src="${audioSrc}">
                 <p class="label">${sample.label}</p>
