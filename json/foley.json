@@ -5,12 +5,12 @@
       {
         "label": "Summer Evening",
         "desc": "Evening sounds with crickets, cicadas, and frogs singing as a bottle rocket is ignited into the sky.",
-        "src": "audio-samples/sound-design/foley/summer-evening.wav"
+        "src": "audio-samples/sound-design/foley/summer-evening.mp3"
       },
       {
         "label": "Thunderstorm",
         "desc": "Heavy sheets of rain, droplets, and roaring thunder.",
-        "src": "audio-samples/sound-design/foley/thunderstorm.wav"
+        "src": "audio-samples/sound-design/foley/thunderstorm.mp3"
       }
     ],
     "videos": [
