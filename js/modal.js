@@ -4,11 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBody = modal.querySelector(".modal-body");
   const closeBtn = modal.querySelector(".modal-close");
 
-  // Shared hidden audio element
-  const sharedAudio = document.createElement("audio");
-  document.body.appendChild(sharedAudio);
-
-  let activeRow = null;
+  let activeAudioRow = null;
+  let activeAudio = null;
 
   const formatTime = s => {
     const m = Math.floor(s / 60);
@@ -21,10 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectKey = card.dataset.project;
 
       try {
-        // Fetch JSON relative to works.html
-        const res = await fetch(`json/${projectKey}.json`);
-        if (!res.ok) throw new Error("Project JSON not found");
-        const project = await res.json();
+        const response = await fetch(`json/${projectKey}.json`);
+        if (!response.ok) throw new Error("Project JSON not found");
+        const project = await response.json();
 
         const videos = project.videos || project.video || [];
         const soundcloud = project.soundcloud || [];
@@ -35,8 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="project-description">${project.description}</p>
 
           ${project.audio
-            ?.map(
-              sample => `
+            ?.map(sample => `
               <div class="modal-audio" data-src="${sample.src}">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
@@ -51,18 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
                       <span class="duration">0:00</span>
                     </div>
                   </div>
+                  <audio preload="metadata">
+                    <source src="${sample.src}" type="audio/wav">
+                    Your browser does not support the audio element.
+                  </audio>
                 </div>
               </div>
-            `
-            )
-            .join("") || ""}
+            `).join("") || ""}
 
           ${
             videos.length
               ? `<div class="modal-videos">
-                  ${videos
-                    .map(
-                      video => `
+                  ${videos.map(video => `
                     <div class="modal-video-box">
                       ${video.label ? `<p class="label">${video.label}</p>` : ""}
                       ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
@@ -75,19 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         loading="lazy">
                       </iframe>
                     </div>
-                  `
-                    )
-                    .join("")}
-                </div>`
-              : ""
+                  `).join("")}
+                </div>` : ""
           }
 
           ${
             soundcloud.length
               ? `<div class="modal-soundcloud">
-                  ${soundcloud
-                    .map(
-                      sc => `
+                  ${soundcloud.map(sc => `
                     <div class="modal-soundcloud-box">
                       ${sc.label ? `<p class="label">${sc.label}</p>` : ""}
                       ${sc.caption ? `<p class="desc">${sc.caption}</p>` : ""}
@@ -97,16 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         scrolling="no"
                         frameborder="no"
                         allow="autoplay"
-                        src="https://w.soundcloud.com/player/?url=${encodeURIComponent(
-                          sc.url
-                        )}&color=%234FC3F7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
+                        src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
                       </iframe>
                     </div>
-                  `
-                    )
-                    .join("")}
-                </div>`
-              : ""
+                  `).join("")}
+                </div>` : ""
           }
         `;
 
@@ -114,87 +99,67 @@ document.addEventListener("DOMContentLoaded", () => {
         const audioRows = modalBody.querySelectorAll(".modal-audio");
 
         audioRows.forEach(row => {
-          const src = row.dataset.src;
           const playBtn = row.querySelector(".play-btn");
           const fill = row.querySelector(".progress-fill");
           const cur = row.querySelector(".current");
           const dur = row.querySelector(".duration");
           const progressBar = row.querySelector(".progress-bar");
+          const audio = row.querySelector("audio");
 
-          // Preload audio to get duration immediately
-          const tempAudio = new Audio(src);
-          tempAudio.addEventListener("loadedmetadata", () => {
-            dur.textContent = formatTime(tempAudio.duration);
+          // Display total duration immediately after metadata loads
+          audio.addEventListener("loadedmetadata", () => {
+            dur.textContent = formatTime(audio.duration);
           });
 
+          // Play/pause click
           playBtn.addEventListener("click", () => {
-            if (activeRow === row) {
-              // Toggle pause/play
-              if (sharedAudio.paused) {
-                sharedAudio.play();
-                playBtn.textContent = "❚❚";
-              } else {
-                sharedAudio.pause();
-                playBtn.textContent = "▶";
-              }
-            } else {
-              // Switch to new audio
-              sharedAudio.pause();
-              sharedAudio.src = src;
-              sharedAudio.currentTime = 0;
-              sharedAudio.play();
-              activeRow = row;
+            if (activeAudioRow && activeAudioRow !== row) {
+              // Stop previous audio
+              activeAudio.pause();
+              const prevBtn = activeAudioRow.querySelector(".play-btn");
+              const prevFill = activeAudioRow.querySelector(".progress-fill");
+              const prevCur = activeAudioRow.querySelector(".current");
+              if (prevBtn) prevBtn.textContent = "▶";
+              if (prevFill) prevFill.style.width = "0%";
+              if (prevCur) prevCur.textContent = "0:00";
+            }
 
-              // Reset all other rows
-              audioRows.forEach(r => {
-                const p = r.querySelector(".play-btn");
-                const f = r.querySelector(".progress-fill");
-                const c = r.querySelector(".current");
-                const d = r.querySelector(".duration");
-                if (r === row) {
-                  if (p) p.textContent = "❚❚";
-                } else {
-                  if (p) p.textContent = "▶";
-                  if (f) f.style.width = "0%";
-                  if (c) c.textContent = "0:00";
-                  // preload duration for all rows
-                  const temp = new Audio(r.dataset.src);
-                  temp.addEventListener("loadedmetadata", () => {
-                    if (d) d.textContent = formatTime(temp.duration);
-                  });
-                }
-              });
+            if (audio.paused) {
+              audio.play();
+              playBtn.textContent = "❚❚";
+              activeAudio = audio;
+              activeAudioRow = row;
+            } else {
+              audio.pause();
+              playBtn.textContent = "▶";
             }
           });
 
-          // Scrub progress bar
+          // Update progress bar
+          audio.addEventListener("timeupdate", () => {
+            const pct = audio.currentTime / audio.duration || 0;
+            fill.style.width = `${pct * 100}%`;
+            cur.textContent = formatTime(audio.currentTime);
+          });
+
+          audio.addEventListener("ended", () => {
+            playBtn.textContent = "▶";
+            fill.style.width = "0%";
+            cur.textContent = "0:00";
+            activeAudio = null;
+            activeAudioRow = null;
+          });
+
+          // Scrub bar click
           progressBar.addEventListener("click", e => {
-            if (!sharedAudio.duration) return;
             const rect = progressBar.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
-            sharedAudio.currentTime = pct * sharedAudio.duration;
+            audio.currentTime = pct * audio.duration;
           });
+
+          // Disable right-click
+          audio.addEventListener("contextmenu", e => e.preventDefault());
         });
-
-        // Shared audio events
-        sharedAudio.ontimeupdate = () => {
-          if (!activeRow) return;
-          const f = activeRow.querySelector(".progress-fill");
-          const c = activeRow.querySelector(".current");
-          if (f) f.style.width = `${(sharedAudio.currentTime / sharedAudio.duration) * 100}%`;
-          if (c) c.textContent = formatTime(sharedAudio.currentTime);
-        };
-
-        sharedAudio.onended = () => {
-          if (!activeRow) return;
-          const p = activeRow.querySelector(".play-btn");
-          const f = activeRow.querySelector(".progress-fill");
-          const c = activeRow.querySelector(".current");
-          if (f) f.style.width = "0%";
-          if (c) c.textContent = "0:00";
-          if (p) p.textContent = "▶";
-          activeRow = null;
-        };
 
         // Show modal
         modal.classList.remove("hidden");
@@ -208,9 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close modal
   closeBtn.addEventListener("click", () => {
-    sharedAudio.pause();
-    sharedAudio.currentTime = 0;
-    activeRow = null;
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    }
+    activeAudioRow = null;
+    activeAudio = null;
 
     modal.classList.remove("show");
     setTimeout(() => {
