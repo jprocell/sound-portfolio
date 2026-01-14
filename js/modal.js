@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("click", async () => {
       const projectKey = card.dataset.project;
 
-      const GH_BASE = "/sound-portfolio/";
-
       try {
-        const response = await fetch(GH_BASE + "json/" + projectKey + ".json");
+        const response = await fetch(`./json/${projectKey}.json`);
         if (!response.ok) throw new Error("Project JSON not found");
         const project = await response.json();
 
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${project.audio
             ?.map(sample => {
               // PREPEND './' to make the path work on GH Pages
-              const audioSrc = GH_BASE + sample.src
+              const audioSrc = `./${sample.src}`;
               return `
               <div class="modal-audio" data-src="${audioSrc}">
                 <p class="label">${sample.label}</p>
