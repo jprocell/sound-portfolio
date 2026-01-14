@@ -44,16 +44,53 @@ if (window.innerWidth > 768) {
     }
   }
 
-  // Track any audio played in the document
-  document.addEventListener(
-    "play",
-    (e) => {
-      const player = e.target.closest("audio");
-      if (!player) return;
-      attachPlayer(player);
-    },
-    true // capture phase
-  );
+const playingAudios = new Set();
+
+// Instead of toggling display, toggle 'show' class
+document.addEventListener(
+  "play",
+  (e) => {
+    const player = e.target.closest("audio");
+    if (!player) return;
+    playingAudios.add(player);
+
+    // Add 'show' class to fade in and slide up
+    waveformContainer.classList.add("show");
+
+    attachPlayer(player);
+  },
+  true
+);
+
+document.addEventListener(
+  "pause",
+  (e) => {
+    const player = e.target.closest("audio");
+    if (!player) return;
+    playingAudios.delete(player);
+
+    // Remove 'show' class if no audios playing
+    if (playingAudios.size === 0) {
+      waveformContainer.classList.remove("show");
+    }
+  },
+  true
+);
+
+document.addEventListener(
+  "ended",
+  (e) => {
+    const player = e.target.closest("audio");
+    if (!player) return;
+    playingAudios.delete(player);
+
+    if (playingAudios.size === 0) {
+      waveformContainer.classList.remove("show");
+    }
+  },
+  true
+);
+
 
   function animate() {
     requestAnimationFrame(animate);

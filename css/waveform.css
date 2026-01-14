@@ -2,8 +2,8 @@
 /* Mini Floating Waveform */
 #mini-waveform {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
+  bottom: 20px; /* start off the screen */
+  left: 1.5rem;
   display: flex;
   align-items: flex-end;
   gap: 2px;
@@ -11,7 +11,17 @@
   width: 120px;
   z-index: 9999;
   pointer-events: none;
+
+  opacity: 0;
+  transform: translateY(100%); /* start slightly below */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+#mini-waveform.show {
+  opacity: 1;
+  transform: translateY(0); /* slide up into view */
+}
+
 
 .wave-bar {
   background-color: #4FC3F7;
