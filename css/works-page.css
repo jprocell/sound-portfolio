@@ -1,27 +1,55 @@
-/* Works Page Filter Bar */
+/* ===================== */
+/* Works Page Filter Bar – match Bio Tabs */
 #filter-bar {
-  text-align: center;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;                     /* allow wrapping */
+  gap: clamp(0.5rem, 1vw, 1rem);       /* responsive gap between buttons */
+  margin: 2rem auto 0 auto;            /* top/bottom spacing; adjust bottom if needed */
+  max-width: clamp(400px, 80%, 1300px); /* responsive container width */
 }
 
 #filter-bar button {
+  flex: 1 1 auto;                     /* grow/shrink to fill space */
+  min-width: 120px;                    /* prevent too small buttons */
+  max-width: 250px;                    /* cap growth */
+  padding: clamp(0.5rem, 0.8vw, 1rem) clamp(0.8rem, 1.5vw, 2rem); /* responsive padding */
+  font-size: clamp(0.9rem, 1vw, 1.1rem); /* scale text size slightly */
+  
   background: #222;
   color: #EEE;
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
   border-radius: 4px;
-  transition: background 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.2s, transform 0.2s;
 }
 
 #filter-bar button:hover {
   background: #555;
+  transform: translateY(-2px);
 }
 
 #filter-bar button.active {
   background: #4FC3F7;
   color: #FFF;
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  #filter-bar {
+    padding: 0 1rem;  /* add 1rem left/right padding */
+    gap: 0.5rem;      /* keep gap small between buttons */
+  }
+
+  #filter-bar button {
+    flex: 1 1 100%;   /* stacked full width */
+    min-width: unset;
+    max-width: unset;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+  }
 }
 
 /* Works Page Grid Layout */
