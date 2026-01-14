@@ -1,8 +1,12 @@
 // Only run on desktop
 if (window.innerWidth > 768) {
-  const waveformContainer = document.createElement("div");
-  waveformContainer.id = "mini-waveform";
-  document.body.appendChild(waveformContainer);
+  // Create or get waveform container
+  const waveformContainer = document.getElementById("mini-waveform") || (() => {
+    const div = document.createElement("div");
+    div.id = "mini-waveform";
+    document.body.appendChild(div);
+    return div;
+  })();
 
   const barsCount = 20;
   const bars = [];
@@ -18,41 +22,47 @@ if (window.innerWidth > 768) {
   analyser.fftSize = 64;
   const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
-  let source = null;
-  let currentPlayer = null;
+  let currentSource = null;
+  const connectedPlayers = new WeakSet();
 
-  // Function to attach analyser to a new audio element
   function attachPlayer(player) {
-    if (currentPlayer === player) return; // already attached
-    if (source) source.disconnect();       // disconnect previous
+    // Only attach once per audio element
+    if (connectedPlayers.has(player)) return;
 
-    source = audioCtx.createMediaElementSource(player);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-    currentPlayer = player;
+    // Resume AudioContext if not running
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+
+    try {
+      const source = audioCtx.createMediaElementSource(player);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      connectedPlayers.add(player);
+    } catch (err) {
+      console.warn("Waveform attach failed:", err);
+    }
   }
 
-  // Listen for any play event on the document (captures dynamically added audio too)
-  document.addEventListener("play", (e) => {
-    const player = e.target.closest("audio");
-    if (!player) return;
-    attachPlayer(player);
-  }, true); // capture phase to catch before other handlers
+  // Track any audio played in the document
+  document.addEventListener(
+    "play",
+    (e) => {
+      const player = e.target.closest("audio");
+      if (!player) return;
+      attachPlayer(player);
+    },
+    true // capture phase
+  );
 
   function animate() {
     requestAnimationFrame(animate);
     analyser.getByteFrequencyData(dataArray);
 
-    const minFreq = 0;
-    const maxFreq = dataArray.length - 1;
-
     bars.forEach((bar, i) => {
-      // Logarithmic mapping
-      const logIndex = Math.floor(
-        Math.pow(i / barsCount, 2) * (maxFreq - minFreq) + minFreq
-      );
-      const value = dataArray[logIndex] / 255; // normalize
-      bar.style.height = `${Math.max(value, 0.05) * 100}%`; // min 5% height
+      const logIndex = Math.floor(Math.pow(i / barsCount, 2) * (dataArray.length - 1));
+      const value = dataArray[logIndex] / 255;
+      bar.style.height = `${Math.max(value, 0.05) * 100}%`;
     });
   }
 

@@ -25,15 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const videos = project.videos || project.video || [];
         const soundcloud = project.soundcloud || [];
 
+        // Build modal content
         modalBody.innerHTML = `
           <h2>${project.title}</h2>
           <p class="project-description">${project.description}</p>
 
-          ${project.audio
-            ?.map(sample => {
-              // PREPEND './' to make the path work on GH Pages
-              const audioSrc = `./${sample.src}`;
-              return `
+          ${project.audio?.map(sample => {
+            const audioSrc = `./${sample.src}`; 
+            return `
               <div class="modal-audio" data-src="${audioSrc}">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
@@ -44,58 +43,51 @@ document.addEventListener("DOMContentLoaded", () => {
                       <div class="progress-fill"></div>
                     </div>
                     <div class="time">
-                      <span class="current">0:00</span> /
+                      <span class="current">0:00</span> / 
                       <span class="duration">0:00</span>
                     </div>
                   </div>
                   <audio preload="metadata">
-                    <source src="${audioSrc}" type="audio/wav">
+                    <source src="${audioSrc}" type="audio/mp3">
                     Your browser does not support the audio element.
                   </audio>
                 </div>
               </div>
-              `;
-            }).join("") || ""}
+            `;
+          }).join("") || ""}
 
-          ${
-            videos.length
-              ? `<div class="modal-videos">
-                  ${videos.map(video => `
-                    <div class="modal-video-box">
-                      ${video.label ? `<p class="label">${video.label}</p>` : ""}
-                      ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
-                      <iframe
-                        src="https://www.youtube.com/embed/${video.id}"
-                        title="${video.caption || video.label || project.title}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy">
-                      </iframe>
-                    </div>
-                  `).join("")}
-                </div>` : ""
-          }
+          ${videos.length ? `<div class="modal-videos">
+            ${videos.map(video => `
+              <div class="modal-video-box">
+                ${video.label ? `<p class="label">${video.label}</p>` : ""}
+                ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
+                <iframe
+                  src="https://www.youtube.com/embed/${video.id}"
+                  title="${video.caption || video.label || project.title}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"></iframe>
+              </div>
+            `).join("")}
+          </div>` : ""}
 
-          ${
-            soundcloud.length
-              ? `<div class="modal-soundcloud">
-                  ${soundcloud.map(sc => `
-                    <div class="modal-soundcloud-box">
-                      ${sc.label ? `<p class="label">${sc.label}</p>` : ""}
-                      ${sc.caption ? `<p class="desc">${sc.caption}</p>` : ""}
-                      <iframe
-                        width="100%"
-                        height="300"
-                        scrolling="no"
-                        frameborder="no"
-                        allow="autoplay"
-                        src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
-                      </iframe>
-                    </div>
-                  `).join("")}
-                </div>` : ""
-          }
+          ${soundcloud.length ? `<div class="modal-soundcloud">
+            ${soundcloud.map(sc => `
+              <div class="modal-soundcloud-box">
+                ${sc.label ? `<p class="label">${sc.label}</p>` : ""}
+                ${sc.caption ? `<p class="desc">${sc.caption}</p>` : ""}
+                <iframe
+                  width="100%"
+                  height="300"
+                  scrolling="no"
+                  frameborder="no"
+                  allow="autoplay"
+                  src="https://w.soundcloud.com/player/?url=${encodeURIComponent(sc.url)}&color=%234FC3F7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
+                </iframe>
+              </div>
+            `).join("")}
+          </div>` : ""}
         `;
 
         // Initialize audio players
@@ -109,13 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
           const progressBar = row.querySelector(".progress-bar");
           const audio = row.querySelector("audio");
 
+          // Show total duration immediately
           audio.addEventListener("loadedmetadata", () => {
             dur.textContent = formatTime(audio.duration);
           });
 
           playBtn.addEventListener("click", () => {
+            // Stop previous audio if exists
             if (activeAudioRow && activeAudioRow !== row) {
-              // Stop previous audio
               activeAudio.pause();
               const prevBtn = activeAudioRow.querySelector(".play-btn");
               const prevFill = activeAudioRow.querySelector(".progress-fill");
@@ -130,6 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
               playBtn.textContent = "❚❚";
               activeAudio = audio;
               activeAudioRow = row;
+
+              // Optionally trigger waveform
+              if (window.trackWaveformAudio) window.trackWaveformAudio(audio);
+
             } else {
               audio.pause();
               playBtn.textContent = "▶";
@@ -150,31 +147,36 @@ document.addEventListener("DOMContentLoaded", () => {
             activeAudioRow = null;
           });
 
+          // Scrub
           progressBar.addEventListener("click", e => {
             const rect = progressBar.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
             audio.currentTime = pct * audio.duration;
           });
 
+          // Disable right-click
           audio.addEventListener("contextmenu", e => e.preventDefault());
         });
 
+        // Show modal
         modal.classList.remove("hidden");
         setTimeout(() => modal.classList.add("show"), 20);
         document.body.style.overflow = "hidden";
+
       } catch (err) {
         console.error("Error loading project JSON:", err);
       }
     });
   });
 
+  // Close modal
   closeBtn.addEventListener("click", () => {
     if (activeAudio) {
       activeAudio.pause();
       activeAudio.currentTime = 0;
     }
-    activeAudioRow = null;
     activeAudio = null;
+    activeAudioRow = null;
 
     modal.classList.remove("show");
     setTimeout(() => {
