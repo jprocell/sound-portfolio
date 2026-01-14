@@ -18,21 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectKey = card.dataset.project;
 
       try {
-        const response = await fetch(`json/${projectKey}.json`);
+        const response = await fetch(`./json/${projectKey}.json`);
         if (!response.ok) throw new Error("Project JSON not found");
         const project = await response.json();
 
         const videos = project.videos || project.video || [];
         const soundcloud = project.soundcloud || [];
 
-        // Build modal content
         modalBody.innerHTML = `
           <h2>${project.title}</h2>
           <p class="project-description">${project.description}</p>
 
           ${project.audio
-            ?.map(sample => `
-              <div class="modal-audio" data-src="${sample.src}">
+            ?.map(sample => {
+              // PREPEND './' to make the path work on GH Pages
+              const audioSrc = `./${sample.src}`;
+              return `
+              <div class="modal-audio" data-src="${audioSrc}">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
                 <div class="player-controls">
@@ -47,12 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </div>
                   <audio preload="metadata">
-                    <source src="${sample.src}" type="audio/wav">
+                    <source src="${audioSrc}" type="audio/wav">
                     Your browser does not support the audio element.
                   </audio>
                 </div>
               </div>
-            `).join("") || ""}
+              `;
+            }).join("") || ""}
 
           ${
             videos.length
@@ -106,12 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const progressBar = row.querySelector(".progress-bar");
           const audio = row.querySelector("audio");
 
-          // Display total duration immediately after metadata loads
           audio.addEventListener("loadedmetadata", () => {
             dur.textContent = formatTime(audio.duration);
           });
 
-          // Play/pause click
           playBtn.addEventListener("click", () => {
             if (activeAudioRow && activeAudioRow !== row) {
               // Stop previous audio
@@ -135,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
 
-          // Update progress bar
           audio.addEventListener("timeupdate", () => {
             const pct = audio.currentTime / audio.duration || 0;
             fill.style.width = `${pct * 100}%`;
@@ -150,18 +150,15 @@ document.addEventListener("DOMContentLoaded", () => {
             activeAudioRow = null;
           });
 
-          // Scrub bar click
           progressBar.addEventListener("click", e => {
             const rect = progressBar.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
             audio.currentTime = pct * audio.duration;
           });
 
-          // Disable right-click
           audio.addEventListener("contextmenu", e => e.preventDefault());
         });
 
-        // Show modal
         modal.classList.remove("hidden");
         setTimeout(() => modal.classList.add("show"), 20);
         document.body.style.overflow = "hidden";
@@ -171,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Close modal
   closeBtn.addEventListener("click", () => {
     if (activeAudio) {
       activeAudio.pause();
