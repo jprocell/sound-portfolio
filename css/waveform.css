@@ -35,3 +35,10 @@
   0%, 100% { height: 10px; }
   50% { height: 40px; }
 }
+
+/* Hide mini waveform on smaller screens to avoid overlap with single-column modals */
+@media (max-width: 1015px) {
+  #mini-waveform {
+    display: none;
+  }
+}

@@ -143,17 +143,48 @@
   color: #DDD;
 }
 
-/* ===================== */
-/* Responsive: stack on mobile */
-@media (max-width: 768px) {
+/* Stack to single column, hide left column and divider, center text block */
+@media (max-width: 915px) {
   .bio-split {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* only one column */
+    justify-items: center;       /* center the single column block horizontally */
   }
 
-  .bio-split::before {
-    display: none;
+  .bio-split::before { 
+    display: none; /* hide vertical divider */
+  }
+
+  .bio-media {
+    display: none; /* hide left column */
+  }
+
+  .bio-text {
+    grid-column: 1;    /* occupy the full column */
+    padding: 0 1.5rem; /* some horizontal padding */
+    text-align: left;  /* keep text left-aligned */
+    max-width: 800px;  /* optional: limit width for readability */
   }
 }
+
+/* Large screens: add max-width and spacing for text column */
+@media (min-width: 915px) {
+  .bio-text {
+    max-width: 700px; /* optional, stops text from stretching too far */
+    padding-left: 3rem; /* more space from vertical divider */
+  }
+
+  .bio-media {
+    max-width: 550px; /* optional, keep images reasonable */
+    padding-right: 3rem;
+  }
+
+  .bio-split {
+    max-width: 1300px; /* constrain the whole split container */
+    margin: 8rem auto 2rem auto; /* center on page */
+    padding: 0 2rem;
+  }
+}
+
 
 .bio-list {
   margin-top: 1rem;

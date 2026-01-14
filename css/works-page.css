@@ -34,6 +34,13 @@
   padding: 0 1.5rem;
 }
 
+@media (max-width: 915px) {
+  #works-gallery {
+    grid-template-columns: 1fr; /* single column */
+    gap: 1.5rem; /* optional: smaller gap for narrow screens */
+  }
+}
+
 .project-card {
   position: relative;
   width: 100%;
@@ -99,6 +106,28 @@
   padding: 2rem;
   box-sizing: border-box;
   position: relative;
+}
+
+/* Default for large screens */
+.modal-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Medium screens: reduce width */
+@media (max-width: 1200px) {
+  .modal-content {
+    max-width: 700px;
+    padding: 1.8rem;
+  }
+}
+
+/* Small screens: almost full width */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
 }
 
 .modal-close {
