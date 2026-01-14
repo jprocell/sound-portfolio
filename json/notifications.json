@@ -5,42 +5,42 @@
       {
         "label": "Calendar",
         "desc": "A calendar notification. For me, usually a reminder for a birthday or bills.",
-        "src": "./audio-samples/sound-design/notifications/calendar.wav"
+        "src": "audio-samples/sound-design/notifications/calendar.wav"
       },
       {
         "label": "Emergency",
         "desc": "A siren warning meant for your immediate attention. Usually an AMBER alert in my case, but I remember getting one in Taiwan when they were testing their inbound missile strike alert.",
-        "src": "./audio-samples/sound-design/notifications/emergency.wav"
+        "src": "audio-samples/sound-design/notifications/emergency.wav"
       },
       {
         "label": "Error",
         "desc": "An error or invalid input notification.",
-        "src": "./audio-samples/sound-design/notifications/error.wav"
+        "src": "audio-samples/sound-design/notifications/error.wav"
       },
       {
         "label": "Ringtone",
         "desc": "The standard ringtone you hear in your dreams or a movie. A bit more common with landlines now that I think about it...",
-        "src": "./audio-samples/sound-design/notifications/ringtone.wav"
+        "src": "audio-samples/sound-design/notifications/ringtone.wav"
       },
       {
         "label": "Success",
         "desc": "A success notification.",
-        "src": "./audio-samples/sound-design/notifications/success.wav"
+        "src": "audio-samples/sound-design/notifications/success.wav"
       },
       {
         "label": "Text",
         "desc": "A text notification.",
-        "src": "./audio-samples/sound-design/notifications/text.wav"
+        "src": "audio-samples/sound-design/notifications/text.wav"
       },
       {
         "label": "Timer",
         "desc": "A timer going off. Usually notifying me that my laundry or food in the oven is ready.",
-        "src": "./audio-samples/sound-design/notifications/timer.wav"
+        "src": "audio-samples/sound-design/notifications/timer.wav"
       },
       {
         "label": "Wake Up Alarm",
         "desc": "A gentle piano alarm. A low pass filter slowly opens up to make it a bit brighter without violently waking up the listener.",
-        "src": "./audio-samples/sound-design/notifications/wake-up.wav"
+        "src": "audio-samples/sound-design/notifications/wake-up.wav"
       }
     ]
 }

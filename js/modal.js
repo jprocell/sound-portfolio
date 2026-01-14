@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let activeRow = null;
 
+  // GitHub Pages base URL for your repo
+  const baseURL = "https://jprocell.github.io/sound-portfolio/";
+
   const formatTime = s => {
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60).toString().padStart(2, "0");
@@ -21,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectKey = card.dataset.project;
 
       try {
-        const res = await fetch(`json/${projectKey}.json`);
+        // Fetch JSON from GitHub Pages
+        const res = await fetch(`${baseURL}json/${projectKey}.json`);
         if (!res.ok) throw new Error("Project JSON not found");
         const project = await res.json();
 
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${project.audio
             ?.map(
               sample => `
-              <div class="modal-audio" data-src="${sample.src}">
+              <div class="modal-audio" data-src="${baseURL}${sample.src}">
                 <p class="label">${sample.label}</p>
                 ${sample.desc ? `<p class="desc">${sample.desc}</p>` : ""}
                 <div class="player-controls">
@@ -128,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           playBtn.addEventListener("click", () => {
             if (activeRow === row) {
-              // Pause or play current audio
+              // Toggle pause/play
               if (sharedAudio.paused) {
                 sharedAudio.play();
                 playBtn.textContent = "❚❚";

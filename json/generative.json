@@ -5,7 +5,7 @@
       {
         "label": "Generative Sample",
         "desc": "Rendered sample of the generative project. A single chord is sustained while automation is applied through the course of the recording.",
-        "src": "./audio-samples/sound-design/generative/generative.wav"
+        "src": "audio-samples/sound-design/generative/generative.wav"
       }
     ],
     "videos": [
