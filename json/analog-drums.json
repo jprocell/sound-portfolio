@@ -5,17 +5,17 @@
       {
         "label": "Latin Groove",
         "desc": "A drum groove using instrumentation that could be labeled as 'Aux Percussion'. Think toms, congas, rim hits, shakers, etc.",
-        "src": "audio-samples/synthesis/analog-drums/latin-groove.wav"
+        "src": "./audio-samples/synthesis/analog-drums/latin-groove.wav"
       },
       {
         "label": "Drum Kit",
         "desc": "A standard drum groove. Uses your traditional drum kit instruments like kick, snare, HH, etc.",
-        "src": "audio-samples/synthesis/analog-drums/drum-kit.wav"
+        "src": "./audio-samples/synthesis/analog-drums/drum-kit.wav"
       },
       {
         "label": "Mixed Groove",
         "desc": "Another drum groove that has a mix of instruments from the two snippets shown above.",
-        "src": "audio-samples/synthesis/analog-drums/mixed-groove.wav"
+        "src": "./audio-samples/synthesis/analog-drums/mixed-groove.wav"
       }
     ]
 }

@@ -5,17 +5,17 @@
       {
         "label": "Fantasy/Children",
         "desc": "Whimsical and jovial. This logo could be applied to something such as a kid's toy brand as an example. The mallet instrumenation, swung rhythms, and a major key all combine for this application.",
-        "src": "audio-samples/sound-design/sound-logos/fantasy.wav"
+        "src": "./audio-samples/sound-design/sound-logos/fantasy.wav"
       },
       {
         "label": "Lifestyle",
         "desc": "Calm, soothing, a long exhale. This logo could be applied to a spa or health product as an example. Warm strings and extended chords give the meditative feel without overwhelming the listener.",
-        "src": "audio-samples/sound-design/sound-logos/lifestyle.wav"
+        "src": "./audio-samples/sound-design/sound-logos/lifestyle.wav"
       },
       {
         "label": "Horror",
         "desc": "Footsteps, screams, and a chainsaw. This logo could be applied to a horror film studio as an example. This logo was sample heavy to help convey a quick story to the listener. Sample manipulation was used, as the 'chainsaw' was originally a sheep's bah and the scream at the end was a hawk's cry.",
-        "src": "audio-samples/sound-design/sound-logos/spooky.wav"
+        "src": "./audio-samples/sound-design/sound-logos/spooky.wav"
       }
     ]
 }
