@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: #111111;
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
 /* =========================== */
 /* Navigation Bar - Light Mode */
 .nav-bar {
