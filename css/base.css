@@ -1,41 +1,81 @@
 /* =========================== */
-/* Base / Global Styles */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #0F0F0F;
-  color: #EAEAEA;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-}
-
-/* =========================== */
-/* Navigation Bar */
+/* Navigation Bar - Light Mode */
 .nav-bar {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
+  gap: 2.5rem;               /* slightly more spacing for elegance */
+  padding: 1.5rem 0;         /* more breathing room */
   margin: 0;
   background: transparent;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 10;
+  font-family: 'Poppins', sans-serif; /* matches h1 hero font */
 }
 
 .nav-bar li a {
-  color: #EEE;
+  color: #000000;             /* black links on white background */
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s;
+  font-weight: 600;           /* medium-bold for refined look */
+  font-size: 1.1rem;
+  transition: color 0.2s, transform 0.2s;
+  position: relative;
 }
 
+/* Hover effect: subtle underline */
+.nav-bar li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #000000;        /* black underline */
+  transition: width 0.3s ease;
+}
+
+.nav-bar li a:hover::after,
+.nav-bar li a.active::after {
+  width: 100%;                /* underline expands on hover/active */
+}
+
+/* Hover color shift for subtle effect */
 .nav-bar li a:hover,
 .nav-bar li a.active {
-  color: #4FC3F7;
+  color: #333333;             /* slightly darker gray on hover for depth */
 }
+
+/* =========================== */
+/* Navigation Bar - Mobile (Light Mode) */
+@media (max-width: 900px) {
+  .nav-bar {
+    flex-direction: row;         /* keep horizontal */
+    justify-content: center;     /* center the links */
+    gap: 1.5rem;                 /* slightly tighter spacing */
+    padding: 1rem 0;
+    background: transparent;
+    position: absolute;          /* stay at top */
+    top: 0;
+    width: 100%;
+  }
+
+  .nav-bar li a {
+    font-size: 1rem;             /* readable for mobile */
+    font-weight: 600;
+    color: #000000;              /* black text for light mode */
+  }
+
+  /* Hover/active underline remains */
+  .nav-bar li a::after {
+    height: 2px;
+    background: #000000;
+  }
+
+  .nav-bar li a:hover::after,
+  .nav-bar li a.active::after {
+    width: 100%;
+  }
+}
+

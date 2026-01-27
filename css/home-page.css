@@ -1,34 +1,160 @@
 /* =========================== */
-/* Hero Section (Home Page) */
+/* Hero Section - Light Mode */
 #hero {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
   height: 100vh;
-  padding: 0 2rem;
-  background: #0F0F0F;
-  text-align: center;
+  padding: 0 5%;
+  background: #FFFFFF;  /* white background */
+  color: #000000;       /* default text black */
+  position: relative;
 }
 
-#hero .hero-card {
+/* =========================== */
+/* Left Column - Hero Text */
+.hero-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  background: transparent;
+  justify-content: center;  /* vertically centered */
+  max-width: 45%;
+  position: relative;
 }
 
-#hero h1 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 4rem;
+.hero-left-inner {
+  display: flex;
+  flex-direction: column;  /* stacked on desktop */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-left-inner h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.05;
   margin: 0;
-  color: #4FC3F7;
+  color: #000000;
 }
 
-#hero p {
+.hero-left-inner h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #555555;   /* subtle gray */
+  margin-top: 1.618rem;
+}
+
+/* Horizontal accent line below subheading */
+.hero-left-line {
+  width: 60px;
+  height: 2px;
+  background: #000000;
+  margin-top: 1rem;
+}
+
+/* =========================== */
+/* Right Column - Secondary Text */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 45%;
+  margin-left: auto;
+  text-align: right;
+  padding-bottom: 15vh;
+}
+
+.hero-right p {
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  color: #EAEAEAAA;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #444444;   /* soft dark gray */
   margin: 0;
+}
+
+/* =========================== */
+/* Responsive Adjustments */
+
+/* =========================== */
+/* Desktop: prevent h1/h2 wrapping */
+@media (min-width: 901px) {
+
+  .hero-left {
+    max-width: 100%;  /* allow full width for hero text */
+  }
+
+  .hero-left-inner h1 {
+    font-size: 5.5rem;      /* slightly reduced if needed */
+    line-height: 1.05;
+    white-space: nowrap;    /* prevent wrapping */
+  }
+
+  .hero-left-inner h2 {
+    font-size: 2rem;        /* slightly reduced if needed */
+    line-height: 1.2;
+    white-space: nowrap;    /* prevent wrapping */
+  }
+}
+
+
+/* Large tablets */
+@media (max-width: 1200px) {
+  .hero-left-inner h1 { font-size: 4.5rem; }
+  .hero-left-inner h2 { font-size: 1.75rem; }
+  .hero-right p { font-size: 1.1rem; }
+}
+
+/* Mobile devices */
+@media (max-width: 900px) {
+  #hero {
+    flex-direction: column;
+    height: 100vh;
+    padding: 5%;
+    text-align: center;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-left-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-left-inner h1 {
+    font-size: 5vh;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .hero-left-inner h2 {
+    font-size: 2.2vh;  /* reduced for mobile */
+    line-height: 1.2;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .hero-left-line {
+    width: 50px;
+    height: 2px;
+    margin: 1rem auto 0 auto;
+  }
+
+  /* Hide paragraph on mobile */
+  .hero-right {
+    display: none;
+  }
 }
