@@ -69,9 +69,12 @@ body.contact-page {
 }
 
 .contact-links {
+  display: flex;
+  justify-content: center; /* center the whole row */
+  gap: 2rem;               /* space between each item */
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 1rem 0;           /* optional vertical spacing */
 }
 
 .contact-links li {
@@ -79,6 +82,25 @@ body.contact-page {
   font-family: 'Sora', sans-serif;
   font-size: 1rem;
 }
+
+.contact-links li a {
+  display: flex;
+  align-items: center;      /* vertically center icon + text */
+  gap: 0.5rem;
+  color: #000;              /* black links by default */
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.contact-links li a i {
+  font-size: 1.2rem;        /* make icons a nice size */
+}
+
+.contact-links li a:hover i {
+  color: #444;        /* slightly lighter on hover */
+}
+
 
 /* =========================== */
 /* Contact Form Styling */
