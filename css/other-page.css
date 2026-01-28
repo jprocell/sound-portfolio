@@ -33,9 +33,11 @@ body.other-page {
 }
 
 #other-content p {
-  font-size: 1.2rem;        
-  color: #555;
-  line-height: 1.8;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 /* =========================== */
