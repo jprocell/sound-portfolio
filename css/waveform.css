@@ -22,18 +22,18 @@
   transform: translateY(0); /* slide up into view */
 }
 
-
+/* Match the modal / page color scheme */
 .wave-bar {
-  background-color: #4FC3F7;
+  background-color: #EEE; /* dark neutral to fit tabs/modal styling */
   width: 4px;
   height: 10%;
   transition: height 0.05s linear;
-  border-radius: 2px;
+  border-radius: 0; /* squared corners to match tabs/modal */
 }
 
 @keyframes wave {
-  0%, 100% { height: 10px; }
-  50% { height: 40px; }
+  0%, 100% { height: 10%; }
+  50% { height: 60%; } /* taller peak for visual pop */
 }
 
 /* Hide mini waveform on smaller screens to avoid overlap with single-column modals */
