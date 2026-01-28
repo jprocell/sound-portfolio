@@ -215,6 +215,7 @@ body.works-page {
   color: #333;
   margin-bottom: 1.5rem;
   text-align: left;
+  white-space: pre-line;
 }
 
 /* ===================== */
@@ -337,15 +338,32 @@ body.works-page {
 }
 
 /* ===================== */
-/* SoundCloud Boxes */
+/* SoundCloud Boxes – match audio/video boxes */
 .modal-soundcloud-box {
   background-color: #FFF;
   border: 1px solid #DDD;
-  border-radius: 0;
+  border-radius: 0; /* squared */
   padding: 1rem;
   margin-bottom: 1.5rem;
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space between label and description */
+}
+
+/* Label and body text inside SoundCloud boxes – match audio/video boxes */
+.modal-soundcloud-box .label {
+  font-weight: bold;
+  color: #222;   /* darker label */
+  font-size: 1rem;  /* match audio/video label size */
+  margin: 0;
+}
+
+.modal-soundcloud-box .desc {
+  font-size: 0.95rem;  /* match audio/video description */
+  color: #555;         /* slightly lighter */
+  margin: 0 0 0.75rem 0;
 }
 
 .modal-soundcloud-box p.label,
@@ -419,3 +437,4 @@ body.works-page {
     flex: 1 1 100%;
   }
 }
+
