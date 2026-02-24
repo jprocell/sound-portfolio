@@ -89,6 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
             `).join("")}
           </div>` : ""}
         `;
+        
+          // Add this after the audio/video/soundcloud sections
+          if (project.type === "text") {
+            const textDiv = document.createElement("div");
+            textDiv.className = "modal-text-box";
+            textDiv.innerHTML = `
+              ${project.content.body ? `<p class="label">${project.content.body}</p>` : ""}
+              ${project.content.link ? `<a href="${project.content.link.url}" target="_blank" rel="noopener" class="modal-external-link">${project.content.link.label}</a>` : ""}
+            `;
+            modalBody.appendChild(textDiv);
+          }
 
         // Initialize audio players
         const audioRows = modalBody.querySelectorAll(".modal-audio");

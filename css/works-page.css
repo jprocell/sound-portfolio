@@ -379,6 +379,42 @@ body.works-page {
 }
 
 /* ===================== */
+/* Text / External Link Boxes */
+.modal-text-box {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 0;       /* squared */
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-text-box .label {
+  font-family: 'Sora', sans-serif;
+  font-weight: bold;
+  color: #222;      /* match audio/video labels */
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modal-text-box .modal-external-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #222;           /* consistent dark text */
+  text-decoration: underline;
+  font-size: 0.95rem;
+  transition: opacity 0.15s ease;
+}
+
+.modal-text-box .modal-external-link:hover {
+  opacity: 0.7;
+}
+
+/* ===================== */
 /* Mini Floating Waveform */
 #mini-waveform {
   position: fixed;
