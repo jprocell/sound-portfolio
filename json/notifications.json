@@ -1,15 +1,15 @@
 {
     "title": "Notifications",
-    "description": "Building on the initial dive into Collision, this is a follow up exploring an implementation of the instrument. Various notification sounds were created for a cell phone scenario, accomplished with Collision, Operator, and Simpler. \n\nIn addition to further working with Collision, this was also a dive into understanding how we perceive certain sounds and what we have socially assoaicated them with. An emergency siren going off doesn't get perceived as 'Oh I got a calendar reminder'.",
+    "description": "Building on an initial dive into Collision, this project explores a practical application of the instrument. Various phone notification sounds were created using Collision, Operator, and Simpler. \n\nBeyond the sound design itself, it was an exercise in understanding how we perceive certain sounds and the associations we've built around them. An emergency siren isn't going to read as a calendar reminder, no matter how you tweak it.",
     "audio": [
       {
         "label": "Calendar",
-        "desc": "A calendar notification. For me, usually a reminder for a birthday or bills.",
+        "desc": "A calendar notification. For me, usually a birthday or a bill I forgot about.",
         "src": "audio-samples/sound-design/notifications/calendar.wav"
       },
       {
         "label": "Emergency",
-        "desc": "A siren warning meant for your immediate attention. Usually an AMBER alert in my case, but I remember getting one in Taiwan when they were testing their inbound missile strike alert.",
+        "desc": "A siren built for immediate attention. Usually an AMBER alert in my case, though I remember getting one in Taiwan when they were testing their inbound missile strike alert.",
         "src": "audio-samples/sound-design/notifications/emergency.wav"
       },
       {
@@ -19,7 +19,7 @@
       },
       {
         "label": "Ringtone",
-        "desc": "The standard ringtone you hear in your dreams or a movie. A bit more common with landlines now that I think about it...",
+        "desc": "The classic ringtone. More of a landline thing now that I think about it.",
         "src": "audio-samples/sound-design/notifications/ringtone.wav"
       },
       {
@@ -34,12 +34,12 @@
       },
       {
         "label": "Timer",
-        "desc": "A timer going off. Usually notifying me that my laundry or food in the oven is ready.",
+        "desc": "A timer going off. Mine usually means laundry or something in the oven.",
         "src": "audio-samples/sound-design/notifications/timer.wav"
       },
       {
         "label": "Wake Up Alarm",
-        "desc": "A gentle piano alarm. A low pass filter slowly opens up to make it a bit brighter without violently waking up the listener.",
+        "desc": "A gentle piano alarm. A low-pass filter slowly opens up over time, bringing in a bit more brightness without jolting the listener awake.",
         "src": "audio-samples/sound-design/notifications/wake-up.wav"
       }
     ]

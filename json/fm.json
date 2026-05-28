@@ -1,35 +1,35 @@
 {
     "title": "FM",
-    "description": "In this exercise, various FM patches were created using Ableton's Operator instrument, exploring different modulation indices and frequency ratios to achieve a range of timbres and textures for various instruments. The standard drums, lead, pad, and pluck were made alongside some additional fun stuff.",
+    "description": "An exploration of FM synthesis using Ableton's Operator, working through different modulation indices and frequency ratios to hit a range of timbres and textures. The usual instruments were covered: drums, lead, pad, pluck, alongside some extra stuff just for fun.",
     "audio": [
       {
         "label": "Mix",
-        "desc": "A short snippet was created using the instruments created in this project. A bit overly hectic and cluttered, but maybe that's what my intention was... (it wasn't).",
+        "desc": "A short snippet putting all the instruments together. A bit hectic and cluttered, but maybe that was the intention... (it wasn't).",
         "src": "audio-samples/synthesis/fm/hectic-mix.wav"
       },
       {
         "label": "Lead",
-        "desc": "Lead from the mix isolated. A aggressive and percussive voicing was achieved with velocity variation.",
+        "desc": "The lead isolated. An aggressive, percussive voicing with velocity variation driving the dynamics.",
         "src": "audio-samples/synthesis/fm/hectic-lead.wav"
       },
       {
         "label": "Drums",
-        "desc": "Drums from the mix isolated.",
+        "desc": "The drums isolated. Idk what else to specify, it's drums.",
         "src": "audio-samples/synthesis/fm/hectic-drums.wav"
       },
       {
         "label": "Bass",
-        "desc": "Bass from the mix isolated. I believe I wrote this tune in Phyrgian after drawing up the bass part if memory serves correct.",
+        "desc": "The bass isolated. If memory serves, I wrote the tune in Phrygian after sketching out the bass part first.",
         "src": "audio-samples/synthesis/fm/hectic-bass.wav"
       },
       {
         "label": "Layered Pad",
-        "desc": "Pad from the mix isolated. A constrasting pad composed of a swelling pad with a mallet strike on the attack.",
+        "desc": "The pad isolated. A contrasting layer built from a swelling pad with a mallet strike on the attack.",
         "src": "audio-samples/synthesis/fm/hectic-mallet-and-pad.wav"
       },
       {
         "label": "Bells",
-        "desc": "You can't do FM without creating bells. A sample I created, not quite suited for the mix above.",
+        "desc": "You can't do FM without making bells. Not quite suited for the mix above, but a good standalone sample.",
         "src": "audio-samples/synthesis/fm/bells.wav"
       },
       {

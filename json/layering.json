@@ -1,35 +1,35 @@
 {
     "title": "Layering",
-    "description": "An earlier exercise when I started diving into sound design, this was aimed to understand the three main types of layering: Cohesive, Complimentary, and Contrasting. These samples were done within Phaseplant using various oscillators or samples to create pads. While not overly flashy, understanding the methodology behind dissecting sounds can be applied to any instrument, part, or track.",
+    "description": "An early exercise when I started getting into sound design, focused on understanding the three main types of layering: Cohesive, Complementary, and Contrasting. Each pad was built in Phaseplant using various oscillators and samples. Nothing flashy, but the methodology behind breaking down and layering sounds applies to any instrument, part, or track.",
     "audio": [
       {
         "label": "Cohesive - 1",
-        "desc": "The first of two cohesive pads created.",
+        "desc": "The first of two cohesive pads.",
         "src": "audio-samples/synthesis/layering/cohesive-1.wav"
       },
       {
         "label": "Cohesive - 2",
-        "desc": "The second of two cohesive pads created.",
+        "desc": "The second of two cohesive pads.",
         "src": "audio-samples/synthesis/layering/cohesive-2.wav"
       },
       {
         "label": "Complimentary - 1",
-        "desc": "The first of two complimentary pads created.",
+        "desc": "The first of two complimentary pads.",
         "src": "audio-samples/synthesis/layering/complimentary-1.wav"
       },
       {
         "label": "Complimentary - 2",
-        "desc": "The second of two complimentary pads created.",
+        "desc": "The second of two complimentary pads.",
         "src": "audio-samples/synthesis/layering/complimentary-2.wav"
       },
       {
         "label": "Contrasting - 1",
-        "desc": "The first of two contrasting pads created.",
+        "desc": "The first of two contrasting pads.",
         "src": "audio-samples/synthesis/layering/contrasting-1.wav"
       },
       {
         "label": "Contrasting - 2",
-        "desc": "The second of two contrasting pads created.",
+        "desc": "The second of two contrasting pads.",
         "src": "audio-samples/synthesis/layering/contrasting-2.wav"
       }
     ]

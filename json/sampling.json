@@ -1,6 +1,6 @@
 {
     "title": "Sampling",
-    "description": "A Synthesis II class assignment where we were provided a 30 second sample of cows mooing. We were tasked with creating various instruments using this sample and Ableton's Simpler instrument. While not all sounds were pristine, the project was an exercise of scrubbing a sample and dissecting each individual instrument's sound while manipulating sampling, envelope, and filter parameters.",
+    "description": "A Synthesis II assignment. We were given a 30-second recording of cows mooing and tasked with building a full set of instruments from it using Ableton's Simpler instrument. Not every sound came out pristine, but the exercise was more about learning to scrub a sample, isolate its character, and shape it into something new through envelope, filter, and sampling parameters.",
     "audio": [
         {
         "label": "Original Sample",

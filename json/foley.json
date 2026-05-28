@@ -1,15 +1,15 @@
 {
     "title": "Foley",
-    "description": "Foley, per the Merriam-Webster dictionary, is defined as sound effects created for a film. This was an exercise at using Ableton's instrumentation to create sounds that mimic the world around us. With Operator, various FM and noise tricks were applied to create life-like soundscapes. This exercise provided a means to synthesize field recordings, in the case I can't go outside and record something cause I'm feeling lazy or have allergies or some other ex.",
+    "description": "Foley is the art of creating sound effects for film. This was an exercise in using Ableton's instrumentation to synthesize sounds from the world around us, built entirely in Operator using FM and noise techniques. The practical upside is having a way to recreate field recordings without actually going outside. Useful when I'm feeling lazy, dealing with allergies, or thinking of another excuse.",
     "audio": [
       {
         "label": "Summer Evening",
-        "desc": "Evening sounds with crickets, cicadas, and frogs singing as a bottle rocket is ignited into the sky.",
+        "desc": "Crickets, cicadas, and frogs doing their thing while a bottle rocket goes up in the distance.",
         "src": "audio-samples/sound-design/foley/summer-evening.wav"
       },
       {
         "label": "Thunderstorm",
-        "desc": "Heavy sheets of rain, droplets, and roaring thunder.",
+        "desc": "Heavy sheets of rain, individual droplets, and rolling thunder.",
         "src": "audio-samples/sound-design/foley/thunderstorm.wav"
       }
     ],
@@ -18,13 +18,13 @@
         "type": "youtube",
         "id": "c9ZqCr-FxQc",
         "label": "Summer Evening Ableton Project",
-        "caption": "Recording of my Ableton project with the Summer Evening soundscape playing. Views of each synthesizer track are shown."
+        "caption": "A look at the Ableton session with the Summer Evening soundscape running. Each synthesizer track is shown individually."
       },
       {
         "type": "youtube",
         "id": "8fhPtL8F3Y4",
         "label": "Thunderstorm Ableton Project",
-        "caption": "Recording of my Ableton project with the Thunderstorm soundscape playing. Views of each synthesizer track are shown. The LFOs on the droplets are applied to give a random on/off status for each to help add to the randomness of rain."
+        "caption": "A look at the Ableton session with the Thunderstorm soundscape running. Each synthesizer track is shown individually. The LFOs on the droplet tracks are randomizing their on/off state to keep the rain feeling unpredictable."
       }
     ]
 }
