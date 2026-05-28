@@ -1,10 +1,10 @@
 {
     "title": "Generative",
-    "description": "An exercise in manipulating MIDI messaging. Using only one MIDI source, messaging was sent to multiple other tracks with cascaded arpeggiators of different note lengths and extensions. This hierarchy and structure results in one MIDI message, a chord for example, triggering multiple devices at different intervals, lengths, and chords. In addition to the structure, two hooks were created with automation applied to modify the sound. This is intended to resemble a sound design display where various sensors would modify these parameters in real time. \n\nI ultimately ended up creating a dark ambient sounding group, with that I felt  dissociative and anxiety inducing parameters were appropriate. With that, I felt a dissociative feeling could be felt by introducing noise that drowns out the original tracks. Anxiety was implemented by increaing delay repetitions to the active parts within the MIDI structure with changing stereo panning to cause rapid, accelerating parts to hop all around the listener.",
+    "description": "An exercise in MIDI manipulation. A single MIDI source routes messages to multiple tracks, each with cascaded arpeggiators running at different note lengths and extensions. The result is one input, a single chord, triggering a whole hierarchy of devices at different intervals, lengths, and voicings. On top of the structure, two hooks were created with automation applied to shape the sound over time, intended to mimic a sound design installation where sensors modify parameters in real time. \n\nThe project ended up in dark ambient territory, so I leaned into that. Dissociation was introduced by layering in noise that gradually drowns out the original tracks. Anxiety came through by increasing delay repetitions on the active MIDI parts while shifting stereo panning to send accelerating elements bouncing around the listener.",
     "audio": [
       {
         "label": "Generative Sample",
-        "desc": "Rendered sample of the generative project. A single chord is sustained while automation is applied through the course of the recording.",
+        "desc": "A rendered recording of the project. A single chord is held while automation runs its course across the full track.",
         "src": "audio-samples/sound-design/generative/generative.wav"
       }
     ],
@@ -13,7 +13,7 @@
         "type": "youtube",
         "id": "GrA5IOfBCVk",
         "label": "Generative Ableton Project",
-        "caption": "Recording of my Ableton project with the Generative project. Viewing the timeline, you can see only one MIDI chord is sustained during the entire playback time. A breakdown of the individual instruments shows the MIDI manipulation done via the arpeggiators. Lastly, the automation is shown to mimic sensor data modifying the collective sound."
+        "caption": "A look at the Ableton session. The timeline shows only one MIDI chord sustained throughout the entire playback. The individual instruments reveal how the arpeggiators handle all the MIDI manipulation, and the automation lanes show how the parameters shift to mimic incoming sensor data."
       }
     ]
 }
