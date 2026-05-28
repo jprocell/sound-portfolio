@@ -1,20 +1,20 @@
 {
     "title": "Analog Drums",
-    "description": "In this exercise, I synthesized common drum sounds using analog methods of synthesis. All sounds were created in Phaseplant using an oscillator, or multiple, alongside basic filtering and envelope manipulation. These techniques model sounds similar to that found in hardware such as an 808 (minus the non-ideal characteristics circuit hardware introduces that we have come to appreciate).",
+    "description": "An exercise in synthesizing common drum sounds using analog methods, all built in Phaseplant with oscillators, basic filtering, and envelope manipulation. The techniques mirror what you'd find in hardware like an 808, minus the non-ideal circuit characteristics that we've all come to love.",
     "audio": [
       {
         "label": "Latin Groove",
-        "desc": "A drum groove using instrumentation that could be labeled as 'Aux Percussion'. Think toms, congas, rim hits, shakers, etc.",
+        "desc": "A drum groove built around aux percussion. Toms, congas, rim hits, shakers, that sort of thing.",
         "src": "audio-samples/synthesis/analog-drums/latin-groove.wav"
       },
       {
         "label": "Drum Kit",
-        "desc": "A standard drum groove. Uses your traditional drum kit instruments like kick, snare, HH, etc.",
+        "desc": "A standard groove using traditional kit instruments. Kick, snare, hi-hats, the usual.",
         "src": "audio-samples/synthesis/analog-drums/drum-kit.wav"
       },
       {
         "label": "Mixed Groove",
-        "desc": "Another drum groove that has a mix of instruments from the two snippets shown above.",
+        "desc": "A groove pulling from both sets of instruments above.",
         "src": "audio-samples/synthesis/analog-drums/mixed-groove.wav"
       }
     ]
