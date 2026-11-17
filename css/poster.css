@@ -75,7 +75,6 @@ body.contact-page main h1.display {
 .page-sub { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 2rem; }
 
 /* inner content stays readable-width; titles and left edge do not move between pages */
-#bio-content, #other-content, .notes-field, #contact-info { max-width: 64rem; }
 
 body.poster .bio-text p,
 body.poster .blog-entry p,

@@ -10,7 +10,11 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 
 /* The collage: hard-cut shards of public-domain prints, run through a xerox filter */
 .collage { position: absolute; inset: 0; margin: 0; }
-.piece { position: absolute; }
+.piece {
+  position: absolute;
+  mix-blend-mode: multiply;           /* blend the whole torn piece into the paper */
+  filter: var(--tear, url(#torn-soft));
+}
 .piece img {
   display: block;
   width: 100%;
@@ -18,13 +22,13 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   object-fit: cover;
   object-position: var(--pos, 50% 50%);
   clip-path: var(--clip);
-  mix-blend-mode: multiply;
   filter: url(#xerox);
 }
 /* lighter-inked prints need a higher threshold or their lines vanish */
 .p-organ img, .p-eyes img { filter: url(#xerox-light); }
 /* dense engravings turn to mush under a hard threshold, so they get the soft version */
-.p-machine img, .p-academy img, .p-horse img { filter: url(#xerox-soft); }
+.p-machine img, .p-academy img { filter: url(#xerox-mid); }
+.p-horse img { filter: url(#xerox-soft); }
 
 /* photocopier streaks and dirty edges */
 .piece::after {
@@ -147,3 +151,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   #art-credit .cl-4, #art-credit .cl-5, #art-credit .cl-6 { display: none; }
   .hero-right { display: none; }
 }
+
+/* edge character: heavy tear on some, light on others */
+.p-organ, .p-eyes, .p-horse { --tear: url(#torn); }
+.p-academy, .p-machine, .p-figure { --tear: url(#torn-soft); }

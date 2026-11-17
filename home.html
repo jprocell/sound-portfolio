@@ -40,6 +40,19 @@
         <feFuncB type="linear" slope="2.3" intercept="-0.42"/>
       </feComponentTransfer>
     </filter>
+    <filter id="xerox-mid" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="2" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.3" k4="-0.15" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="3.6" intercept="-1.0"/>
+        <feFuncG type="linear" slope="3.6" intercept="-1.0"/>
+        <feFuncB type="linear" slope="3.6" intercept="-1.0"/>
+      </feComponentTransfer>
+    </filter>
     <filter id="xerox-light" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
       <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" xChannelSelector="R" yChannelSelector="G" result="rough"/>
@@ -52,6 +65,22 @@
         <feFuncG type="linear" slope="5" intercept="-2.35"/>
         <feFuncB type="linear" slope="5" intercept="-2.35"/>
       </feComponentTransfer>
+    </filter>
+      <filter id="torn" x="-10%" y="-12%" width="120%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="3" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="8" result="fiber"/>
+      <feDisplacementMap in="SourceAlpha" in2="shape" scale="14" xChannelSelector="R" yChannelSelector="G" result="a1"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="5" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="5" intercept="-2"/></feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="a3" operator="in"/>
+    </filter>
+    <filter id="torn-soft" x="-10%" y="-12%" width="120%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="6" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="12" result="fiber"/>
+      <feDisplacementMap in="SourceAlpha" in2="shape" scale="5" xChannelSelector="R" yChannelSelector="G" result="a1"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="2" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="5" intercept="-2"/></feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="a3" operator="in"/>
     </filter>
   </svg>
 
