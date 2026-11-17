@@ -127,6 +127,17 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   white-space: nowrap;
 }
 
+/* halftone patch: dot size swells downward until the dots merge into the horizontal rule */
+.halftone {
+  position: absolute;
+  left: 83%; top: 15.5%;
+  width: 6.5%;
+  aspect-ratio: 40 / 100;
+  filter: url(#torn-soft);
+  pointer-events: none;
+}
+.halftone svg { display: block; width: 100%; height: 100%; fill: var(--ink); overflow: hidden; }
+
 .blk {
   position: absolute;
   left: 5%; top: 25%; width: 19%;
@@ -195,7 +206,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .p-organ   { left: 20%; top: 24%; width: 58%; }
   .p-academy { right: 2%; top: 54%; width: 36%; }
   .p-machine { left: 2%;  top: 48%; width: 38%; }
-  .p-horse, .p-eyes, .p-figure, .blk, .barcode, .l-v, .l-v2, .l-diag2, .ticks, .mark { display: none; }
+  .p-horse, .p-eyes, .p-figure, .blk, .barcode, .halftone, .l-v, .l-v2, .l-diag2, .ticks, .mark { display: none; }
   .hero-left-inner h1 { font-size: 17.5vw; }
   .reg { display: none; }
   #clock { display: none; }
