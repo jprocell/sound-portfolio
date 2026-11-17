@@ -8,22 +8,31 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   overflow: hidden;
 }
 
-/* The engraving: large, multiplied into the paper */
-.plate {
-  position: absolute;
-  inset: 4rem 0 3.5rem 18vw;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.plate img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+/* The collage: public-domain prints, multiplied into the paper */
+.collage { position: absolute; inset: 0; margin: 0; }
+.piece { position: absolute; }
+.piece img {
+  display: block;
+  width: 100%;
+  height: auto;
   mix-blend-mode: multiply;
   filter: grayscale(1) contrast(1.15);
 }
+.piece .n {
+  position: absolute;
+  top: -0.9em; left: 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+/* positions are % of the hero so the composition scales with the window */
+.p-organ   { left: 30%; top: 6%;  width: 25%; transform: rotate(-1deg); }
+.p-drum    { left: 56%; top: 2%;  width: 11%; transform: rotate(5deg); }
+.p-skull   { right: 4%; top: 15%; width: 22%; transform: rotate(4deg); }
+.p-machine { left: 6%;  top: 30%; width: 22%; transform: rotate(-3deg); }
+.p-hands   { right: 16%; top: 52%; width: 24%; transform: rotate(-2deg); }
+.p-figure  { right: 2%; top: 56%; width: 11%; transform: rotate(3deg); }
 
 /* Name: cropped by the bottom-left edge */
 .hero-left { position: absolute; left: 0; bottom: 0; width: 100%; pointer-events: none; }
@@ -46,31 +55,40 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   margin: 0;
   max-width: 20rem;
 }
-.hero-left-inner h2 { top: 0; left: var(--gutter); transform: translateY(-4.5rem); }
+.hero-left-inner h2 { position: fixed; top: 9.75rem; left: var(--gutter); z-index: 4; }
 .hero-right { position: absolute; right: var(--gutter); top: 4.5rem; text-align: right; }
 .hero-right p { position: static; }
 .hero-left-line { display: none; }
 
 /* Footer row: clock bottom-left, credit bottom-right */
 .corner { position: fixed; bottom: 0.9rem; z-index: 4; font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; }
-#clock { right: var(--gutter); bottom: auto; top: 9rem; text-align: right; }
+#clock { left: var(--gutter); bottom: auto; top: 11.25rem; }
 #art-credit {
   right: var(--gutter);
   bottom: 1.1rem;
-  max-width: min(26rem, 60vw);
+  line-height: 1.35;
+  max-width: min(30rem, 72vw);
   text-align: right;
   color: var(--ink);
-  background: var(--bg);
+  background: rgba(217, 214, 207, 0.9);
   padding: 0.25rem 0.4rem;
+  font-size: 0.65rem;
   display: none;          /* shown by js once the image loads */
 }
 #art-credit.show { display: block; }
+#art-credit .cl { display: block; }
 #art-credit a { color: inherit; }
 
 @media (max-width: 700px) {
-  .plate { inset: 7rem 0 4rem 0; }
-  .hero-left-inner h1 { font-size: 24vw; }
+  .p-organ   { left: 22%; top: 24%; width: 56%; }
+  .p-skull   { right: 2%; top: 52%; width: 36%; }
+  .p-machine { left: 2%;  top: 46%; width: 38%; }
+  .p-drum, .p-hands, .p-figure { display: none; }
+  .hero-left-inner h1 { font-size: 20.5vw; }
   .reg { display: none; }
   #clock { display: none; }
+  .hero-left-inner h2 { top: 6.5rem; }
+  #art-credit { left: var(--gutter); right: var(--gutter); bottom: 36vw; max-width: none; text-align: left; font-size: 0.58rem; background: none; padding: 0; }
+  #art-credit .cl-4, #art-credit .cl-5, #art-credit .cl-6 { display: none; }
   .hero-right { display: none; }
 }

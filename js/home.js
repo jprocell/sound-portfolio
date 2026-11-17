@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(tick, 1000);
   }
 
-  const img = document.querySelector(".plate img");
+  const img = document.querySelector(".collage .p-organ img");
   const credit = document.getElementById("art-credit");
   if (img && credit) {
     const reveal = () => credit.classList.add("show");
     if (img.complete && img.naturalWidth) reveal();
     else img.addEventListener("load", reveal);
-    img.addEventListener("error", () => { img.remove(); });
+    img.addEventListener("error", () => { img.parentElement.remove(); });
   }
 });
