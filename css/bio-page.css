@@ -126,9 +126,15 @@ body.bio-page { overflow-x: clip; }
 .wave {
   position: absolute;
   right: -3.2rem; bottom: 100%;
-  width: 22.4rem; height: 8.2rem;
+  width: 22.4rem; height: 12.6rem;
   fill: var(--ink);
   filter: url(#rough-ink);
   pointer-events: none;
+}
+/* the same bars flipped about the rule, short and faint, like a reflection */
+.wave.refl {
+  transform: scaleY(-0.17);
+  transform-origin: bottom;
+  opacity: 0.4;
 }
 @media (max-width: 1299px) { .wave { display: none; } }

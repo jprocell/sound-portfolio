@@ -13,16 +13,31 @@
   <script src="js/mini-waveform.js" defer></script>
 </head>
 <body class="works-page poster">
-  <!-- rough ink: wobbles line work slightly and drops out a few specks, so thin strokes look photocopied -->
+  <!-- the same torn-edge and xerox filters as the home page prints -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <filter id="rough-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="wob"/>
-      <feDisplacementMap in="SourceGraphic" in2="wob" scale="2" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="23" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 8.1" result="keep"/>
-      <feComposite in="d" in2="keep" operator="in"/>
+    <filter id="xerox" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="3" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.38" k4="-0.19" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncG type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncB type="linear" slope="4.5" intercept="-1.4"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="torn" x="-10%" y="-14%" width="120%" height="128%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="3" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.13" numOctaves="2" seed="8" result="fiber"/>
+      <feDisplacementMap in="SourceAlpha" in2="shape" scale="30" xChannelSelector="R" yChannelSelector="G" result="a1"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="8" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="a3" operator="in"/>
     </filter>
   </svg>
+
 
 
   <i class="reg tr" aria-hidden="true">+</i>
@@ -43,16 +58,9 @@
     <section id="works-content">
       <h1 class="display">Works <span class="count">(13)</span></h1>
       <p>Noises I've made, solo and with others.</p>
-      <!-- film leader: the countdown frame from the head of a reel -->
-      <svg class="leader" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-        <path class="sweep" d="M100 100 L100 12 A88 88 0 0 1 188 100 Z"/>
-        <circle cx="100" cy="100" r="88" fill="none"/>
-        <circle cx="100" cy="100" r="74" fill="none"/>
-        <circle cx="100" cy="100" r="46" fill="none"/>
-        <line x1="0" y1="100" x2="200" y2="100"/>
-        <line x1="100" y1="0" x2="100" y2="200"/>
-        <text x="100" y="125" text-anchor="middle" class="num">8</text>
-      </svg>
+      <!-- film leader: a countdown frame printed on a torn photocopied sheet, like the prints on the home page -->
+      <div class="leader-sheet" aria-hidden="true"><div class="lsheet"><svg viewBox="0 0 220 166" aria-hidden="true" focusable="false"><rect class="ground" width="220" height="166" fill="#fff"/><path class="sweep" d="M110 83 L110 17 A66 66 0 0 1 176 83 Z"/><circle class="ring1" cx="110" cy="83" r="66"/><circle class="ring2" cx="110" cy="83" r="52"/><line class="cross" x1="0" y1="83" x2="220" y2="83"/><line class="cross" x1="110" y1="0" x2="110" y2="166"/><line class="tick" x1="179.0" y1="83.0" x2="185.0" y2="83.0"/><line class="tick" x1="178.0" y1="71.0" x2="180.9" y2="70.5"/><line class="tick" x1="174.8" y1="59.4" x2="177.7" y2="58.4"/><line class="tick" x1="169.8" y1="48.5" x2="175.0" y2="45.5"/><line class="tick" x1="162.9" y1="38.6" x2="165.2" y2="36.7"/><line class="tick" x1="154.4" y1="30.1" x2="156.3" y2="27.8"/><line class="tick" x1="144.5" y1="23.2" x2="147.5" y2="18.0"/><line class="tick" x1="133.6" y1="18.2" x2="134.6" y2="15.3"/><line class="tick" x1="122.0" y1="15.0" x2="122.5" y2="12.1"/><line class="tick" x1="110.0" y1="14.0" x2="110.0" y2="8.0"/><line class="tick" x1="98.0" y1="15.0" x2="97.5" y2="12.1"/><line class="tick" x1="86.4" y1="18.2" x2="85.4" y2="15.3"/><line class="tick" x1="75.5" y1="23.2" x2="72.5" y2="18.0"/><line class="tick" x1="65.6" y1="30.1" x2="63.7" y2="27.8"/><line class="tick" x1="57.1" y1="38.6" x2="54.8" y2="36.7"/><line class="tick" x1="50.2" y1="48.5" x2="45.0" y2="45.5"/><line class="tick" x1="45.2" y1="59.4" x2="42.3" y2="58.4"/><line class="tick" x1="42.0" y1="71.0" x2="39.1" y2="70.5"/><line class="tick" x1="41.0" y1="83.0" x2="35.0" y2="83.0"/><line class="tick" x1="42.0" y1="95.0" x2="39.1" y2="95.5"/><line class="tick" x1="45.2" y1="106.6" x2="42.3" y2="107.6"/><line class="tick" x1="50.2" y1="117.5" x2="45.0" y2="120.5"/><line class="tick" x1="57.1" y1="127.4" x2="54.8" y2="129.3"/><line class="tick" x1="65.6" y1="135.9" x2="63.7" y2="138.2"/><line class="tick" x1="75.5" y1="142.8" x2="72.5" y2="148.0"/><line class="tick" x1="86.4" y1="147.8" x2="85.4" y2="150.7"/><line class="tick" x1="98.0" y1="151.0" x2="97.5" y2="153.9"/><line class="tick" x1="110.0" y1="152.0" x2="110.0" y2="158.0"/><line class="tick" x1="122.0" y1="151.0" x2="122.5" y2="153.9"/><line class="tick" x1="133.6" y1="147.8" x2="134.6" y2="150.7"/><line class="tick" x1="144.5" y1="142.8" x2="147.5" y2="148.0"/><line class="tick" x1="154.4" y1="135.9" x2="156.3" y2="138.2"/><line class="tick" x1="162.9" y1="127.4" x2="165.2" y2="129.3"/><line class="tick" x1="169.8" y1="117.5" x2="175.0" y2="120.5"/><line class="tick" x1="174.8" y1="106.6" x2="177.7" y2="107.6"/><line class="tick" x1="178.0" y1="95.0" x2="180.9" y2="95.5"/><text class="num-bg" x="110" y="119" text-anchor="middle">8</text><text class="num" x="110" y="119" text-anchor="middle">8</text></svg></div></div>
+
 
     </section>
 

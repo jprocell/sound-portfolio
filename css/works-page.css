@@ -232,20 +232,30 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .modal-head { position: static; }
 }
 
-/* film leader: countdown frame from the head of a reel, cropped by the right edge of the page */
+/* film leader: a countdown frame, xeroxed onto a torn sheet and cropped by the right edge of the page */
 body.works-page { overflow-x: clip; }
 #works-content { position: relative; }
-.leader {
+.leader-sheet {
   position: absolute;
-  right: -9rem; top: -0.5rem;
-  width: 20rem; height: 20rem;
-  stroke: var(--ink); stroke-width: 1.1; fill: none;
-  filter: url(#rough-ink);
+  right: -7rem; top: -0.8rem;
+  width: 22rem;
+  filter: url(#torn);
   pointer-events: none;
 }
-.leader .sweep { fill: var(--ink); stroke: none; opacity: 0.3; }
-.leader .num {
-  font-family: var(--sans); font-weight: 900; font-stretch: 112%;
-  font-size: 96px; fill: none; stroke: var(--ink); stroke-width: 1.8;
+.lsheet {
+  background-color: #e0ddd5;
+  background-image: var(--grain);
 }
-@media (max-width: 1000px) { .leader { display: none; } }
+.lsheet svg {
+  display: block; width: 100%; height: auto;
+  mix-blend-mode: multiply;
+  filter: url(#xerox);
+}
+.lsheet .sweep  { fill: #1a1a18; }
+.lsheet .ring1  { fill: none; stroke: #1a1a18; stroke-width: 6; }
+.lsheet .ring2  { fill: none; stroke: #1a1a18; stroke-width: 2.4; }
+.lsheet .cross  { stroke: #1a1a18; stroke-width: 2.6; }
+.lsheet .tick   { stroke: #1a1a18; stroke-width: 2; }
+.lsheet .num-bg { font-family: var(--sans); font-weight: 900; font-stretch: 112%; font-size: 118px; fill: #fff; stroke: #fff; stroke-width: 10; paint-order: stroke; }
+.lsheet .num    { font-family: var(--sans); font-weight: 900; font-stretch: 112%; font-size: 118px; fill: #1a1a18; }
+@media (max-width: 1000px) { .leader-sheet { display: none; } }
