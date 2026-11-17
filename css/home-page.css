@@ -18,7 +18,8 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 }
 .sheet {
   position: relative;
-  background: #e7e4dc;
+  background-color: #e0ddd5;
+  background-image: var(--grain);
   clip-path: var(--clip);
 }
 .sheet img {
