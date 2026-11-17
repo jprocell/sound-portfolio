@@ -117,22 +117,13 @@ body.bio-page .nav-bar.on-dark li a { color: var(--bg); }
 body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(--ink); }
 
 
-
-/* piano roll fragment (a MIDI editor view): keyboard strip, grid, note bars; it runs off the right edge of the page */
-body.bio-page { overflow-x: clip; }
-#bio-content { position: relative; }
-.roll {
-  position: absolute;
-  right: -3.4rem; top: 0.9rem;
-  width: 19.5rem; height: auto;
-  filter: url(#rough-ink);
+/* the dark band and spill from a photocopier lid, draped diagonally across the top-right corner of the page */
+.lid-corner {
+  position: absolute; z-index: 2;
+  top: 0; right: 0;
+  width: 22rem; height: 22rem;
+  background: linear-gradient(45deg, transparent 56%, rgba(15, 15, 14, 0.5) 62%, var(--ink) 68% 78%, rgba(15, 15, 14, 0.55) 84%, transparent 90%);
+  clip-path: polygon(55.0% 0.0%, 60.8% 4.2%, 66.5% 8.5%, 71.9% 13.1%, 77.8% 17.2%, 81.5% 23.5%, 87.7% 27.3%, 87.0% 38.0%, 94.8% 40.2%, 100.0% 45.0%, 100.0% 66.0%, 97.2% 56.8%, 89.1% 52.9%, 84.9% 45.1%, 73.2% 44.8%, 69.8% 36.2%, 62.2% 31.8%, 58.3% 23.7%, 52.5% 17.5%, 42.5% 15.5%, 38.0% 8.0%, 34.0% 0.0%);
   pointer-events: none;
 }
-.roll .g   { stroke: var(--ink); stroke-opacity: 0.28; stroke-width: 0.5; }
-.roll .bar { stroke-opacity: 0.6; stroke-width: 0.7; }
-.roll .shade { fill: var(--ink); fill-opacity: 0.08; }
-.roll .key { fill: none; stroke: var(--ink); stroke-width: 0.8; }
-.roll .bk  { fill: var(--ink); }
-.roll .n   { fill: var(--ink); }
-.roll .no  { fill: none; stroke: var(--ink); stroke-width: 1; }
-@media (max-width: 1299px) { .roll { display: none; } }
+@media (max-width: 800px) { .lid-corner { width: 11rem; height: 11rem; } }
