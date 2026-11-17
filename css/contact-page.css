@@ -8,15 +8,6 @@
   align-items: start;
 }
 
-/* the title stays on one line: its size follows the width available beside the nav ("GET IN TOUCH" is about 8.3em wide) */
-body.contact-page main h1.display {
-  white-space: nowrap;
-  font-size: min(12rem, calc((100vw - 6rem) / 8.4));
-}
-@media (min-width: 1100px) {
-  body.contact-page main h1.display { font-size: min(12rem, calc((100vw - 17rem) / 8.4)); }
-}
-
 #contact-info header { grid-column: 1 / -1; position: relative; padding-bottom: 1rem; }
 #contact-info header p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 0.2rem; max-width: 26rem; position: relative; z-index: 1; }
 

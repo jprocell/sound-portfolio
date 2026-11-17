@@ -37,14 +37,28 @@
 #audio .bio-media { order: 2; }
 #audio .bio-media img { max-height: 16rem; clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); }
 
-/* Tool list as chips */
-.bio-list, .bio-list.two-col { list-style: none; margin: 0 0 1.75rem; padding: 0; columns: auto; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.bio-list li {
-  border: 1px solid var(--ink);
-  padding: 0.12rem 0.55rem;
-  font-family: var(--mono); font-size: 0.74rem; text-transform: lowercase;
+/* My Gear: clickable tabs, one panel per category */
+.gear { margin: 0 0 2rem; }
+.gear-title {
+  margin: 0; font-weight: 900; font-stretch: 108%; text-transform: uppercase; letter-spacing: -0.02em;
+  font-size: 1.35rem; padding: 0.4rem 0; border-bottom: 2px solid var(--ink);
 }
-.bio-list li:nth-child(5n + 2) { background: var(--ink); color: var(--bg); }
+.gear-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.9rem 0 1rem; }
+.gear-tabs button {
+  appearance: none; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--ink); background: transparent; color: inherit;
+  padding: 0.25rem 0.7rem;
+  font-family: var(--mono); font-size: 0.74rem; text-transform: lowercase; letter-spacing: 0.02em;
+}
+.gear-tabs button:hover { background: rgba(15,15,14,0.12); }
+.gear-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.gear-tabs button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.gear-panel[hidden] { display: none; }
+.gear-items { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: 2.5rem; }
+.gear-items li {
+  break-inside: avoid; padding: 0.55rem 0; border-bottom: 1px solid var(--ink);
+  font-size: 0.98rem; line-height: 1.35;
+}
 
 /* Dropdowns: always open, laid out as ruled tables */
 .bio-dropdown { margin: 0 0 2rem; }
@@ -69,10 +83,17 @@
 .dropdown-content > ul > li > ul li { padding: 0.12rem 0; }
 .dropdown-content ul ul ul { padding-left: 1rem; }
 
-/* History: years as big outlined numerals */
+/* History: era names as big outlined words, with the dates in small mono beneath */
 .bio-dropdown.years .dropdown-content > ul > li {
-  font-size: 2.6rem; line-height: 0.9; letter-spacing: -0.04em;
+  grid-template-columns: 13.5rem 1fr;
+  font-size: 2rem; line-height: 0.95; letter-spacing: -0.03em;
   color: transparent; -webkit-text-stroke: 1.2px var(--ink);
+}
+.bio-dropdown.years .era { display: block; }
+.bio-dropdown.years .when {
+  display: block; margin-top: 0.5rem;
+  font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; line-height: 1.2;
+  -webkit-text-stroke: 0; color: var(--ink);
 }
 .bio-dropdown.years .dropdown-content > ul > li > ul { -webkit-text-stroke: 0; color: var(--ink); }
 
@@ -90,12 +111,14 @@
 #audio ::selection { background: var(--bg); color: var(--ink); }
 #audio > h2 .num { -webkit-text-stroke-color: var(--bg); }
 #audio .bio-media img { filter: url(#xerox) invert(1); mix-blend-mode: screen; }
-#audio .bio-list li { border-color: var(--bg); }
-#audio .bio-list li:nth-child(5n + 2) { background: var(--bg); color: var(--ink); }
-#audio .bio-dropdown summary { border-bottom-color: var(--bg); }
+#audio .bio-dropdown summary, #audio .gear-title { border-bottom-color: var(--bg); }
+#audio .gear-tabs button { border-color: var(--bg); }
+#audio .gear-tabs button:hover { background: rgba(217,214,207,0.16); }
+#audio .gear-tabs button[aria-selected="true"] { background: var(--bg); color: var(--ink); }
+#audio .gear-items li { border-bottom-color: var(--bg); }
 #audio .dropdown-content > ul > li { border-bottom-color: var(--bg); }
 #audio .bio-dropdown.years .dropdown-content > ul > li { -webkit-text-stroke-color: var(--bg); }
-#audio .bio-dropdown.years .dropdown-content > ul > li > ul { color: var(--bg); }
+#audio .bio-dropdown.years .dropdown-content > ul > li > ul, #audio .bio-dropdown.years .when { color: var(--bg); }
 #audio a { color: var(--bg); }
 #engineering { border-top: 2px solid var(--ink); }
 
@@ -108,7 +131,7 @@
   .bio-media { flex-direction: column; }
   .bio-media img:nth-child(2) { margin-top: 0; }
   .dropdown-content > ul > li, .bio-dropdown.jobs .dropdown-content > ul > li { grid-template-columns: 1fr; gap: 0.3rem; }
-  .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; }
+  .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; grid-template-columns: 1fr; }
 }
 
 /* Nav stays readable over the dark slab: js/bio.js adds .on-dark while the nav overlaps it */
@@ -128,8 +151,7 @@ body.bio-page { overflow-x: clip; }
   --h: calc(var(--F) * 0.71);            /* cap height of ABOUT */
   --cap: 1.3rem;                         /* caption band at the top of the figure */
   position: absolute;
-  /* left edge of the right-hand column below, but never closer than 5rem to the T on narrower windows */
-  left: max(calc(14rem + (100% - 14rem) / 2 + 0.625rem), calc(4.1 * var(--F) + 5rem));
+  left: calc(14rem + (100% - 14rem) / 2 + 0.625rem);  /* left edge of the right-hand column below */
   right: 0;                              /* end of the rule */
   bottom: calc(100% + var(--F) * 0.44);  /* title baseline, not the rule */
   height: var(--h); padding-top: var(--cap); box-sizing: border-box;
