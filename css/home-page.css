@@ -10,18 +10,24 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 
 /* The collage: hard-cut shards of public-domain prints, run through a xerox filter */
 .collage { position: absolute; inset: 0; margin: 0; }
+/* Each print is a sheet of opaque paper: a piece on top hides what is under it. The tear filter roughens the
+   sheet's edge, and a soft cast shadow sells the layering. */
 .piece {
   position: absolute;
-  mix-blend-mode: multiply;           /* blend the whole torn piece into the paper */
-  filter: var(--tear, url(#torn-soft));
+  filter: var(--tear, url(#torn-soft)) drop-shadow(1px 2px 2px rgba(15, 15, 14, 0.3));
 }
-.piece img {
+.sheet {
+  position: relative;
+  background: #e7e4dc;
+  clip-path: var(--clip);
+}
+.sheet img {
   display: block;
   width: 100%;
   aspect-ratio: var(--ar, 1);
   object-fit: cover;
   object-position: var(--pos, 50% 50%);
-  clip-path: var(--clip);
+  mix-blend-mode: multiply;           /* ink multiplies into the sheet, not the page */
   filter: url(#xerox);
 }
 /* lighter-inked prints need a higher threshold or their lines vanish */
@@ -30,11 +36,10 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 .p-machine img, .p-academy img, .p-horse img { filter: url(#xerox-mid); }
 
 /* photocopier streaks and dirty edges */
-.piece::after {
+.sheet::after {
   content: "";
   position: absolute;
   inset: 0;
-  clip-path: var(--clip);
   pointer-events: none;
   mix-blend-mode: multiply;
   background:

@@ -26,9 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const soundcloud = project.soundcloud || [];
 
         // Build modal content
+        // Small mono line above the title, taken from the row that was clicked
+        const cell = sel => card.querySelector(sel)?.textContent.trim() || "";
+        const meta = [cell(".p-num"), cell(".p-cat"), cell(".p-year")].filter(Boolean).join(" / ");
+
         modalBody.innerHTML = `
+          <p class="modal-meta">${meta}</p>
           <h2>${project.title}</h2>
-          <p class="project-description">${project.description}</p>
+          <div class="modal-cols">
+          <div class="modal-head">
+            <p class="project-description">${project.description}</p>
+          </div>
+          <div class="modal-samples">
 
           ${project.audio?.map(sample => {
             const audioSrc = `./${sample.src}`; 
@@ -88,6 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `).join("")}
           </div>` : ""}
+          </div>
+          </div>
         `;
         
           // Add this after the audio/video/soundcloud sections
@@ -98,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${project.content.body ? `<p class="label">${project.content.body}</p>` : ""}
               ${project.content.link ? `<a href="${project.content.link.url}" target="_blank" rel="noopener" class="modal-external-link">${project.content.link.label}</a>` : ""}
             `;
-            modalBody.appendChild(textDiv);
+            (modalBody.querySelector(".modal-samples") || modalBody).appendChild(textDiv);
           }
 
         // Initialize audio players

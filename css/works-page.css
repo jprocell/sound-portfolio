@@ -178,3 +178,56 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 #mini-waveform.show { opacity: 1; }
 .wave-bar { background: var(--ink); width: 3px; height: 10%; }
 @media (max-width: 700px) { #mini-waveform { display: none; } }
+
+/* =========================== */
+/* Project view v2: big display title, mono body with a condensed first line, numbered samples, two columns */
+#project-modal { background-color: var(--bg); background-image: var(--grain); }
+.modal-content { max-width: 80rem; padding: 6rem var(--gutter) 5rem; }
+
+.modal-meta { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 1rem; }
+.modal-body h2 {
+  font-weight: 900; font-stretch: 112%; text-transform: uppercase;
+  letter-spacing: -0.045em; line-height: 0.84;
+  font-size: clamp(3rem, 11vw, 9rem);
+  margin: 0 0 2.5rem; text-align: left; overflow-wrap: anywhere;
+}
+
+.modal-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+  gap: 0 4rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 1.75rem;
+  align-items: start;
+}
+.modal-head { position: sticky; top: 2rem; }
+
+.modal-body .project-description {
+  font-family: var(--mono); font-size: 0.9rem; line-height: 1.7;
+  white-space: pre-line; margin: 0; color: var(--ink);
+}
+/* the first line of the description is set tall and condensed, like a standfirst */
+.modal-body .project-description::first-line {
+  font-family: var(--sans); font-weight: 800; font-stretch: 62%;
+  text-transform: uppercase; font-size: 1.7rem; line-height: 1;
+}
+
+/* samples: numbered, condensed labels */
+.modal-samples { counter-reset: sample; }
+.modal-audio { counter-increment: sample; }
+.modal-body .modal-audio p.label {
+  font-family: var(--sans); font-weight: 800; font-stretch: 62%;
+  text-transform: uppercase; font-size: 1.8rem; line-height: 1; letter-spacing: 0;
+  display: flex; align-items: baseline; gap: 0.8rem;
+}
+.modal-audio p.label::before {
+  content: counter(sample, decimal-leading-zero);
+  font-family: var(--mono); font-weight: 400; font-stretch: 100%;
+  font-size: 0.72rem; letter-spacing: 0;
+}
+.modal-body p.desc, .modal-audio p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+
+@media (max-width: 900px) {
+  .modal-cols { grid-template-columns: 1fr; gap: 2rem 0; }
+  .modal-head { position: static; }
+}

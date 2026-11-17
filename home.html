@@ -68,33 +68,31 @@
     </filter>
       <filter id="torn" x="-10%" y="-14%" width="120%" height="128%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="3" result="shape"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="3" seed="8" result="fiber"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.13" numOctaves="2" seed="8" result="fiber"/>
       <feDisplacementMap in="SourceAlpha" in2="shape" scale="30" xChannelSelector="R" yChannelSelector="G" result="a1"/>
-      <feDisplacementMap in="a1" in2="fiber" scale="9" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="8" xChannelSelector="G" yChannelSelector="B" result="a2"/>
       <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
       <feComposite in="SourceGraphic" in2="a3" operator="in" result="img"/>
-      <!-- toner build-up: black speckle along the torn rim -->
+      <!-- the pale paper core of a torn edge -->
       <feMorphology in="a3" operator="erode" radius="2" result="inner"/>
       <feComposite in="a3" in2="inner" operator="out" result="rim"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" seed="21" result="speck"/>
-      <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 5.4" result="speckA"/>
-      <feComposite in="speckA" in2="rim" operator="in" result="rimSpeck"/>
-      <feMerge><feMergeNode in="img"/><feMergeNode in="rimSpeck"/></feMerge>
+      <feFlood flood-color="#f3f0ea" flood-opacity="0.92" result="paper"/>
+      <feComposite in="paper" in2="rim" operator="in" result="rimPaper"/>
+      <feMerge><feMergeNode in="img"/><feMergeNode in="rimPaper"/></feMerge>
     </filter>
     <filter id="torn-soft" x="-10%" y="-14%" width="120%" height="128%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="6" result="shape"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="3" seed="12" result="fiber"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.13" numOctaves="2" seed="12" result="fiber"/>
       <feDisplacementMap in="SourceAlpha" in2="shape" scale="13" xChannelSelector="R" yChannelSelector="G" result="a1"/>
-      <feDisplacementMap in="a1" in2="fiber" scale="5" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="4" xChannelSelector="G" yChannelSelector="B" result="a2"/>
       <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
       <feComposite in="SourceGraphic" in2="a3" operator="in" result="img"/>
-      <!-- toner build-up: black speckle along the torn rim -->
+      <!-- the pale paper core of a torn edge -->
       <feMorphology in="a3" operator="erode" radius="2" result="inner"/>
       <feComposite in="a3" in2="inner" operator="out" result="rim"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" seed="21" result="speck"/>
-      <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 5.2" result="speckA"/>
-      <feComposite in="speckA" in2="rim" operator="in" result="rimSpeck"/>
-      <feMerge><feMergeNode in="img"/><feMergeNode in="rimSpeck"/></feMerge>
+      <feFlood flood-color="#f3f0ea" flood-opacity="0.92" result="paper"/>
+      <feComposite in="paper" in2="rim" operator="in" result="rimPaper"/>
+      <feMerge><feMergeNode in="img"/><feMergeNode in="rimPaper"/></feMerge>
     </filter>
   </svg>
 
@@ -114,12 +112,12 @@
   <section id="hero">
     <figure class="collage">
       <!-- Public-domain prints from the Met Open Access collection; credited in #art-credit -->
-      <div class="piece p-organ"><img src="images/home-plate.jpg" alt=""><span class="n">1</span></div>
-      <div class="piece p-academy"><img src="images/collage-academy.jpg" alt=""><span class="n">2</span></div>
-      <div class="piece p-machine"><img src="images/collage-machine.jpg" alt=""><span class="n">3</span></div>
-      <div class="piece p-eyes"><img src="images/collage-eyes.jpg" alt=""><span class="n">4</span></div>
-      <div class="piece p-figure"><img src="images/collage-figure.jpg" alt=""><span class="n">5</span></div>
-      <div class="piece p-horse"><img src="images/collage-horse.jpg" alt=""><span class="n">6</span></div>
+      <div class="piece p-organ"><div class="sheet"><img src="images/home-plate.jpg" alt=""></div><span class="n">1</span></div>
+      <div class="piece p-academy"><div class="sheet"><img src="images/collage-academy.jpg" alt=""></div><span class="n">2</span></div>
+      <div class="piece p-machine"><div class="sheet"><img src="images/collage-machine.jpg" alt=""></div><span class="n">3</span></div>
+      <div class="piece p-eyes"><div class="sheet"><img src="images/collage-eyes.jpg" alt=""></div><span class="n">4</span></div>
+      <div class="piece p-figure"><div class="sheet"><img src="images/collage-figure.jpg" alt=""></div><span class="n">5</span></div>
+      <div class="piece p-horse"><div class="sheet"><img src="images/collage-horse.jpg" alt=""></div><span class="n">6</span></div>
       <i class="line l-diag" aria-hidden="true"></i>
       <i class="line l-h" aria-hidden="true"></i>
       <i class="line l-v" aria-hidden="true"></i>
