@@ -11,16 +11,6 @@
     <script src="js/bio.js" defer></script>
 </head>
 <body class="bio-page poster">
-  <!-- rough ink: slight wobble and a few specks of dropout so thin lines look photocopied -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <filter id="rough-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="wob"/>
-      <feDisplacementMap in="SourceGraphic" in2="wob" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="23" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -16 11.2" result="keep"/>
-      <feComposite in="d" in2="keep" operator="in"/>
-    </filter>
-  </svg>
 
 
   <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
@@ -69,7 +59,6 @@
   <main>
     <section id="bio-content">
       <h1 class="display">About</h1>
-      <svg class="cassette" viewBox="0 0 240 150" aria-hidden="true" focusable="false"><rect class="body" x="4" y="4" width="232" height="142" rx="9"/><circle class="screw" cx="17" cy="17" r="3.6"/><line class="slot" x1="14" y1="14.6" x2="19" y2="19.4"/><circle class="screw" cx="223" cy="17" r="3.6"/><line class="slot" x1="220" y1="14.6" x2="225" y2="19.4"/><circle class="screw" cx="17" cy="133" r="3.6"/><line class="slot" x1="14" y1="130.6" x2="19" y2="135.4"/><circle class="screw" cx="223" cy="133" r="3.6"/><line class="slot" x1="220" y1="130.6" x2="225" y2="135.4"/><rect class="label" x="28" y="19" width="184" height="62" rx="3"/><rect class="mark" x="34" y="25" width="16" height="10"/><line class="rule" x1="34" y1="45" x2="206" y2="45"/><line class="rule" x1="34" y1="56" x2="206" y2="56"/><line class="rule" x1="34" y1="67" x2="206" y2="67"/><clipPath id="win"><rect x="66" y="88" width="108" height="32" rx="16"/></clipPath><rect class="window" x="66" y="88" width="108" height="32" rx="16"/><g clip-path="url(#win)"><circle class="pack" cx="94" cy="104" r="15"/><circle class="pack" cx="146" cy="104" r="10"/></g><circle class="hub" cx="94" cy="104" r="8"/><line class="tooth" x1="102.0" y1="104.0" x2="99.0" y2="104.0"/><line class="tooth" x1="98.0" y1="97.1" x2="96.5" y2="99.7"/><line class="tooth" x1="90.0" y1="97.1" x2="91.5" y2="99.7"/><line class="tooth" x1="86.0" y1="104.0" x2="89.0" y2="104.0"/><line class="tooth" x1="90.0" y1="110.9" x2="91.5" y2="108.3"/><line class="tooth" x1="98.0" y1="110.9" x2="96.5" y2="108.3"/><circle class="hub" cx="146" cy="104" r="8"/><line class="tooth" x1="154.0" y1="104.0" x2="151.0" y2="104.0"/><line class="tooth" x1="150.0" y1="97.1" x2="148.5" y2="99.7"/><line class="tooth" x1="142.0" y1="97.1" x2="143.5" y2="99.7"/><line class="tooth" x1="138.0" y1="104.0" x2="141.0" y2="104.0"/><line class="tooth" x1="142.0" y1="110.9" x2="143.5" y2="108.3"/><line class="tooth" x1="150.0" y1="110.9" x2="148.5" y2="108.3"/><line class="strand" x1="94" y1="89" x2="146" y2="94"/><path class="base" d="M46 146 L58 127 L182 127 L194 146"/><circle class="hole" cx="84" cy="137" r="3.4"/><circle class="hole" cx="156" cy="137" r="3.4"/><rect class="guide" x="106" y="128" width="4" height="9"/><rect class="guide" x="130" y="128" width="4" height="9"/></svg>
       <p class="page-sub">&nbsp;</p>
 
       <div class="bio-panels">
