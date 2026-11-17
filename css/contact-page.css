@@ -20,7 +20,7 @@ body.contact-page main { max-width: 64rem; }
 /* The print is a full-width band under the intro: large, heavy xerox, cut at both ends */
 .hands { margin-top: 2rem; }
 .hands img {
-  display: block; width: 100%; height: clamp(9rem, 22vw, 16rem); object-fit: cover; object-position: 50% 42%;
+  display: block; width: 100%; height: clamp(10rem, 26vw, 19rem); object-fit: cover; object-position: 50% 42%;
   mix-blend-mode: multiply;
   filter: url(#xerox-bold);
   clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);

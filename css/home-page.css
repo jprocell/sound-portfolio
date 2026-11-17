@@ -79,22 +79,6 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
 }
 
-/* Rotated text running up the right edge */
-.vert {
-  position: fixed;
-  right: 0.9rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  margin: 0;
-  z-index: 4;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  text-transform: lowercase;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
 /* Name: cropped by the bottom-left edge */
 .hero-left { position: absolute; left: 0; bottom: 0; width: 100%; pointer-events: none; }
 .hero-left-inner h1 {
@@ -151,7 +135,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .p-organ   { left: 20%; top: 24%; width: 58%; }
   .p-academy { right: 2%; top: 54%; width: 36%; }
   .p-machine { left: 2%;  top: 48%; width: 38%; }
-  .p-horse, .p-eyes, .p-figure, .blk, .vert, .l-v { display: none; }
+  .p-horse, .p-eyes, .p-figure, .blk, .l-v { display: none; }
   .hero-left-inner h1 { font-size: 17.5vw; }
   .reg { display: none; }
   #clock { display: none; }
