@@ -83,22 +83,3 @@ body.contact-page main h1.display {
   #contact-info { grid-template-columns: 1fr; }
   .contact-block.social, .contact-block:not(.social) { grid-column: 1; grid-row: auto; }
 }
-
-/* label-maker strip: black tape with raised white lettering, stuck across the bottom edge of the print */
-#contact-info header p.label-strip {
-  display: inline-block;
-  position: relative; z-index: 1;
-  margin: -1.1rem 0 0 1.5rem;
-  padding: 0.4rem 1.1rem 0.35rem;
-  max-width: none;
-  background-color: #121211;
-  background-image: var(--grain);
-  color: #f1eee8;
-  font-family: 'Special Elite', 'Courier New', monospace;
-  font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18), 0 -1px 0 rgba(0, 0, 0, 0.8);
-}
