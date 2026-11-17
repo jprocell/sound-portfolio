@@ -4,26 +4,78 @@ body.other-page main { max-width: 62rem; }
 #other-content h1 { font-size: clamp(3rem, 10vw, 8rem); }
 #other-content p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 1rem 0 3.5rem; }
 
-/* Scatter: slips sit on a 12-column field at uneven positions and heights, still in normal scroll flow */
+/* Scatter: slips sit on a 12-column field at uneven positions and heights, still in normal scroll flow.
+   A date ruler runs down the left; each slip hangs off it by a hairline. */
 .notes-field {
+  --rail: 5rem;
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 1rem;
   row-gap: 3.5rem;
   align-items: start;
+  margin-left: var(--rail);
 }
-/* a hairline thread running through the field */
+body.other-page { overflow-x: clip; }
+/* the ruler */
 .notes-field::before {
   content: "";
-  position: absolute; top: 0; bottom: 0; left: 46%;
+  position: absolute; top: 0; bottom: 0; left: -0.5rem;
   border-left: 1px solid var(--ink);
-  opacity: 0.35;
   pointer-events: none;
 }
 
+.slot {
+  position: relative;
+  grid-column: var(--start) / span var(--span);
+  margin-top: var(--mt, 0);
+}
+
+/* hairline from the ruler to the slip: distance = columns between them, derived from the slot's own width */
+.slot::before {
+  content: "";
+  position: absolute;
+  top: 1.35rem;
+  right: 100%;
+  width: calc((100% + 1rem) / var(--span) * (var(--start) - 1) + 0.5rem);
+  border-top: 1px solid var(--ink);
+}
+
+/* date label sits left of the ruler at the same height */
+.when {
+  position: absolute;
+  top: 0.55rem;
+  right: calc(100% + (100% + 1rem) / var(--span) * (var(--start) - 1) + 1rem);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+.when::after {
+  content: "";
+  position: absolute; right: -0.95rem; top: 0.55rem;
+  width: 0.5rem; height: 0.5rem; margin-right: -0.25rem;
+  background: var(--ink);
+}
+
+/* oversized outlined number bleeding off behind the slip */
+.big-no {
+  position: absolute;
+  z-index: 0;
+  top: -3.2rem;
+  right: -3rem;
+  font-weight: 900; font-stretch: 112%; letter-spacing: -0.06em; line-height: 0.8;
+  font-size: clamp(8rem, 17vw, 15rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(15, 15, 14, 0.32);
+  pointer-events: none;
+  user-select: none;
+}
+.slot:nth-child(even) .big-no { right: auto; left: -3rem; top: auto; bottom: -3.5rem; }
+
 .blog-entry {
   position: relative;
+  z-index: 1;
   display: block;
   width: auto;
   margin: 0;
@@ -32,12 +84,7 @@ body.other-page main { max-width: 62rem; }
   background: var(--bg);
   clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
 }
-.blog-entry[data-no="05"] { grid-column: 5 / span 8; }
-.blog-entry[data-no="04"] { grid-column: 1 / span 6;  margin-top: 2rem; }
-.blog-entry[data-no="03"] { grid-column: 8 / span 5;  margin-top: 5rem; }
-.blog-entry[data-no="02"] { grid-column: 3 / span 7; }
-.blog-entry[data-no="01"] { grid-column: 7 / span 6;  margin-top: 4rem; }
-.blog-entry:nth-of-type(3n) { background: var(--ink); color: var(--bg); }
+.slot:nth-child(3n) .blog-entry { background: var(--ink); color: var(--bg); }
 
 .blog-entry::before {
   content: "no. " attr(data-no);
@@ -55,7 +102,7 @@ body.other-page main { max-width: 62rem; }
   -webkit-text-stroke: 1.2px var(--ink);
   margin: 0.4rem 0 1.1rem;
 }
-.blog-entry:nth-of-type(3n) h2 { -webkit-text-stroke-color: var(--bg); }
+.slot:nth-child(3n) .blog-entry h2 { -webkit-text-stroke-color: var(--bg); }
 
 .blog-entry p { margin: 0 0 1rem; font-size: 1rem; line-height: 1.5; }
 
@@ -78,10 +125,10 @@ body.other-page main { max-width: 62rem; }
 .other-link:hover { background: currentColor; }
 .other-link:hover { color: inherit; }
 .blog-entry .other-link:hover { background: var(--ink); color: var(--bg); }
-.blog-entry:nth-of-type(3n) .other-link:hover { background: var(--bg); color: var(--ink); }
+.slot:nth-child(3n) .blog-entry .other-link:hover { background: var(--bg); color: var(--ink); }
 
 @media (max-width: 800px) {
-  .notes-field { display: block; }
-  .notes-field::before { display: none; }
-  .blog-entry { margin: 0 0 2.5rem !important; }
+  .notes-field { display: block; margin-left: 0; }
+  .notes-field::before, .slot::before, .when, .big-no { display: none; }
+  .slot { margin: 0 0 2.5rem !important; }
 }

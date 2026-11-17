@@ -113,8 +113,5 @@ body.bio-page main { max-width: 68rem; }
   .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; }
 }
 
-/* Nav stays readable over the dark slab: it inverts against whatever is behind it */
-body.bio-page .nav-bar { mix-blend-mode: difference; }
-body.bio-page .nav-bar li::before,
-body.bio-page .nav-bar li a { color: #fff; }
-body.bio-page .nav-bar li a.active { background: #fff; color: #000; }
+/* Nav stays readable over the dark slab: a paper-colored backing, so the active tab matches the other pages */
+body.bio-page .nav-bar { background: var(--bg); padding: 0.5rem 0.7rem; margin: -0.5rem 0 0 -0.7rem; }

@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(tick, 1000);
   }
 
+  const updated = document.getElementById("updated-date");
+  if (updated) {
+    const d = new Date(document.lastModified);
+    const pad = n => String(n).padStart(2, "0");
+    updated.textContent = `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${String(d.getFullYear()).slice(2)}`;
+  }
+
   const img = document.querySelector(".collage .p-organ img");
   const credit = document.getElementById("art-credit");
   if (img && credit) {
