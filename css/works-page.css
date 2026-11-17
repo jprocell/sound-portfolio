@@ -232,25 +232,30 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .modal-head { position: static; }
 }
 
-/* film leader, enlarged: only a slice shows. The page edge crops it on the right; the heavy rule above the list crops it along the bottom. */
+/* real film leader frame: half of it bleeds off the page edge, and the heavy rule above the list crops the bottom */
 body.works-page { overflow-x: clip; }
 #works-gallery { position: relative; }
-.leader-big {
+.leader-crop {
   position: absolute;
-  right: -8.6rem; bottom: 100%;
-  width: 34rem; height: 21.5rem;
+  right: -12.2rem; bottom: 100%;
+  width: 24rem; height: 21.5rem;
+  overflow: hidden;
   pointer-events: none;
-  filter: url(#toner);
-  z-index: 0;
 }
-.leader-big .sweep { fill: var(--ink); fill-opacity: 0.3; }
-.leader-big .ring1 { fill: none; stroke: var(--ink); stroke-width: 20; }
-.leader-big .ring2 { fill: none; stroke: var(--ink); stroke-width: 5; }
-.leader-big .cross { stroke: var(--ink); stroke-width: 4; }
-.leader-big .tick  { stroke: var(--ink); stroke-width: 3; }
-.leader-big .tick.major { stroke-width: 5; }
-.leader-big .num {
-  font-family: var(--sans); font-weight: 900; font-stretch: 112%;
-  font-size: 330px; fill: var(--ink);
+.leader-crop img {
+  position: absolute;
+  left: 0; top: -1.8rem;
+  width: 36rem; height: auto;
+  mix-blend-mode: multiply;
+  filter: contrast(1.25) brightness(1.08);   /* pushes the near-white ground to paper so no box shows */
 }
-@media (max-width: 1000px) { .leader-big { display: none; } }
+@media (max-width: 1000px) { .leader-crop { display: none; } }
+
+/* credit for the leader frame */
+#art-credit {
+  position: fixed; right: var(--gutter); bottom: 1.1rem; z-index: 4;
+  max-width: min(34rem, 72vw); text-align: right;
+  font-family: var(--mono); font-size: 0.55rem; line-height: 1.35; text-transform: lowercase;
+  background: rgba(217, 214, 207, 0.9); padding: 0.25rem 0.4rem;
+}
+#art-credit a { color: inherit; }
