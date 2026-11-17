@@ -120,21 +120,32 @@ body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(-
 
 
 
-/* the real waveform of drum-kit.wav (peak amplitude per slice), standing on the heavy rule beside the title and cropped by the page edge */
+/* spectrogram of drum-kit.wav as a halftone, standing on the heavy rule and running from the end of the title to the page edge */
 body.bio-page { overflow-x: clip; }
 #personal { position: relative; }
 .wave {
+  --F: min(14vw, 12rem);                 /* the title's font size */
+  --h: calc(var(--F) * 0.71);            /* cap height of ABOUT */
+  --cap: 1.3rem;                         /* caption band at the top of the figure */
   position: absolute;
-  right: -3.2rem; bottom: 100%;
-  width: 22.4rem; height: 12.6rem;
-  fill: var(--ink);
-  filter: url(#rough-ink);
+  /* left edge of the right-hand column below, but never closer than 5rem to the T on narrower windows */
+  left: max(calc(14rem + (100% - 14rem) / 2 + 0.625rem), calc(4.1 * var(--F) + 5rem));
+  right: 0;                              /* end of the rule */
+  bottom: calc(100% + var(--F) * 0.44);  /* title baseline, not the rule */
+  height: var(--h); padding-top: var(--cap); box-sizing: border-box;
   pointer-events: none;
 }
-/* the same bars flipped about the rule, short and faint, like a reflection */
-.wave.refl {
-  transform: scaleY(-0.17);
-  transform-origin: bottom;
-  opacity: 0.4;
+/* frequency axis: hairlines run through a label margin hanging to the left of the column */
+.wave .axis, .wave .cap, .wave img { filter: url(#rough-ink); }
+.wave .axis { position: absolute; top: var(--cap); bottom: 0; left: -3rem; right: 0; }
+.wave .axis i { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid rgba(15,15,14,0.3); }
+.wave .axis i b {
+  position: absolute; left: 0; bottom: 3px;
+  font: 400 0.62rem/1 var(--mono); letter-spacing: 0.04em; font-style: normal; text-transform: uppercase;
+}
+.wave img { position: relative; display: block; width: 100%; height: 100%; object-fit: fill; }
+.wave .cap {
+  position: absolute; right: 0; top: 0;
+  font: 400 0.62rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
 }
 @media (max-width: 1299px) { .wave { display: none; } }
