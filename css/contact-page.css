@@ -17,12 +17,13 @@ body.contact-page main { max-width: 64rem; }
 }
 #contact-info header p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 0.2rem; max-width: 26rem; position: relative; z-index: 1; }
 
-.hands { position: absolute; right: -2%; top: 8%; width: 58%; }
+/* The print is a full-width band under the intro: large, heavy xerox, cut at both ends */
+.hands { margin-top: 2rem; }
 .hands img {
-  display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover;
+  display: block; width: 100%; height: clamp(9rem, 22vw, 16rem); object-fit: cover; object-position: 50% 42%;
   mix-blend-mode: multiply;
-  filter: url(#xerox);
-  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  filter: url(#xerox-bold);
+  clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
 }
 
 .contact-block { display: block; padding: 0; margin: 0; border: 0; }
@@ -78,5 +79,4 @@ body.contact-page main { max-width: 64rem; }
 @media (max-width: 800px) {
   #contact-info { grid-template-columns: 1fr; }
   .contact-block.social, .contact-block:not(.social) { grid-column: 1; grid-row: auto; }
-  .hands { position: relative; right: auto; top: auto; width: 100%; margin: 0 0 0.5rem; }
 }

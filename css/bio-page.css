@@ -1,24 +1,7 @@
 /* =========================== */
 /* Bio: spec sheet. Fact strip, big section numerals, tool chips, year timeline, inverted last section */
 body.bio-page main { max-width: 68rem; }
-#bio-content h1 { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 2rem; }
-
-/* Fact strip */
-.facts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 2px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  margin-bottom: 4.5rem;
-}
-.fact { padding: 0.8rem 0.9rem 1rem; border-left: 1px solid var(--ink); display: flex; flex-direction: column; gap: 0.35rem; }
-.fact:first-child { border-left: 0; padding-left: 0; }
-.fact .big {
-  font-weight: 900; font-stretch: 112%; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.9;
-  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
-}
-.fact .lab, .bio-panel > h2 .lab { font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; }
+#bio-content h1 { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 3.5rem; }
 
 /* Sections */
 .bio-panel {
@@ -98,24 +81,27 @@ body.bio-page main { max-width: 68rem; }
 /* Work history: long first column, smaller type */
 .bio-dropdown.jobs .dropdown-content > ul > li { grid-template-columns: 17rem 1fr; font-size: 0.95rem; }
 
-/* 03 Engineering: full-bleed inverted slab */
-#engineering {
+/* 02 Audio is the dark slab, so the page runs light / dark / light */
+#audio {
   background: var(--ink); color: var(--bg);
   box-shadow: 0 0 0 100vmax var(--ink);
   clip-path: inset(0 -100vmax);
   border-top: 0;
-  margin-top: 1rem; padding-top: 3rem;
+  margin: 1rem 0 2rem; padding-top: 3rem;
 }
-#engineering > h2 .num { -webkit-text-stroke-color: var(--bg); }
-#engineering .bio-media img { filter: url(#xerox) invert(1); mix-blend-mode: screen; }
-#engineering .bio-dropdown summary { border-bottom-color: var(--bg); }
-#engineering .dropdown-content > ul > li { border-bottom-color: var(--bg); }
-#engineering a { color: var(--bg); }
+#audio ::selection { background: var(--bg); color: var(--ink); }
+#audio > h2 .num { -webkit-text-stroke-color: var(--bg); }
+#audio .bio-media img { filter: url(#xerox) invert(1); mix-blend-mode: screen; }
+#audio .bio-list li { border-color: var(--bg); }
+#audio .bio-list li:nth-child(5n + 2) { background: var(--bg); color: var(--ink); }
+#audio .bio-dropdown summary { border-bottom-color: var(--bg); }
+#audio .dropdown-content > ul > li { border-bottom-color: var(--bg); }
+#audio .bio-dropdown.years .dropdown-content > ul > li { -webkit-text-stroke-color: var(--bg); }
+#audio .bio-dropdown.years .dropdown-content > ul > li > ul { color: var(--bg); }
+#audio a { color: var(--bg); }
+#engineering { border-top: 2px solid var(--ink); }
 
 @media (max-width: 800px) {
-  .facts { grid-template-columns: repeat(2, 1fr); }
-  .fact:nth-child(3) { border-left: 0; padding-left: 0; }
-  .fact:nth-child(n + 3) { border-top: 1px solid var(--ink); }
   .bio-panel { grid-template-columns: 1fr; }
   .bio-panel > h2 { position: static; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
   .bio-panel > h2 .num { font-size: 4rem; }
@@ -126,3 +112,9 @@ body.bio-page main { max-width: 68rem; }
   .dropdown-content > ul > li, .bio-dropdown.jobs .dropdown-content > ul > li { grid-template-columns: 1fr; gap: 0.3rem; }
   .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; }
 }
+
+/* Nav stays readable over the dark slab: it inverts against whatever is behind it */
+body.bio-page .nav-bar { mix-blend-mode: difference; }
+body.bio-page .nav-bar li::before,
+body.bio-page .nav-bar li a { color: #fff; }
+body.bio-page .nav-bar li a.active { background: #fff; color: #000; }
