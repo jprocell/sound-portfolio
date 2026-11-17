@@ -1,6 +1,7 @@
+// Works page: category filter. Rows open the project modal (see modal.js); Enter/Space also open a focused row.
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll("#filter-bar button");
-  const projects = document.querySelectorAll(".project-card"); // changed from .project-item
+  const projects = document.querySelectorAll(".project-card");
 
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -8,35 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.add("active");
 
       const category = button.dataset.category;
-
       projects.forEach(project => {
-        if (category === "all" || project.dataset.category === category) {
-          project.style.display = "block";  // show matching
-        } else {
-          project.style.display = "none";   // hide non-matching
-        }
+        const show = category === "all" || project.dataset.category === category;
+        project.style.display = show ? "" : "none";
       });
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".bio-tab");
-  const panels = document.querySelectorAll(".bio-panel");
-
-  if (!tabs.length || !panels.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      panels.forEach(p => p.classList.remove("active"));
-
-      tab.classList.add("active");
-
-      const panel = tab.dataset.panel;
-      document
-        .querySelector(`.bio-panel[data-panel="${panel}"]`)
-        .classList.add("active");
+  projects.forEach(project => {
+    project.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); project.click(); }
     });
   });
 });

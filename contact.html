@@ -2,17 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Josh — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/poster.css">
   <link rel="stylesheet" href="css/contact-page.css">
 </head>
-<body class="contact-page">
+<body class="contact-page poster">
+  <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="xerox" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncG type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncB type="linear" slope="4.5" intercept="-1.4"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="xerox-bold" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.25" k4="-0.12" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="5" intercept="-1.9"/>
+        <feFuncG type="linear" slope="5" intercept="-1.9"/>
+        <feFuncB type="linear" slope="5" intercept="-1.9"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="xerox-light" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="5" intercept="-2.35"/>
+        <feFuncG type="linear" slope="5" intercept="-2.35"/>
+        <feFuncB type="linear" slope="5" intercept="-2.35"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+  <i class="reg tr" aria-hidden="true">+</i>
+  <i class="reg bl" aria-hidden="true">+</i>
+
   <nav>
     <ul class="nav-bar">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="bio.html">Bio</a></li>
       <li><a href="works.html">Works</a></li>
       <li><a href="other.html">Other</a></li>
@@ -23,23 +69,24 @@
   <main>
     <section id="contact-info">
       <header>
-        <h1>Get in Touch</h1>
+        <h1 class="display">Contact</h1>
         <p>Preferred method is the form below. </p>
         <p>Works for collabs, inquiries, or whatever else you want to throw my way. </p>
+        <div class="hands" aria-hidden="true"><img src="images/collage-hands.jpg" alt=""></div>
       </header>
 
       <div class="contact-block social">
         <h2>Socials</h2>
         <ul class="contact-links">
-          <li><a href="https://www.instagram.com/joshp.wav/" target="_blank">
+          <li><a href="https://www.instagram.com/joshp.wav/" target="_blank" rel="noopener">
               <i class="fa-brands fa-instagram"></i> Instagram
             </a>
           </li>
-          <li><a href="https://www.last.fm/user/ProsaicOpinion" target="_blank">
+          <li><a href="https://www.last.fm/user/ProsaicOpinion" target="_blank" rel="noopener">
               <i class="fa-brands fa-lastfm"></i> last.fm
             </a>
           </li>
-          <li><a href="https://www.linkedin.com/in/joshua-procell-2a5a9617b/" target="_blank">
+          <li><a href="https://www.linkedin.com/in/joshua-procell-2a5a9617b/" target="_blank" rel="noopener">
               <i class="fa-brands fa-linkedin"></i> LinkedIn
             </a>
           </li>
@@ -49,7 +96,7 @@
       <div class="contact-block">
         <h2>Contact Me</h2>
 
-        <form action="https://formspree.io/f/xreqygbe" method="POST" data-recaptcha="true" class="contact-form">
+        <form action="https://formspree.io/f/xreqygbe" method="POST" class="contact-form">
 
           <!-- Honeypot spam trap -->
           <input type="text" name="_gotcha" style="display:none">
@@ -64,14 +111,10 @@
 
         </form>
       </div>
-
-      <div class="contact-block">
-        <p>
-          
-        </p>
-      </div>
     </section>
   </main>
+
+  <p id="art-credit" class="corner"><a href="https://www.metmuseum.org/art/collection/search/360716" target="_blank" rel="noopener"><em>Hands and arms</em></a>, Wenceslaus Hollar, 1644–52<br>The Metropolitan Museum of Art, Open Access (CC0)</p>
 
 </body>
 </html>

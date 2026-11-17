@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <title>Josh — Works</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/poster.css">
   <link rel="stylesheet" href="css/works-page.css">
-  <link rel="stylesheet" href="css/waveform.css"> 
   <script src="js/filtering.js" defer></script>
   <script src="js/modal.js" defer></script>
   <script src="js/mini-waveform.js" defer></script>
 </head>
-<body class="works-page">
+<body class="works-page poster">
+
+
+
+  <i class="reg tr" aria-hidden="true">+</i>
+  <i class="reg bl" aria-hidden="true">+</i>
 
   <nav>
     <ul class="nav-bar">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="bio.html">Bio</a></li>
       <li><a href="works.html" class="active">Works</a></li>
       <li><a href="other.html">Other</a></li>
@@ -27,8 +32,9 @@
   <main>
 
     <section id="works-content">
-      <h1>Works</h1>
+      <h1 class="display">Works <span class="count">(13)</span></h1>
       <p>Noises I've made, solo and with others.</p>
+
     </section>
 
     <!-- Filter bar -->
@@ -42,59 +48,100 @@
 
     <!-- Grid container for project modules -->
     <section id="works-gallery">
-      <div class="project-card" data-project="foley" data-category="sound-design">
-        <img src="images/foley-cover-1000.jpg" alt="Foley Project Cover">
+      <div class="project-card" data-project="foley" data-category="sound-design" role="button" tabindex="0">
+        <span class="p-num">01</span>
+        <span class="p-title">Foley</span>
+        <span class="p-cat">Sound Design</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="fm" data-category="synthesis">
-        <img src="images/fm-cover-1000.jpg" alt="FM Project Cover">
+      <div class="project-card" data-project="fm" data-category="synthesis" role="button" tabindex="0">
+        <span class="p-num">02</span>
+        <span class="p-title">FM</span>
+        <span class="p-cat">Synthesis</span>
+        <span class="p-year">2025</span>
       </div>
       
-      <div class="project-card" data-project="sampling" data-category="synthesis">
-        <img src="images/simpler-cover-1500.jpg" alt="Sampling Project Cover">
+      <div class="project-card" data-project="sampling" data-category="synthesis" role="button" tabindex="0">
+        <span class="p-num">03</span>
+        <span class="p-title">Sampling</span>
+        <span class="p-cat">Synthesis</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="toasc" data-category="albums">
-        <img src="images/toasc-cover-1500.jpg" alt="ToaSC Cover">
+      <div class="project-card" data-project="toasc" data-category="albums" role="button" tabindex="0">
+        <span class="p-num">04</span>
+        <span class="p-title">Topology — Of a Slow Collapse</span>
+        <span class="p-cat">Albums</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="one-of-us" data-category="other">
-        <img src="images/one-of-us-cover-1500.jpg" alt="Foley Project Cover">
+      <div class="project-card" data-project="one-of-us" data-category="other" role="button" tabindex="0">
+        <span class="p-num">05</span>
+        <span class="p-title">One of Us</span>
+        <span class="p-cat">Other</span>
+        <span class="p-year">2026</span>
       </div>
 
-      <div class="project-card" data-project="generative" data-category="sound-design">
-        <img src="images/generative-cover-1500.jpg" alt="Generative Project Cover">
+      <div class="project-card" data-project="generative" data-category="sound-design" role="button" tabindex="0">
+        <span class="p-num">06</span>
+        <span class="p-title">Generative</span>
+        <span class="p-cat">Sound Design</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="presets" data-category="synthesis">
-        <img src="images/presets-cover-1500.jpg" alt="Presets Project Cover">
+      <div class="project-card" data-project="presets" data-category="synthesis" role="button" tabindex="0">
+        <span class="p-num">07</span>
+        <span class="p-title">Presets</span>
+        <span class="p-cat">Synthesis</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="disavowal" data-category="albums">
-        <img src="images/disavowal-cover-1500.jpg" alt="Disavowal Cover">
+      <div class="project-card" data-project="disavowal" data-category="albums" role="button" tabindex="0">
+        <span class="p-num">08</span>
+        <span class="p-title">disavowal — tethered to doubt</span>
+        <span class="p-cat">Albums</span>
+        <span class="p-year">2024</span>
       </div>
 
-      <div class="project-card" data-project="notifications" data-category="sound-design">
-        <img src="images/notifications-cover-1500.jpg" alt="Notifications Project Cover">
+      <div class="project-card" data-project="notifications" data-category="sound-design" role="button" tabindex="0">
+        <span class="p-num">09</span>
+        <span class="p-title">Notifications</span>
+        <span class="p-cat">Sound Design</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="analog-drums" data-category="synthesis">
-        <img src="images/analog-drums-cover-1500.jpg" alt="Analog Drums Project Cover">
+      <div class="project-card" data-project="analog-drums" data-category="synthesis" role="button" tabindex="0">
+        <span class="p-num">10</span>
+        <span class="p-title">Analog Drums</span>
+        <span class="p-cat">Synthesis</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="sound-logos" data-category="sound-design">
-        <img src="images/sound-logos-cover-1500.jpg" alt="Sound Logos Project Cover">
+      <div class="project-card" data-project="sound-logos" data-category="sound-design" role="button" tabindex="0">
+        <span class="p-num">11</span>
+        <span class="p-title">Sound Logos</span>
+        <span class="p-cat">Sound Design</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="collision" data-category="sound-design">
-        <img src="images/collision-cover-1000.jpg" alt="Collision Project Cover">
+      <div class="project-card" data-project="collision" data-category="sound-design" role="button" tabindex="0">
+        <span class="p-num">12</span>
+        <span class="p-title">Collision</span>
+        <span class="p-cat">Sound Design</span>
+        <span class="p-year">2025</span>
       </div>
 
-      <div class="project-card" data-project="layering" data-category="synthesis">
-        <img src="images/layering-cover-1000.jpg" alt="Layering Project Cover">
+      <div class="project-card" data-project="layering" data-category="synthesis" role="button" tabindex="0">
+        <span class="p-num">13</span>
+        <span class="p-title">Layering</span>
+        <span class="p-cat">Synthesis</span>
+        <span class="p-year">2025</span>
       </div>
 
       <!-- Add more project cards as needed -->
+          <!-- real film leader frame (Commonwealth Film Unit, 1966, public domain), cropped by the page edge and the rule; credited bottom right -->
+      <div class="leader-crop" aria-hidden="true"><img src="images/leader-crosshair.jpg" alt=""></div>
     </section>
 
     <!-- Modal for project details -->
@@ -113,5 +160,7 @@
   <!-- Mini floating waveform -->
   <div id="mini-waveform"></div>
 
+
+  <p id="art-credit" class="corner">leader frame: <a href="https://commons.wikimedia.org/wiki/File:Film_leader_from_Dollar_Bill_-_The_Decimal_Currency_Jingle.webm" target="_blank" rel="noopener"><em>Dollar Bill &mdash; The Decimal Currency Jingle</em></a>, Commonwealth Film Unit, 1966<br>via Wikimedia Commons, public domain</p>
 </body>
 </html>

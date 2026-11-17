@@ -1,89 +1,91 @@
+/* =========================== */
+/* Design tokens */
+:root {
+  --bg: #f3efe6;
+  --ink: #1b1a17;
+  --muted: #6f6a5e;
+  --rule: #cfc8b8;
+  --accent: #b8442b;
+
+  --serif: 'EB Garamond', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
   margin: 0;
-  background: #FFFFFF;
-  color: #111111;
-  font-family: 'Sora', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+h1, h2, h3 { font-weight: 400; line-height: 1.1; margin: 0; }
+
+/* Shared small mono text */
+.mono, nav, .meta {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
 }
 
 /* =========================== */
-/* Navigation Bar - Light Mode */
+/* Navigation: small, fixed, top-left */
 .nav-bar {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;               /* slightly more spacing for elegance */
-  padding: 1.5rem 0;         /* more breathing room */
   margin: 0;
-  background: transparent;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  padding: 0;
+  position: fixed;
+  top: var(--gutter);
+  left: var(--gutter);
   z-index: 10;
-  font-family: 'Poppins', sans-serif; /* matches h1 hero font */
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: lowercase;
 }
 
 .nav-bar li a {
-  color: #000000;             /* black links on white background */
+  color: var(--muted);
   text-decoration: none;
-  font-weight: 600;           /* medium-bold for refined look */
-  font-size: 1.1rem;
-  transition: color 0.2s, transform 0.2s;
-  position: relative;
 }
 
-/* Hover effect: subtle underline */
-.nav-bar li a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: #000000;        /* black underline */
-  transition: width 0.3s ease;
-}
-
-.nav-bar li a:hover::after,
-.nav-bar li a.active::after {
-  width: 100%;                /* underline expands on hover/active */
-}
-
-/* Hover color shift for subtle effect */
 .nav-bar li a:hover,
-.nav-bar li a.active {
-  color: #333333;             /* slightly darker gray on hover for depth */
+.nav-bar li a.active { color: var(--ink); }
+
+.nav-bar li a.active::before { content: "→ "; color: var(--accent); }
+
+/* Page container shared by inner pages; leaves room for the nav column */
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 7rem var(--gutter) 6rem;
 }
 
-/* =========================== */
-/* Navigation Bar - Mobile (Light Mode) */
-@media (max-width: 900px) {
+@media (min-width: 1100px) {
+  main { margin-left: max(12rem, calc((100vw - 62rem) / 2)); }
+}
+
+@media (max-width: 1099px) {
   .nav-bar {
-    flex-direction: row;         /* keep horizontal */
-    justify-content: center;     /* center the links */
-    gap: 1.5rem;                 /* slightly tighter spacing */
-    padding: 1rem 0;
-    background: transparent;
-    position: absolute;          /* stay at top */
-    top: 0;
-    width: 100%;
+    position: absolute;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    right: var(--gutter);
   }
-
-  .nav-bar li a {
-    font-size: 1rem;             /* readable for mobile */
-    font-weight: 600;
-    color: #000000;              /* black text for light mode */
-  }
-
-  /* Hover/active underline remains */
-  .nav-bar li a::after {
-    height: 2px;
-    background: #000000;
-  }
-
-  .nav-bar li a:hover::after,
-  .nav-bar li a.active::after {
-    width: 100%;
-  }
+  main { padding-top: 6rem; }
 }
-

@@ -1,6 +1,7 @@
 {
   "title": "One of Us",
   "description": "I collaborated with a small team of game designers on a weekend game jam, handling all the audio work including FX, foley, soundscapes, and ambient textures. Using Ableton, my hardware synths, and various samples, I created and integrated sounds directly into Unity for the first time. \n\nThe experience taught me how Unity's audio engine processes sound, how to position audio in a game environment, and how to adjust it dynamically through parameters. With only a few days to plan, execute, and polish, it was fast-paced and hands-on. There's plenty I'd refine given more time, but it was a solid introduction to interactive game audio and game development workflow.",
+  "highlight": "a weekend game jam",
   "type": "text",
   "content": {
     "body": "One of Us",

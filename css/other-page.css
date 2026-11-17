@@ -1,97 +1,184 @@
 /* =========================== */
-/* Page Base */
-body.other-page {
-  background: #FFFFFF;
-  color: #000000;
-  font-family: 'Sora', sans-serif;
+/* Notes: staggered slips. Alternating sides, every third one inverted, big outlined dates */
+#other-content p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 3.5rem; }
+
+/* Scatter: slips sit on a 12-column field at uneven positions and heights, still in normal scroll flow.
+   A date ruler runs down the left; each slip hangs off it by a hairline. */
+.notes-field {
+  --rail: 5rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 1rem;
+  row-gap: 3.5rem;
+  align-items: start;
+  margin-left: var(--rail);
+}
+body.other-page { overflow-x: clip; }
+/* the ruler */
+.notes-field::before {
+  content: "";
+  position: absolute; top: 0; bottom: 0; left: -0.5rem;
+  border-left: 1px solid var(--ink);
+  pointer-events: none;
 }
 
-/* =========================== */
-/* Page Header */
-#other-content {
-  max-width: 900px;
-  margin: 8rem auto 3rem auto;
-  padding: 2rem;
-  text-align: center;
+
+.slot {
+  position: relative;
+  grid-column: var(--start) / span var(--span);
+  margin-top: var(--mt, 0);
 }
 
-/* Large screens breathing room */
-@media (min-width: 915px) {
-  #other-content {
-    max-width: 1100px;
-    padding-left: clamp(2rem, 2vw, 4rem);
-    padding-right: clamp(2rem, 2vw, 4rem);
-  }
+/* hairline from the ruler to the slip: distance = columns between them, derived from the slot's own width */
+.slot::before {
+  content: "";
+  position: absolute;
+  top: 1.35rem;
+  right: 100%;
+  width: calc((100% + 1rem) / var(--span) * (var(--start) - 1) + 0.5rem);
+  border-top: 1px solid var(--ink);
 }
 
-#other-content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;         
-  margin-bottom: 1.25rem;
-  font-weight: 700;
-  color: #000;
+/* date label sits left of the ruler at the same height */
+.when {
+  position: absolute;
+  top: 0.55rem;
+  right: calc(100% + (100% + 1rem) / var(--span) * (var(--start) - 1) + 1rem);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+.when::after {
+  content: "";
+  position: absolute; right: -0.95rem; top: 0.55rem;
+  width: 0.5rem; height: 0.5rem; margin-right: -0.25rem;
+  background: var(--ink);
 }
 
-#other-content p {
-  font-size: 1.2rem;
-  line-height: 1.75;
-  color: #444;
-  margin-bottom: 1.25rem;
-  text-align: center;
+/* oversized outlined number bleeding off behind the slip */
+.big-no {
+  position: absolute;
+  z-index: 0;
+  top: -3.2rem;
+  right: -3rem;
+  font-weight: 900; font-stretch: 112%; letter-spacing: -0.06em; line-height: 0.8;
+  font-size: clamp(8rem, 17vw, 15rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(15, 15, 14, 0.32);
+  pointer-events: none;
+  user-select: none;
 }
+.slot:nth-child(even) .big-no { right: auto; left: -3rem; top: auto; bottom: -3.5rem; }
 
-/* =========================== */
-/* Blog Entry Boxes */
 .blog-entry {
-  width: 90%;
-  max-width: 900px;
-  margin: 2.5rem auto;
-  padding: 1.75rem 2rem;
-  background: #FFFFFF;
-  border: 1px solid #E6E6E6;
-  border-left: 4px solid #000;   /* visual anchor */
-  border-radius: 0;
-  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  margin: 0;
+  padding: 1.6rem 1.75rem 1.2rem;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+}
+.slot:nth-child(3n) .blog-entry { background: var(--ink); color: var(--bg); }
+
+.blog-entry::before {
+  content: "no. " attr(data-no);
+  position: absolute;
+  top: 0.55rem; right: 2.1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
 }
 
 .blog-entry h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.35rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: #111;
+  font-weight: 800; font-stretch: 62%; text-transform: uppercase;
+  letter-spacing: 0; line-height: 0.92;
+  font-size: clamp(2.3rem, 5.2vw, 3.9rem);
+  color: inherit;
+  -webkit-text-stroke: 0;
+  margin: 0.4rem 0 1.1rem;
 }
 
-.blog-entry p {
-  font-family: 'Sora', sans-serif;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333;
-}
+.blog-entry p { margin: 0 0 1rem; font-family: var(--mono); font-size: 0.86rem; line-height: 1.6; }
 
-/* Links */
+/* Linked tracks become boxed "listening" cards */
+.other-links { margin: 0 0 0.5rem !important; }
 .other-link {
-  color: #000;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid currentColor;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: lowercase;
   text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid #CCC;
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  color: inherit;
+}
+.other-link::after { content: "↗"; flex: none; }
+.other-link:hover { background: currentColor; }
+.other-link:hover { color: inherit; }
+.blog-entry .other-link:hover { background: var(--ink); color: var(--bg); }
+.slot:nth-child(3n) .blog-entry .other-link:hover { background: var(--bg); color: var(--ink); }
+
+/* Variety: each entry gets its own shape, size and type so the page stops reading as a row of identical cards */
+
+/* 06, the latest: an open banner, not a card */
+.slot[data-no="06"] .blog-entry {
+  background: none; border: 0;
+  border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
+  clip-path: none;
+  display: grid; grid-template-columns: minmax(0, 24rem) 1fr; gap: 0 3rem;
+  padding: 1.2rem 0 1.5rem 1.5rem;
+}
+.slot[data-no="06"] .blog-entry h2 { grid-row: 1 / span 3; font-size: clamp(3.2rem, 8vw, 6.2rem); margin: 0; }
+.slot[data-no="06"] .blog-entry > :not(h2) { grid-column: 2; }
+.slot[data-no="06"] .blog-entry::before { top: 0.5rem; right: 0; }
+
+/* 04: small card, opposite corner cut */
+.slot[data-no="04"] .blog-entry { clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%, 0 calc(100% - 26px)); }
+
+/* 02: dashed, set in mono like a note pasted from somewhere else */
+.slot[data-no="02"] .blog-entry { border-style: dashed; }
+
+/* 01: heavier border, square, hangs off the right edge */
+.slot[data-no="01"] .blog-entry { clip-path: none; border-width: 3px; transform: translateX(2.5rem); }
+.slot[data-no="01"] .blog-entry h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
+
+/* a small label saying how many links a note carries */
+.blog-entry[data-links]::after {
+  content: "links ×" attr(data-links);
+  position: absolute; top: 0.45rem; left: 1.75rem;
+  font-family: var(--mono); font-size: 0.62rem; text-transform: lowercase;
+  background: var(--ink); color: var(--bg); padding: 0 0.4rem;
+}
+.slot:nth-child(3n) .blog-entry[data-links]::after { background: var(--bg); color: var(--ink); }
+.blog-entry[data-links] h2 { margin-top: 0.9rem; }
+
+@media (max-width: 800px) {
+  .notes-field { display: block; margin-left: 0; }
+  .notes-field::before, .slot::before, .when, .big-no { display: none; }
+  .slot { margin: 0 0 2.5rem !important; }
+  .slot[data-no="06"] .blog-entry { display: block; }
+  .slot[data-no="06"] .blog-entry h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
+  .slot[data-no="01"] .blog-entry { transform: none; }
 }
 
-.other-link:hover {
-  color: #4FC3F7;
-  border-color: #4FC3F7;
+/* a printer's gray-scale step wedge across the right end of the title row, where it is the first thing you see */
+#other-content { position: relative; }
+#other-content::after {
+  content: "";
+  position: absolute;
+  right: 0; bottom: 3.4rem;
+  width: min(19rem, 28vw); height: 2.6rem;
+  border: 1px solid var(--ink);
+  background: linear-gradient(90deg,
+    #e9e6df 0 12.5%, #cfccc4 12.5% 25%, #b5b2aa 25% 37.5%, #9a978f 37.5% 50%,
+    #7a7771 50% 62.5%, #5a5853 62.5% 75%, #3a3935 75% 87.5%, #0f0f0e 87.5%);
+  pointer-events: none;
 }
-
-/* =========================== */
-/* Mobile Adjustments */
-@media (max-width: 500px) {
-  .blog-entry {
-    width: 95%;
-    padding: 1.25rem;
-  }
-
-  #other-content h1 {
-    font-size: 2.4rem;
-  }
-}
+@media (max-width: 800px) { #other-content::after { width: 11rem; height: 1.6rem; bottom: 3.2rem; } }

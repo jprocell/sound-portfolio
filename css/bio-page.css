@@ -1,207 +1,171 @@
 /* =========================== */
-/* Page Base */
-body.bio-page {
-  background: #FFFFFF;
-  color: #000000;
-  font-family: 'Inter', sans-serif;
-}
+/* Bio: spec sheet. Fact strip, big section numerals, tool chips, year timeline, inverted last section */
 
-/* =========================== */
-/* Bio Content Wrapper */
-#bio-content {
-  max-width: 1300px;
-  margin: 8rem auto 4rem auto;
-  padding: 2rem;
-}
-
-/* Page Title */
-#bio-content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #000;
-  font-weight: 700;
-}
-
-/* Paragraphs */
-#bio-content p {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #444;
-  margin-bottom: 1.25rem;
-}
-
-/* ===================== */
-/* Tabs */
-.bio-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.bio-tabs .bio-tab {
-  padding: 0.7rem 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  background: transparent;
-  border: 1px solid #000;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.bio-tabs .bio-tab:hover {
-  background: #000;
-  color: #FFF;
-}
-
-.bio-tabs .bio-tab.active {
-  background: #000;
-  color: #FFF;
-}
-
-/* ===================== */
-/* Panels */
-.bio-panel { display: none; }
-.bio-panel.active { display: block; }
-
-/* ===================== */
-/* Split Layout */
-.bio-split {
+/* Sections */
+.bio-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  position: relative;
+  grid-template-columns: 11rem 1fr;
+  gap: 0 3rem;
+  padding: 2.5rem 0 4rem;
+  border-top: 2px solid var(--ink);
 }
-
-/* Vertical divider */
-.bio-split::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #DDD;
+.bio-panel > h2 { grid-column: 1; position: sticky; top: 2rem; align-self: start; display: flex; flex-direction: column; gap: 0.4rem; }
+.bio-panel > h2 .num {
+  font-weight: 900; font-stretch: 112%; letter-spacing: -0.05em; line-height: 0.8;
+  font-size: 6.5rem;
+  color: transparent; -webkit-text-stroke: 1.5px var(--ink);
 }
+.bio-split { grid-column: 2; display: flex; flex-direction: column; gap: 2.25rem; }
+.bio-text p { margin: 0 0 1.15rem; }
 
-/* Images */
+/* Photos: xerox + cut corners, offset in a stagger */
+.bio-media { display: flex; align-items: flex-start; gap: 1.25rem; }
 .bio-media img {
-  width: 100%;
-  border-radius: 4px;
+  flex: 1 1 0; min-width: 0; width: 100%;
+  max-height: 24rem; object-fit: cover;
+  mix-blend-mode: multiply;
+  filter: url(#xerox);
+  clip-path: polygon(0 0, 92% 0, 100% 10%, 100% 100%, 8% 100%, 0 90%);
+}
+.bio-media img:nth-child(2) { margin-top: 3rem; clip-path: polygon(0 8%, 100% 0, 100% 92%, 90% 100%, 0 100%); }
+
+/* 01 Personal: text runs in two columns */
+#personal .bio-text { columns: 2; column-gap: 2.5rem; }
+#personal .bio-text p { break-inside: avoid-column; }
+
+/* 03 Engineering: education on the left, roles listed on the right */
+.eng-intro { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 0 2.5rem; margin: 0 0 1.5rem; }
+.roles .gear-title { margin-top: 0; }
+.roles .gear-items { columns: 2; column-gap: 1.5rem; }
+.roles .gear-items li:first-child { border-top: 0; }
+
+/* 02 Audio: text first, one wide photo strip after it */
+#audio .bio-media { order: 2; }
+#audio .bio-media img { max-height: 16rem; clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%); }
+
+/* My Gear: clickable tabs, one panel per category */
+.gear { margin: 0 0 2rem; }
+.gear-title {
+  margin: 0; font-weight: 900; font-stretch: 108%; text-transform: uppercase; letter-spacing: -0.02em;
+  font-size: 1.35rem; padding: 0.4rem 0; border-bottom: 2px solid var(--ink);
+}
+.gear-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.9rem 0 1rem; }
+.gear-tabs button {
+  appearance: none; cursor: pointer; border-radius: 0;
+  border: 1px solid var(--ink); background: transparent; color: inherit;
+  padding: 0.25rem 0.7rem;
+  font-family: var(--mono); font-size: 0.74rem; text-transform: lowercase; letter-spacing: 0.02em;
+}
+.gear-tabs button:hover { background: rgba(15,15,14,0.12); }
+.gear-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.gear-tabs button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.gear-panel[hidden] { display: none; }
+.gear-items { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: 2.5rem; }
+.gear-items li {
+  break-inside: avoid; padding: 0.55rem 0; border-bottom: 1px solid var(--ink);
+  font-size: 0.98rem; line-height: 1.35;
 }
 
-/* Text */
-.bio-text {
-  max-width: 700px;
-}
-
-/* ===================== */
-/* Lists */
-.bio-list {
-  margin-top: 1rem;
-  padding-left: 1.2rem;
-}
-
-.bio-list.two-col {
-  columns: 2;
-  column-gap: 3rem;
-}
-
-.bio-list li {
-  margin-bottom: 0.5rem;
-}
-
-/* ===================== */
-/* Dropdowns */
-.bio-dropdown {
-  margin-top: 1.25rem;
-  padding: 0.9rem 1.1rem;
-  background: #F7F7F7;
-  border: 1px solid #E5E5E5;
-  border-radius: 4px;   /* ← squared like tabs */
-}
-
-
-/* Summary row */
-.bio-dropdown summary {
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  list-style: none;
-}
-
-/* Remove default marker */
-.bio-dropdown summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Custom caret */
-.bio-dropdown .arrow {
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 6px solid #444; /* softer than black */
-  transition: transform 0.2s ease;
-}
-
-.bio-dropdown[open] .arrow {
-  transform: rotate(90deg);
-}
-
-/* Content */
-.dropdown-content {
-  margin-top: 0.75rem;
-  padding-left: 1.2rem;
-  color: #444;
-}
-
-/* Main bullet list */
-.dropdown-content > ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: 0.5rem 0;
-}
-
+/* Dropdowns: always open, laid out as ruled tables */
+.bio-dropdown { margin: 0 0 2rem; }
+.dropdown-content ul { list-style: none; margin: 0; padding: 0; }
 .dropdown-content > ul > li {
-  margin-bottom: 0.5rem;
-  font-weight: 500;      /* slightly stronger */
-  color: #222;           /* darker for primary points */
+  display: grid; grid-template-columns: 11rem 1fr; gap: 0 1.5rem;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--ink);
+  font-weight: 900; font-stretch: 108%; text-transform: uppercase; letter-spacing: -0.02em; font-size: 1rem; line-height: 1.15;
+}
+.dropdown-content > ul > li > ul {
+  font-weight: 400; font-stretch: 100%; text-transform: none; letter-spacing: 0; font-size: 0.98rem; line-height: 1.4;
+}
+.dropdown-content > ul > li > ul li { padding: 0.12rem 0; }
+.dropdown-content ul ul ul { padding-left: 1rem; }
+
+/* History: era names as big outlined words, with the dates in small mono beneath */
+.bio-dropdown.years .dropdown-content > ul > li {
+  grid-template-columns: 13.5rem 1fr;
+  font-size: 2rem; line-height: 0.95; letter-spacing: -0.03em;
+  color: transparent; -webkit-text-stroke: 1.2px var(--ink);
+}
+.bio-dropdown.years .era { display: block; }
+.bio-dropdown.years .when {
+  display: block; margin-top: 0.5rem;
+  font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; text-transform: none; line-height: 1.2;
+  -webkit-text-stroke: 0; color: var(--ink);
+}
+.bio-dropdown.years .dropdown-content > ul > li > ul { -webkit-text-stroke: 0; color: var(--ink); }
+
+/* 02 Audio is the dark slab, so the page runs light / dark / light */
+#audio {
+  background: var(--ink); color: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--ink);
+  clip-path: inset(0 -100vmax);
+  border-top: 0;
+  margin: 1rem 0 2rem; padding-top: 3rem;
+}
+#audio ::selection { background: var(--bg); color: var(--ink); }
+#audio > h2 .num { -webkit-text-stroke-color: var(--bg); }
+#audio .bio-media img { filter: url(#xerox) invert(1); mix-blend-mode: screen; }
+#audio .gear-title { border-bottom-color: var(--bg); }
+#audio .gear-tabs button { border-color: var(--bg); }
+#audio .gear-tabs button:hover { background: rgba(217,214,207,0.16); }
+#audio .gear-tabs button[aria-selected="true"] { background: var(--bg); color: var(--ink); }
+#audio .gear-items li { border-bottom-color: var(--bg); }
+#audio .dropdown-content > ul > li { border-bottom-color: var(--bg); }
+#audio .bio-dropdown.years .dropdown-content > ul > li { -webkit-text-stroke-color: var(--bg); }
+#audio .bio-dropdown.years .dropdown-content > ul > li > ul, #audio .bio-dropdown.years .when { color: var(--bg); }
+#audio a { color: var(--bg); }
+#engineering { border-top: 2px solid var(--ink); }
+
+@media (max-width: 800px) {
+  .bio-panel { grid-template-columns: 1fr; }
+  .bio-panel > h2 { position: static; flex-direction: row; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+  .bio-panel > h2 .num { font-size: 4rem; }
+  .bio-split { grid-column: 1; }
+  #personal .bio-text { columns: 1; }
+  .eng-intro { grid-template-columns: 1fr; }
+  .bio-media { flex-direction: column; }
+  .bio-media img:nth-child(2) { margin-top: 0; }
+  .dropdown-content > ul > li { grid-template-columns: 1fr; gap: 0.3rem; }
+  .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; grid-template-columns: 1fr; }
 }
 
-/* Sub-bullets (tighter indent) */
-.dropdown-content ul ul {
-  list-style: circle;
-  margin-top: 0.2rem;
-  margin-left: 0.7rem;   /* was 1.2rem — pulled inward */
-  padding-left: 0.9rem;  /* smaller left padding */
+/* Nav stays readable over the dark slab: js/bio.js adds .on-dark while the nav overlaps it */
+body.bio-page .nav-bar.on-dark li::before { color: rgba(217, 214, 207, 0.6); }
+body.bio-page .nav-bar.on-dark li a { color: var(--bg); }
+body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(--ink); }
+
+
+
+
+
+/* spectrogram of drum-kit.wav as a halftone, standing on the heavy rule and running from the end of the title to the page edge */
+body.bio-page { overflow-x: clip; }
+#personal { position: relative; }
+.wave {
+  --F: min(14vw, 12rem);                 /* the title's font size */
+  --h: calc(var(--F) * 0.71);            /* cap height of ABOUT */
+  --cap: 1.3rem;                         /* caption band at the top of the figure */
+  position: absolute;
+  left: calc(14rem + (100% - 14rem) / 2 + 0.625rem);  /* left edge of the right-hand column below */
+  right: 0;                              /* end of the rule */
+  bottom: calc(100% + var(--F) * 0.44);  /* title baseline, not the rule */
+  height: var(--h); padding-top: var(--cap); box-sizing: border-box;
+  pointer-events: none;
 }
-
-.dropdown-content ul ul li {
-  font-weight: 400;
-  color: #555;
-  margin-bottom: 0.3rem;
+/* frequency axis: hairlines run through a label margin hanging to the left of the column */
+.wave .axis, .wave .cap, .wave img { filter: url(#rough-ink); }
+.wave .axis { position: absolute; top: var(--cap); bottom: 0; left: -3rem; right: 0; }
+.wave .axis i { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid rgba(15,15,14,0.3); }
+.wave .axis i b {
+  position: absolute; left: 0; bottom: 3px;
+  font: 400 0.62rem/1 var(--mono); letter-spacing: 0.04em; font-style: normal; text-transform: uppercase;
 }
-
-/* ===================== */
-/* Responsive */
-@media (max-width: 915px) {
-  .bio-split {
-    grid-template-columns: 1fr;
-  }
-
-  .bio-split::before { display: none; }
-
-  .bio-media { display: none; }
-
-  #bio-content h1 {
-    font-size: 2.5rem;
-  }
+.wave img { position: relative; display: block; width: 100%; height: 100%; object-fit: fill; }
+.wave .cap {
+  position: absolute; right: 0; top: 0;
+  font: 400 0.62rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+}
+/* phones: the figure becomes a plain strip under the title instead of sitting in the title row */
+@media (max-width: 800px) {
+  .wave { position: relative; bottom: auto; right: auto; left: auto; height: 5.5rem; padding-top: var(--cap); margin: 0 0 2rem 3rem; }
 }
