@@ -165,4 +165,7 @@ body.bio-page { overflow-x: clip; }
   position: absolute; right: 0; top: 0;
   font: 400 0.62rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
 }
-@media (max-width: 1299px) { .wave { display: none; } }
+/* phones: the figure becomes a plain strip under the title instead of sitting in the title row */
+@media (max-width: 800px) {
+  .wave { position: relative; bottom: auto; right: auto; left: auto; height: 5.5rem; padding-top: var(--cap); margin: 0 0 2rem 3rem; }
+}
