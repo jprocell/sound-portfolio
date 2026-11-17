@@ -11,6 +11,36 @@
   </head>
 <body class="bio-page poster">
 
+  <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="xerox" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncG type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncB type="linear" slope="4.5" intercept="-1.4"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="xerox-light" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="5" intercept="-2.35"/>
+        <feFuncG type="linear" slope="5" intercept="-2.35"/>
+        <feFuncB type="linear" slope="5" intercept="-2.35"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
   <i class="reg tr" aria-hidden="true">+</i>
   <i class="reg bl" aria-hidden="true">+</i>
 
@@ -28,11 +58,18 @@
     <section id="bio-content">
       <h1 class="display">About</h1>
 
+      <div class="facts">
+        <div class="fact"><span class="big">15+</span><span class="lab">years making music</span></div>
+        <div class="fact"><span class="big">400+</span><span class="lab">artists seen live</span></div>
+        <div class="fact"><span class="big">EE '22</span><span class="lab">UTSA, summa cum laude</span></div>
+        <div class="fact"><span class="big">ATX</span><span class="lab">south austin, tx</span></div>
+      </div>
+
       <div class="bio-panels">
 
         <!-- Personal -->
         <section class="bio-panel" id="personal">
-          <h2>Personal</h2>
+          <h2><span class="num">01</span><span class="lab">Personal</span></h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/drum.JPEG" alt="">
@@ -51,7 +88,7 @@
 
         <!-- Audio / Music -->
         <section class="bio-panel" id="audio">
-          <h2>Audio / Music / Media</h2>
+          <h2><span class="num">02</span><span class="lab">Audio / Music / Media</span></h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/mic.JPG" alt="">
@@ -79,7 +116,7 @@
               <p>In addition to the tools listed above, a full list of my current gear can be found here:</p>
 
               <!---This is the clickable dropdown menu-->
-              <details class="bio-dropdown">
+              <details class="bio-dropdown" open>
                 <summary>
                   <span class="arrow"></span>
                   My Gear
@@ -151,7 +188,7 @@
 
               <p>Mainly for memory sake, a brief summary of my music 'career' can be found below:</p>
               <!---This is the clickable dropdown menu-->
-              <details class="bio-dropdown">
+              <details class="bio-dropdown years" open>
                 <summary>
                   <span class="arrow"></span>
                   History
@@ -215,7 +252,7 @@
 
         <!-- Engineering -->
         <section class="bio-panel" id="engineering">
-          <h2>Engineering</h2>
+          <h2><span class="num">03</span><span class="lab">Engineering</span></h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/eng.JPG" alt="">
@@ -227,7 +264,7 @@
               <p>Below are some of the tools and hardware I've picked up working in the tech sector:</p>
 
               <!---This is the clickable drop down menu-->
-              <details class="bio-dropdown">
+              <details class="bio-dropdown" open>
                 <summary>
                   <span class="arrow"></span>
                   Skills
@@ -257,7 +294,7 @@
 
               <p>A brief work history is provided below. Further details regarding responsibilites and projects can be provided upon request.</p>
               <!---This is the clickable drop down menu-->
-              <details class="bio-dropdown">
+              <details class="bio-dropdown jobs" open>
                 <summary>
                   <span class="arrow"></span>
                   Work History
@@ -307,7 +344,7 @@
 
               <p>Lastly, my academic accomplishments and awards can be found below. All of these are related to my electrical engineering studies at UTSA.</p>
               <!---This is the clickable drop down menu-->
-              <details class="bio-dropdown">
+              <details class="bio-dropdown" open>
                 <summary>
                   <span class="arrow"></span>
                   Academic Accolades

@@ -8,31 +8,92 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   overflow: hidden;
 }
 
-/* The collage: public-domain prints, multiplied into the paper */
+/* The collage: hard-cut shards of public-domain prints, run through a xerox filter */
 .collage { position: absolute; inset: 0; margin: 0; }
 .piece { position: absolute; }
 .piece img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: var(--ar, 1);
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+  clip-path: var(--clip);
   mix-blend-mode: multiply;
-  filter: grayscale(1) contrast(1.15);
+  filter: url(#xerox);
+}
+/* lighter-inked prints need a higher threshold or their lines vanish */
+.p-organ img, .p-machine img, .p-drum img { filter: url(#xerox-light); }
+
+/* photocopier streaks and dirty edges */
+.piece::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: var(--clip);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 41px, rgba(15,15,14,0.28) 41px 42px, transparent 42px 97px, rgba(15,15,14,0.14) 97px 100px),
+    linear-gradient(180deg, rgba(15,15,14,0.35), transparent 7%, transparent 93%, rgba(15,15,14,0.3));
 }
 .piece .n {
   position: absolute;
-  top: -0.9em; left: 0;
+  top: -1.1em; left: 0;
   font-family: var(--mono);
   font-size: 0.7rem;
   line-height: 1;
 }
 
-/* positions are % of the hero so the composition scales with the window */
-.p-organ   { left: 30%; top: 6%;  width: 25%; transform: rotate(-1deg); }
-.p-drum    { left: 56%; top: 2%;  width: 11%; transform: rotate(5deg); }
-.p-skull   { right: 4%; top: 15%; width: 22%; transform: rotate(4deg); }
-.p-machine { left: 6%;  top: 30%; width: 22%; transform: rotate(-3deg); }
-.p-hands   { right: 16%; top: 52%; width: 24%; transform: rotate(-2deg); }
-.p-figure  { right: 2%; top: 56%; width: 11%; transform: rotate(3deg); }
+/* Strict geometry: no rotation, only cut corners. Positions are % of the hero. */
+.p-organ   { left: 27%; top: 7%;  width: 27%; --ar: 3 / 4;   --pos: 50% 30%;
+             --clip: polygon(0 0, 86% 0, 100% 9%, 100% 100%, 14% 100%, 0 91%); }
+.p-hands   { left: 40%; top: 46%; width: 54%; --ar: 16 / 5;  --pos: 50% 40%;
+             --clip: polygon(5% 0, 100% 0, 95% 100%, 0 100%); }
+.p-skull   { right: 3%; top: 8%;  width: 17%; --ar: 1;       --pos: 72% 50%;
+             --clip: polygon(0 0, 100% 0, 100% 62%, 62% 100%, 0 100%); }
+.p-machine { left: 5%;  top: 25%; width: 19%; --ar: 4 / 3;   --pos: 50% 50%;
+             --clip: polygon(0 12%, 100% 0, 100% 88%, 0 100%); }
+.p-figure  { right: 1.5%; top: 26%; width: 8%; --ar: 1 / 2.4; --pos: 50% 40%;
+             --clip: polygon(0 0, 100% 6%, 100% 100%, 0 94%); }
+.p-drum    { left: 62%; top: -1%; width: 7%; --ar: 1 / 3.4;  --pos: 50% 15%;
+             --clip: polygon(0 0, 100% 0, 100% 100%, 0 92%); }
+
+/* Structure lines */
+.line { position: absolute; display: block; pointer-events: none; }
+.l-h { left: 0; right: 0; top: 44%; border-top: 1px solid var(--ink); }
+.l-v { top: 0; bottom: 0; left: 27%; border-left: 1px solid var(--ink); }
+.l-diag {
+  inset: 0;
+  background: linear-gradient(to top right, transparent calc(50% - 0.5px), var(--ink) calc(50% - 0.5px), var(--ink) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  opacity: 0.55;
+}
+.blk {
+  position: absolute;
+  left: 5%; top: 46%; width: 19%;
+  padding: 0.35rem 0.6rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: lowercase;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+}
+
+/* Rotated text running up the right edge */
+.vert {
+  position: fixed;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  margin: 0;
+  z-index: 4;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
 
 /* Name: cropped by the bottom-left edge */
 .hero-left { position: absolute; left: 0; bottom: 0; width: 100%; pointer-events: none; }
@@ -80,10 +141,10 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 #art-credit a { color: inherit; }
 
 @media (max-width: 700px) {
-  .p-organ   { left: 22%; top: 24%; width: 56%; }
-  .p-skull   { right: 2%; top: 52%; width: 36%; }
-  .p-machine { left: 2%;  top: 46%; width: 38%; }
-  .p-drum, .p-hands, .p-figure { display: none; }
+  .p-organ   { left: 20%; top: 24%; width: 58%; }
+  .p-skull   { right: 2%; top: 54%; width: 34%; }
+  .p-machine { left: 2%;  top: 48%; width: 38%; }
+  .p-drum, .p-hands, .p-figure, .blk, .vert, .l-v { display: none; }
   .hero-left-inner h1 { font-size: 20.5vw; }
   .reg { display: none; }
   #clock { display: none; }

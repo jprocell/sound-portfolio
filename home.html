@@ -12,6 +12,36 @@
 </head>
 <body class="home-page poster">
 
+  <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="xerox" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncG type="linear" slope="4.5" intercept="-1.4"/>
+        <feFuncB type="linear" slope="4.5" intercept="-1.4"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="xerox-light" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.55" k4="-0.28" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="5" intercept="-2.35"/>
+        <feFuncG type="linear" slope="5" intercept="-2.35"/>
+        <feFuncB type="linear" slope="5" intercept="-2.35"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
   <nav>
     <ul class="nav-bar">
       <li><a href="home.html" class="active">home</a></li>
@@ -34,7 +64,12 @@
       <div class="piece p-hands"><img src="images/collage-hands.jpg" alt=""><span class="n">4</span></div>
       <div class="piece p-figure"><img src="images/collage-figure.jpg" alt=""><span class="n">5</span></div>
       <div class="piece p-drum"><img src="images/collage-drum.jpg" alt=""><span class="n">6</span></div>
+      <i class="line l-diag" aria-hidden="true"></i>
+      <i class="line l-h" aria-hidden="true"></i>
+      <i class="line l-v" aria-hidden="true"></i>
+      <div class="blk" aria-hidden="true">30.2672° N / 97.7431° W</div>
     </figure>
+    <p class="vert" aria-hidden="true">sound design — audio engineering — music — austin, tx</p>
 
     <div class="hero-left">
       <div class="hero-left-inner">
