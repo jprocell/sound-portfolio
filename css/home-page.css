@@ -1,160 +1,76 @@
 /* =========================== */
-/* Hero Section - Light Mode */
+/* Home: instrument plate + overprinted name */
+body.home-page { min-height: 100vh; overflow: hidden; }
+
 #hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
+  position: relative;
   height: 100vh;
-  padding: 0 5%;
-  background: #FFFFFF;  /* white background */
-  color: #000000;       /* default text black */
-  position: relative;
+  overflow: hidden;
 }
 
-/* =========================== */
-/* Left Column - Hero Text */
-.hero-left {
+/* The engraving: large, multiplied into the paper */
+.plate {
+  position: absolute;
+  inset: 4rem 0 3.5rem 18vw;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;  /* vertically centered */
-  max-width: 45%;
-  position: relative;
-}
-
-.hero-left-inner {
-  display: flex;
-  flex-direction: column;  /* stacked on desktop */
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
+}
+.plate img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) contrast(1.15);
 }
 
+/* Name: cropped by the bottom-left edge */
+.hero-left { position: absolute; left: 0; bottom: 0; width: 100%; pointer-events: none; }
 .hero-left-inner h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 6rem;
-  font-weight: 700;
-  line-height: 1.05;
   margin: 0;
-  color: #000000;
+  font-size: clamp(5rem, 18.5vw, 24rem);
+  padding-left: 0.015em;
+  transform: translateY(0.08em);
 }
-
-.hero-left-inner h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.4;
-  color: #555555;   /* subtle gray */
-  margin-top: 1.618rem;
-}
-
-/* Horizontal accent line below subheading */
-.hero-left-line {
-  width: 60px;
-  height: 2px;
-  background: #000000;
-  margin-top: 1rem;
-}
-
-/* =========================== */
-/* Right Column - Secondary Text */
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  max-width: 45%;
-  margin-left: auto;
-  text-align: right;
-  padding-bottom: 15vh;
-}
-
+.hero-left-inner h1 span { display: block; }
+.hero-left-inner h2,
 .hero-right p {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #444444;   /* soft dark gray */
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--ink);
   margin: 0;
+  max-width: 20rem;
 }
+.hero-left-inner h2 { top: 0; left: var(--gutter); transform: translateY(-4.5rem); }
+.hero-right { position: absolute; right: var(--gutter); top: 4.5rem; text-align: right; }
+.hero-right p { position: static; }
+.hero-left-line { display: none; }
 
-/* =========================== */
-/* Responsive Adjustments */
-
-/* =========================== */
-/* Desktop: prevent h1/h2 wrapping */
-@media (min-width: 901px) {
-
-  .hero-left {
-    max-width: 100%;  /* allow full width for hero text */
-  }
-
-  .hero-left-inner h1 {
-    font-size: 5.5rem;      /* slightly reduced if needed */
-    line-height: 1.05;
-    white-space: nowrap;    /* prevent wrapping */
-  }
-
-  .hero-left-inner h2 {
-    font-size: 2rem;        /* slightly reduced if needed */
-    line-height: 1.2;
-    white-space: nowrap;    /* prevent wrapping */
-  }
+/* Footer row: clock bottom-left, credit bottom-right */
+.corner { position: fixed; bottom: 0.9rem; z-index: 4; font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; }
+#clock { right: var(--gutter); bottom: auto; top: 9rem; text-align: right; }
+#art-credit {
+  right: var(--gutter);
+  bottom: 1.1rem;
+  max-width: min(26rem, 60vw);
+  text-align: right;
+  color: var(--ink);
+  background: var(--bg);
+  padding: 0.25rem 0.4rem;
+  display: none;          /* shown by js once the image loads */
 }
+#art-credit.show { display: block; }
+#art-credit a { color: inherit; }
 
-
-/* Large tablets */
-@media (max-width: 1200px) {
-  .hero-left-inner h1 { font-size: 4.5rem; }
-  .hero-left-inner h2 { font-size: 1.75rem; }
-  .hero-right p { font-size: 1.1rem; }
-}
-
-/* Mobile devices */
-@media (max-width: 900px) {
-  #hero {
-    flex-direction: column;
-    height: 100vh;
-    padding: 5%;
-    text-align: center;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .hero-left-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .hero-left-inner h1 {
-    font-size: 5vh;
-    line-height: 1.1;
-    margin: 0;
-  }
-
-  .hero-left-inner h2 {
-    font-size: 2.2vh;  /* reduced for mobile */
-    line-height: 1.2;
-    margin-top: 0.5rem;
-    text-align: center;
-  }
-
-  .hero-left-line {
-    width: 50px;
-    height: 2px;
-    margin: 1rem auto 0 auto;
-  }
-
-  /* Hide paragraph on mobile */
-  .hero-right {
-    display: none;
-  }
+@media (max-width: 700px) {
+  .plate { inset: 7rem 0 4rem 0; }
+  .hero-left-inner h1 { font-size: 24vw; }
+  .reg { display: none; }
+  #clock { display: none; }
+  .hero-right { display: none; }
 }

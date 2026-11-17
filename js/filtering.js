@@ -1,6 +1,8 @@
+// Works page: category filter + cover preview that follows the cursor on row hover.
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = document.querySelectorAll("#filter-bar button");
-  const projects = document.querySelectorAll(".project-card"); // changed from .project-item
+  const projects = document.querySelectorAll(".project-card");
+  const preview = document.getElementById("cover-preview");
 
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -8,35 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
       button.classList.add("active");
 
       const category = button.dataset.category;
-
       projects.forEach(project => {
-        if (category === "all" || project.dataset.category === category) {
-          project.style.display = "block";  // show matching
-        } else {
-          project.style.display = "none";   // hide non-matching
-        }
+        const show = category === "all" || project.dataset.category === category;
+        project.style.display = show ? "" : "none";
       });
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".bio-tab");
-  const panels = document.querySelectorAll(".bio-panel");
+  if (!preview) return;
 
-  if (!tabs.length || !panels.length) return;
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      panels.forEach(p => p.classList.remove("active"));
-
-      tab.classList.add("active");
-
-      const panel = tab.dataset.panel;
-      document
-        .querySelector(`.bio-panel[data-panel="${panel}"]`)
-        .classList.add("active");
+  projects.forEach(project => {
+    project.addEventListener("mouseenter", () => {
+      preview.src = project.dataset.img;
+      preview.hidden = false;
+    });
+    project.addEventListener("mousemove", e => {
+      const w = preview.offsetWidth;
+      const h = preview.offsetHeight;
+      const x = Math.min(e.clientX + 24, window.innerWidth - w - 16);
+      const y = Math.min(Math.max(e.clientY - h / 2, 16), window.innerHeight - h - 16);
+      preview.style.left = `${x}px`;
+      preview.style.top = `${y}px`;
+    });
+    project.addEventListener("mouseleave", () => { preview.hidden = true; });
+    // Keyboard: Enter/Space opens the project like a click
+    project.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); project.click(); }
     });
   });
 });

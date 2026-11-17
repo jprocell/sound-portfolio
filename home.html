@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Josh Procell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/poster.css">
   <link rel="stylesheet" href="css/home-page.css">
+  <script src="js/home.js" defer></script>
 </head>
-<body class="home-page">
+<body class="home-page poster">
 
   <nav>
     <ul class="nav-bar">
-      <li><a href="home.html" class="active">Home</a></li>
-      <li><a href="bio.html">Bio</a></li>
-      <li><a href="works.html">Works</a></li>
-      <li><a href="other.html">Other</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="home.html" class="active">home</a></li>
+      <li><a href="bio.html">bio</a></li>
+      <li><a href="works.html">works</a></li>
+      <li><a href="other.html">other</a></li>
+      <li><a href="contact.html">contact</a></li>
     </ul>
   </nav>
 
+  <i class="reg tr" aria-hidden="true">+</i>
+  <i class="reg bl" aria-hidden="true">+</i>
+
   <section id="hero">
+    <figure class="plate">
+      <!-- Public-domain drawing from the Met Open Access collection; credited in #art-credit -->
+      <img src="images/home-plate.jpg" alt="">
+    </figure>
+
     <div class="hero-left">
       <div class="hero-left-inner">
-        <h1>Josh Procell</h1>
-        <h2>Making noise in Austin, TX.</h2>
-        <div class="hero-left-line"></div> 
+        <h2>making noise in austin, tx.</h2>
+        <h1 class="display"><span>Josh</span><span class="outline">Procell</span></h1>
       </div>
     </div>
     <div class="hero-right">
-      <p>Sound designer. Audio engineer. Musician.</p>
+      <p>sound designer.<br>audio engineer.<br>musician.</p>
     </div>
   </section>
+
+  <div id="clock" class="corner" aria-hidden="true"></div>
+  <p id="art-credit" class="corner"><a href="https://www.metmuseum.org/art/collection/search/388848" target="_blank" rel="noopener"><em>A Pipe Organ with Papal Arms</em></a>, anonymous Italian, 16th c.<br>The Metropolitan Museum of Art, Open Access (CC0)</p>
 
 </body>
 </html>

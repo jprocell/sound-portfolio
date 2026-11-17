@@ -1,207 +1,68 @@
 /* =========================== */
-/* Page Base */
-body.bio-page {
-  background: #FFFFFF;
-  color: #000000;
-  font-family: 'Inter', sans-serif;
-}
+/* Bio: one scrolling page, small label column + text */
+#bio-content h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.02em; margin-bottom: 4rem; }
 
-/* =========================== */
-/* Bio Content Wrapper */
-#bio-content {
-  max-width: 1300px;
-  margin: 8rem auto 4rem auto;
-  padding: 2rem;
-}
-
-/* Page Title */
-#bio-content h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #000;
-  font-weight: 700;
-}
-
-/* Paragraphs */
-#bio-content p {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #444;
-  margin-bottom: 1.25rem;
-}
-
-/* ===================== */
-/* Tabs */
-.bio-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.bio-tabs .bio-tab {
-  padding: 0.7rem 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  background: transparent;
-  border: 1px solid #000;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.bio-tabs .bio-tab:hover {
-  background: #000;
-  color: #FFF;
-}
-
-.bio-tabs .bio-tab.active {
-  background: #000;
-  color: #FFF;
-}
-
-/* ===================== */
-/* Panels */
-.bio-panel { display: none; }
-.bio-panel.active { display: block; }
-
-/* ===================== */
-/* Split Layout */
-.bio-split {
+.bio-panel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  position: relative;
+  grid-template-columns: 11rem 1fr;
+  gap: 0 3rem;
+  padding: 2.5rem 0 3.5rem;
+  border-top: 1px solid var(--ink);
 }
 
-/* Vertical divider */
-.bio-split::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #DDD;
+.bio-panel > h2 {
+  grid-column: 1;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  position: sticky;
+  top: 2rem;
+  align-self: start;
 }
 
-/* Images */
+.bio-split { grid-column: 2; display: flex; flex-direction: column; gap: 2rem; }
+
+.bio-media { display: flex; flex-wrap: wrap; gap: 1rem; }
 .bio-media img {
-  width: 100%;
-  border-radius: 4px;
+  flex: 1 1 14rem;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 26rem;
+  object-fit: cover;
+  filter: grayscale(0.15);
 }
 
-/* Text */
-.bio-text {
-  max-width: 700px;
-}
+.bio-text p { margin: 0 0 1.2rem; }
 
-/* ===================== */
-/* Lists */
-.bio-list {
-  margin-top: 1rem;
-  padding-left: 1.2rem;
-}
+.bio-list { margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.bio-list.two-col { columns: 2; column-gap: 2rem; }
+.bio-list li { break-inside: avoid; padding: 0.1rem 0; border-bottom: 1px solid var(--rule); font-size: 1.05rem; }
 
-.bio-list.two-col {
-  columns: 2;
-  column-gap: 3rem;
-}
-
-.bio-list li {
-  margin-bottom: 0.5rem;
-}
-
-/* ===================== */
 /* Dropdowns */
-.bio-dropdown {
-  margin-top: 1.25rem;
-  padding: 0.9rem 1.1rem;
-  background: #F7F7F7;
-  border: 1px solid #E5E5E5;
-  border-radius: 4px;   /* ← squared like tabs */
-}
-
-
-/* Summary row */
+.bio-dropdown { border-top: 1px solid var(--rule); margin: 0 0 1.5rem; }
 .bio-dropdown summary {
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
   list-style: none;
+  cursor: pointer;
+  padding: 0.7rem 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: lowercase;
 }
+.bio-dropdown summary::-webkit-details-marker { display: none; }
+.bio-dropdown summary::before { content: "+ "; color: var(--accent); }
+.bio-dropdown[open] summary::before { content: "– "; }
+.bio-dropdown .arrow { display: none; }
 
-/* Remove default marker */
-.bio-dropdown summary::-webkit-details-marker {
-  display: none;
-}
+.dropdown-content { padding-bottom: 0.5rem; font-size: 1.05rem; }
+.dropdown-content ul { list-style: none; margin: 0; padding: 0; }
+.dropdown-content ul ul { padding-left: 1rem; margin: 0.2rem 0 0.8rem; color: var(--muted); }
+.dropdown-content ul ul li { padding: 0.1rem 0; }
 
-/* Custom caret */
-.bio-dropdown .arrow {
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 6px solid #444; /* softer than black */
-  transition: transform 0.2s ease;
-}
-
-.bio-dropdown[open] .arrow {
-  transform: rotate(90deg);
-}
-
-/* Content */
-.dropdown-content {
-  margin-top: 0.75rem;
-  padding-left: 1.2rem;
-  color: #444;
-}
-
-/* Main bullet list */
-.dropdown-content > ul {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.dropdown-content > ul > li {
-  margin-bottom: 0.5rem;
-  font-weight: 500;      /* slightly stronger */
-  color: #222;           /* darker for primary points */
-}
-
-/* Sub-bullets (tighter indent) */
-.dropdown-content ul ul {
-  list-style: circle;
-  margin-top: 0.2rem;
-  margin-left: 0.7rem;   /* was 1.2rem — pulled inward */
-  padding-left: 0.9rem;  /* smaller left padding */
-}
-
-.dropdown-content ul ul li {
-  font-weight: 400;
-  color: #555;
-  margin-bottom: 0.3rem;
-}
-
-/* ===================== */
-/* Responsive */
-@media (max-width: 915px) {
-  .bio-split {
-    grid-template-columns: 1fr;
-  }
-
-  .bio-split::before { display: none; }
-
-  .bio-media { display: none; }
-
-  #bio-content h1 {
-    font-size: 2.5rem;
-  }
+@media (max-width: 800px) {
+  .bio-panel { grid-template-columns: 1fr; }
+  .bio-panel > h2 { position: static; margin-bottom: 1.25rem; }
+  .bio-split { grid-column: 1; }
+  .bio-list.two-col { columns: 1; }
 }

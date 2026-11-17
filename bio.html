@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Josh — Bio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/bio-page.css">
-  <script src="js/filtering.js" defer></script>
-</head>
+  </head>
 <body class="bio-page">
 
   <nav>
@@ -23,18 +22,13 @@
 
   <main>
     <section id="bio-content">
-      <h1>About Me</h1>
-
-      <div class="bio-tabs">
-        <button class="bio-tab active" data-panel="personal">Personal</button>
-        <button class="bio-tab" data-panel="audio">Audio / Music / Media</button>
-        <button class="bio-tab" data-panel="engineering">Engineering</button>
-      </div>
+      <h1>About</h1>
 
       <div class="bio-panels">
 
         <!-- Personal -->
-        <div class="bio-panel active" data-panel="personal">
+        <section class="bio-panel" id="personal">
+          <h2>Personal</h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/drum.JPEG" alt="">
@@ -49,10 +43,11 @@
               <p>I don't find myself all that interesting, but I'm always happy to talk if anyone's curious.</p>
             </div>
           </div>
-        </div>
+        </section>
 
         <!-- Audio / Music -->
-        <div class="bio-panel" data-panel="audio">
+        <section class="bio-panel" id="audio">
+          <h2>Audio / Music / Media</h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/mic.JPG" alt="">
@@ -212,10 +207,11 @@
               </details>
             </div>
           </div>
-        </div>
+        </section>
 
         <!-- Engineering -->
-        <div class="bio-panel" data-panel="engineering">
+        <section class="bio-panel" id="engineering">
+          <h2>Engineering</h2>
           <div class="bio-split">
             <div class="bio-media">
               <img src="images/eng.JPG" alt="">
@@ -340,7 +336,7 @@
 
             </div>
           </div>
-        </div>
+        </section>
 
       </div>
     </section>

@@ -1,0 +1,58 @@
+/* =========================== */
+/* Poster look: used by home + works (other pages still use the base look) */
+:root {
+  --bg: #d9d6cf;
+  --ink: #0f0f0e;
+  --muted: #55544f;
+  --rule: rgba(15, 15, 14, 0.35);
+  --accent: #0f0f0e;
+
+  --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --serif: var(--sans);          /* modal body text reuses --serif; keep it grotesk here */
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+
+body.poster {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.4;
+  background-color: var(--bg);
+  /* faint paper grain */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+body.poster a:hover { color: var(--ink); }
+body.poster ::selection { background: var(--ink); color: var(--bg); }
+
+/* Display type: heavy, wide, tight */
+.display {
+  font-family: var(--sans);
+  font-weight: 900;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+}
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+
+/* =========================== */
+/* Nav: numbered, bracketed */
+body.poster .nav-bar { counter-reset: nav; gap: 0.15rem; }
+body.poster .nav-bar li { counter-increment: nav; }
+body.poster .nav-bar li::before { content: "[0" counter(nav) "] "; color: var(--muted); font-family: var(--mono); font-size: 0.78rem; }
+body.poster .nav-bar li a { color: var(--ink); }
+body.poster .nav-bar li a.active { background: var(--ink); color: var(--bg); padding: 0 0.3em; }
+body.poster .nav-bar li a.active::before { content: none; }
+body.poster .nav-bar li a:hover { text-decoration: underline; }
+
+/* Registration marks in the corners */
+.reg { position: fixed; font-family: var(--mono); font-size: 0.8rem; line-height: 1; color: var(--ink); z-index: 3; pointer-events: none; }
+.reg.tr { top: 0.9rem; right: 0.9rem; }
+.reg.bl { bottom: 0.9rem; left: 0.9rem; }
+.reg.br { bottom: 0.9rem; right: 0.9rem; }
+.reg.tl { display: none; }   /* nav lives top-left */
+
+.meta-line { font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; letter-spacing: 0.02em; }

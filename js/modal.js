@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </div>
                   <audio preload="metadata">
-                    <source src="${audioSrc}" type="audio/mp3">
+                    <source src="${audioSrc}">
                     Your browser does not support the audio element.
                   </audio>
                 </div>
@@ -135,8 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
               activeAudio = audio;
               activeAudioRow = row;
 
-              // Optionally trigger waveform
-              if (window.trackWaveformAudio) window.trackWaveformAudio(audio);
 
             } else {
               audio.pause();
