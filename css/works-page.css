@@ -231,15 +231,3 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .modal-cols { grid-template-columns: 1fr; gap: 2rem 0; }
   .modal-head { position: static; }
 }
-
-/* halftone patch above the list: dots swell downward until they merge into the heavy rule */
-#works-gallery { position: relative; }
-.halftone-w {
-  position: absolute;
-  right: 0; bottom: 100%;
-  width: clamp(5rem, 9vw, 9rem);
-  aspect-ratio: 40 / 64;
-  pointer-events: none;
-}
-.halftone-w svg { display: block; width: 100%; height: 100%; fill: var(--ink); }
-@media (max-width: 700px) { .halftone-w { display: none; } }
