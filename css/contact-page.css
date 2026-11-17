@@ -1,6 +1,5 @@
 /* =========================== */
 /* Contact: giant type over a xerox'd print, black form panel, big link rows */
-body.contact-page main { max-width: 64rem; }
 
 #contact-info {
   display: grid;
@@ -10,11 +9,6 @@ body.contact-page main { max-width: 64rem; }
 }
 
 #contact-info header { grid-column: 1 / -1; position: relative; padding-bottom: 1rem; }
-#contact-info header h1 {
-  position: relative; z-index: 1;
-  font-size: clamp(3.5rem, 13vw, 10.5rem);
-  margin-bottom: 1.5rem;
-}
 #contact-info header p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 0.2rem; max-width: 26rem; position: relative; z-index: 1; }
 
 /* The print is a full-width band under the intro: large, heavy xerox, cut at both ends */

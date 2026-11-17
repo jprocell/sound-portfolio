@@ -58,13 +58,27 @@ body.poster .nav-bar li a:hover { text-decoration: underline; }
 .meta-line { font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; letter-spacing: 0.02em; }
 
 /* =========================== */
-/* Inner pages (bio, notes, contact): bare, so the work stays the loudest thing */
-body.poster main { max-width: 56rem; }
+
+/* =========================== */
+/* Shared page frame, matched to Works: same top padding, same left edge, same title size.
+   Works keeps its own rules (css/works-page.css); this brings bio, notes and contact in line. */
+body.poster main { max-width: none; margin: 0; padding: 5.5rem var(--gutter) 5rem; }
+@media (min-width: 1100px) { body.poster main { padding-left: 11rem; } }
+
+body.bio-page main h1.display,
+body.other-page main h1.display,
+body.contact-page main h1.display {
+  font-size: clamp(3.5rem, 14vw, 12rem);
+  margin: 0 0 1.25rem;
+}
+/* the strip of small mono text under each title */
+.page-sub { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 2rem; }
+
+/* inner content stays readable-width; titles and left edge do not move between pages */
+#bio-content, #other-content, .notes-field, #contact-info { max-width: 64rem; }
+
 body.poster .bio-text p,
 body.poster .blog-entry p,
 body.poster #contact-info header p { font-size: 1rem; line-height: 1.5; max-width: 40rem; }
-body.poster .bio-panel,
-body.poster .blog-entry,
-body.poster .contact-block { border-top-color: var(--ink); }
 body.poster .contact-form button:hover { background: var(--ink); color: var(--bg); }
 body.poster .other-link, body.poster .modal-external-link { font-family: var(--mono); }

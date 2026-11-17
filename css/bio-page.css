@@ -1,7 +1,5 @@
 /* =========================== */
 /* Bio: spec sheet. Fact strip, big section numerals, tool chips, year timeline, inverted last section */
-body.bio-page main { max-width: 68rem; }
-#bio-content h1 { font-size: clamp(3rem, 10vw, 8rem); margin-bottom: 3.5rem; }
 
 /* Sections */
 .bio-panel {

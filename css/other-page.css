@@ -1,8 +1,6 @@
 /* =========================== */
 /* Notes: staggered slips. Alternating sides, every third one inverted, big outlined dates */
-body.other-page main { max-width: 62rem; }
-#other-content h1 { font-size: clamp(3rem, 10vw, 8rem); }
-#other-content p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 1rem 0 3.5rem; }
+#other-content p { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 3.5rem; }
 
 /* Scatter: slips sit on a 12-column field at uneven positions and heights, still in normal scroll flow.
    A date ruler runs down the left; each slip hangs off it by a hairline. */
@@ -95,16 +93,15 @@ body.other-page { overflow-x: clip; }
 }
 
 .blog-entry h2 {
-  font-weight: 900; font-stretch: 112%; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.9;
-  font-size: clamp(1.8rem, 4.4vw, 2.9rem);
-  color: transparent;
-  -webkit-text-stroke: 1.2px var(--ink);
+  font-weight: 800; font-stretch: 62%; text-transform: uppercase;
+  letter-spacing: 0; line-height: 0.92;
+  font-size: clamp(2.3rem, 5.2vw, 3.9rem);
+  color: inherit;
+  -webkit-text-stroke: 0;
   margin: 0.4rem 0 1.1rem;
 }
-.slot:nth-child(3n) .blog-entry h2 { -webkit-text-stroke-color: var(--bg); }
 
-.blog-entry p { margin: 0 0 1rem; font-size: 1rem; line-height: 1.5; }
+.blog-entry p { margin: 0 0 1rem; font-family: var(--mono); font-size: 0.86rem; line-height: 1.6; }
 
 /* Linked tracks become boxed "listening" cards */
 .other-links { margin: 0 0 0.5rem !important; }
@@ -135,9 +132,9 @@ body.other-page { overflow-x: clip; }
   border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
   clip-path: none;
   display: grid; grid-template-columns: minmax(0, 24rem) 1fr; gap: 0 3rem;
-  padding: 1.2rem 0 1.5rem;
+  padding: 1.2rem 0 1.5rem 1.5rem;
 }
-.slot[data-no="05"] .blog-entry h2 { grid-row: 1 / span 3; font-size: clamp(2.6rem, 6.5vw, 5rem); margin: 0; }
+.slot[data-no="05"] .blog-entry h2 { grid-row: 1 / span 3; font-size: clamp(3.2rem, 8vw, 6.2rem); margin: 0; }
 .slot[data-no="05"] .blog-entry > :not(h2) { grid-column: 2; }
 .slot[data-no="05"] .blog-entry::before { top: 0.5rem; right: 0; }
 
@@ -146,11 +143,10 @@ body.other-page { overflow-x: clip; }
 
 /* 02: dashed, set in mono like a note pasted from somewhere else */
 .slot[data-no="02"] .blog-entry { border-style: dashed; }
-.slot[data-no="02"] .blog-entry p { font-family: var(--mono); font-size: 0.84rem; line-height: 1.6; }
 
 /* 01: heavier border, square, hangs off the right edge */
 .slot[data-no="01"] .blog-entry { clip-path: none; border-width: 3px; transform: translateX(2.5rem); }
-.slot[data-no="01"] .blog-entry h2 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); }
+.slot[data-no="01"] .blog-entry h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); }
 
 /* a small label saying how many links a note carries */
 .blog-entry[data-links]::after {
