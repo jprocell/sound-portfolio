@@ -82,6 +82,19 @@
       <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
       <feComposite in="SourceGraphic" in2="a3" operator="in"/>
     </filter>
+  <filter id="xerox-fine" x="-2%" y="-5%" width="104%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="14" result="rough"/>
+      <feDisplacementMap in="SourceGraphic" in2="rough" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feColorMatrix in="d" type="saturate" values="0" result="gray"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="31" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.5" k4="-0.25" result="noisy"/>
+      <feComponentTransfer in="noisy">
+        <feFuncR type="linear" slope="5" intercept="-1.55"/>
+        <feFuncG type="linear" slope="5" intercept="-1.55"/>
+        <feFuncB type="linear" slope="5" intercept="-1.55"/>
+      </feComponentTransfer>
+    </filter>
   </svg>
 
   <nav>
@@ -121,8 +134,7 @@
       <i class="mark" style="left:82%;top:3%" aria-hidden="true">+</i>
       <i class="mark ring" style="left:92%;top:23%" aria-hidden="true">&#8853;</i>
       <div class="barcode" aria-hidden="true">
-        <svg viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="0" width="1.2" height="30"/><rect x="2.4" y="0" width="1.2" height="30"/><rect x="5" y="0" width="1.5" height="25"/><rect x="7.5" y="0" width="2" height="25"/><rect x="12.5" y="0" width="1" height="25"/><rect x="14.5" y="0" width="4" height="25"/><rect x="20.5" y="0" width="1" height="25"/><rect x="23.0" y="0" width="2" height="25"/><rect x="26.0" y="0" width="2" height="25"/><rect x="29.0" y="0" width="1" height="25"/><rect x="31.0" y="0" width="2" height="25"/><rect x="35.0" y="0" width="1" height="25"/><rect x="37.0" y="0" width="1" height="25"/><rect x="40.0" y="0" width="2" height="25"/><rect x="43.0" y="0" width="4" height="25"/><rect x="49.0" y="0" width="1" height="25"/><rect x="51.0" y="0" width="3" height="25"/><rect x="57.0" y="0" width="2" height="25"/><rect x="60.0" y="0" width="2" height="25"/><rect x="64.0" y="0" width="2" height="25"/><rect x="67.0" y="0" width="1" height="25"/><rect x="69.0" y="0" width="2" height="25"/><rect x="75.0" y="0" width="1" height="25"/><rect x="77.5" y="0" width="2" height="25"/><rect x="80.5" y="0" width="2" height="25"/><rect x="83.5" y="0" width="2" height="25"/><rect x="87.0" y="0" width="2" height="25"/><rect x="92.4" y="0" width="1.2" height="30"/><rect x="94.8" y="0" width="1.2" height="30"/></svg>
-        <span>302672 977431</span>
+        <div class="ink"><svg viewBox="0 0 96 30" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="0" width="1.2" height="30"/><rect x="2.4" y="0" width="1.2" height="30"/><rect x="5" y="0" width="1.5" height="25"/><rect x="7.5" y="0" width="2" height="25"/><rect x="12.5" y="0" width="1" height="25"/><rect x="14.5" y="0" width="4" height="25"/><rect x="20.5" y="0" width="1" height="25"/><rect x="23.0" y="0" width="2" height="25"/><rect x="26.0" y="0" width="2" height="25"/><rect x="29.0" y="0" width="1" height="25"/><rect x="31.0" y="0" width="2" height="25"/><rect x="35.0" y="0" width="1" height="25"/><rect x="37.0" y="0" width="1" height="25"/><rect x="40.0" y="0" width="2" height="25"/><rect x="43.0" y="0" width="4" height="25"/><rect x="49.0" y="0" width="1" height="25"/><rect x="51.0" y="0" width="3" height="25"/><rect x="57.0" y="0" width="2" height="25"/><rect x="60.0" y="0" width="2" height="25"/><rect x="64.0" y="0" width="2" height="25"/><rect x="67.0" y="0" width="1" height="25"/><rect x="69.0" y="0" width="2" height="25"/><rect x="75.0" y="0" width="1" height="25"/><rect x="77.5" y="0" width="2" height="25"/><rect x="80.5" y="0" width="2" height="25"/><rect x="83.5" y="0" width="2" height="25"/><rect x="87.0" y="0" width="2" height="25"/><rect x="92.4" y="0" width="1.2" height="30"/><rect x="94.8" y="0" width="1.2" height="30"/></svg><span>302672 977431</span></div>
       </div>
       <div class="blk" aria-hidden="true">30.2672° N / 97.7431° W</div>
     </figure>

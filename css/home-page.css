@@ -116,6 +116,12 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   filter: url(#torn-soft);
   pointer-events: none;
 }
+/* the printed part (bars + digits) is xeroxed and multiplied into the paper label */
+.barcode .ink {
+  background: #fff;
+  mix-blend-mode: multiply;
+  filter: url(#xerox-fine);
+}
 .barcode svg { display: block; width: 100%; height: 1.9rem; fill: var(--ink); }
 /* folds: each is a hairline dark/light pair, like a creased sticker; plus faint mottling */
 .barcode::after {
