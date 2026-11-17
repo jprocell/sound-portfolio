@@ -11,7 +11,17 @@
     <script src="js/bio.js" defer></script>
 </head>
 <body class="bio-page poster">
-  <i class="lid-corner" aria-hidden="true"></i>
+  <!-- rough ink: slight wobble and a few specks of dropout so thin lines look photocopied -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="rough-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="1.3" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="23" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -16 11.2" result="keep"/>
+      <feComposite in="d" in2="keep" operator="in"/>
+    </filter>
+  </svg>
+
 
   <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -59,6 +69,7 @@
   <main>
     <section id="bio-content">
       <h1 class="display">About</h1>
+      <svg class="roll" viewBox="0 0 244 108" aria-hidden="true" focusable="false"><rect class="shade" x="24" y="9" width="220" height="9"/><rect class="shade" x="24" y="27" width="220" height="9"/><rect class="shade" x="24" y="45" width="220" height="9"/><rect class="shade" x="24" y="72" width="220" height="9"/><rect class="shade" x="24" y="90" width="220" height="9"/><line class="g" x1="24" y1="0" x2="244" y2="0"/><line class="g" x1="24" y1="9" x2="244" y2="9"/><line class="g" x1="24" y1="18" x2="244" y2="18"/><line class="g" x1="24" y1="27" x2="244" y2="27"/><line class="g" x1="24" y1="36" x2="244" y2="36"/><line class="g" x1="24" y1="45" x2="244" y2="45"/><line class="g" x1="24" y1="54" x2="244" y2="54"/><line class="g" x1="24" y1="63" x2="244" y2="63"/><line class="g" x1="24" y1="72" x2="244" y2="72"/><line class="g" x1="24" y1="81" x2="244" y2="81"/><line class="g" x1="24" y1="90" x2="244" y2="90"/><line class="g" x1="24" y1="99" x2="244" y2="99"/><line class="g" x1="24" y1="108" x2="244" y2="108"/><line class="g bar" x1="24" y1="0" x2="24" y2="108"/><line class="g" x1="37" y1="0" x2="37" y2="108"/><line class="g" x1="50" y1="0" x2="50" y2="108"/><line class="g" x1="63" y1="0" x2="63" y2="108"/><line class="g bar" x1="76" y1="0" x2="76" y2="108"/><line class="g" x1="89" y1="0" x2="89" y2="108"/><line class="g" x1="102" y1="0" x2="102" y2="108"/><line class="g" x1="115" y1="0" x2="115" y2="108"/><line class="g bar" x1="128" y1="0" x2="128" y2="108"/><line class="g" x1="141" y1="0" x2="141" y2="108"/><line class="g" x1="154" y1="0" x2="154" y2="108"/><line class="g" x1="167" y1="0" x2="167" y2="108"/><line class="g bar" x1="180" y1="0" x2="180" y2="108"/><line class="g" x1="193" y1="0" x2="193" y2="108"/><line class="g" x1="206" y1="0" x2="206" y2="108"/><line class="g" x1="219" y1="0" x2="219" y2="108"/><line class="g bar" x1="232" y1="0" x2="232" y2="108"/><rect class="key" x="0" y="0" width="24" height="108"/><line class="g" x1="0" y1="0" x2="24" y2="0"/><rect class="bk" x="0" y="9" width="14" height="7"/><line class="g" x1="0" y1="18" x2="24" y2="18"/><rect class="bk" x="0" y="27" width="14" height="7"/><line class="g" x1="0" y1="36" x2="24" y2="36"/><rect class="bk" x="0" y="45" width="14" height="7"/><line class="g" x1="0" y1="54" x2="24" y2="54"/><line class="g" x1="0" y1="63" x2="24" y2="63"/><rect class="bk" x="0" y="72" width="14" height="7"/><line class="g" x1="0" y1="81" x2="24" y2="81"/><rect class="bk" x="0" y="90" width="14" height="7"/><line class="g" x1="0" y1="99" x2="24" y2="99"/><rect class="no" x="24.8" y="91" width="37.4" height="7"/><rect class="n" x="37.8" y="19" width="24.4" height="7"/><rect class="n" x="50.8" y="46" width="24.4" height="7"/><rect class="n" x="63.8" y="64" width="50.4" height="7"/><rect class="no" x="89.8" y="1" width="50.4" height="7"/><rect class="n" x="115.8" y="28" width="11.4" height="7"/><rect class="n" x="128.8" y="28" width="11.4" height="7"/><rect class="n" x="141.8" y="46" width="50.4" height="7"/><rect class="no" x="154.8" y="10" width="11.4" height="7"/><rect class="n" x="206.8" y="55" width="24.4" height="7"/><rect class="n" x="193.8" y="28" width="50.4" height="7"/></svg>
       <p class="page-sub">&nbsp;</p>
 
       <div class="bio-panels">
