@@ -237,15 +237,15 @@ body.works-page { overflow-x: clip; }
 #works-gallery { position: relative; }
 .leader-crop {
   position: absolute;
-  right: -12.2rem; bottom: 100%;
+  right: -13rem; bottom: 100%;
   width: 24rem; height: 21.5rem;
   overflow: hidden;
   pointer-events: none;
 }
 .leader-crop img {
   position: absolute;
-  left: 0; top: -1.8rem;
-  width: 36rem; height: auto;
+  left: -0.7rem; top: 0;
+  width: 30.9rem; height: auto;
   mix-blend-mode: multiply;
   filter: contrast(1.25) brightness(1.08);   /* pushes the near-white ground to paper so no box shows */
 }

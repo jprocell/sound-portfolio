@@ -94,12 +94,11 @@ body.contact-page main h1.display {
   background-color: #121211;
   background-image: var(--grain);
   color: #f1eee8;
-  font-family: var(--sans);
-  font-weight: 800;
-  font-stretch: 62%;
-  font-size: 1.5rem;
-  line-height: 1;
-  letter-spacing: 0.12em;
+  font-family: 'Special Elite', 'Courier New', monospace;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.1;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18), 0 -1px 0 rgba(0, 0, 0, 0.8);
 }
