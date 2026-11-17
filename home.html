@@ -46,7 +46,7 @@
       <feColorMatrix in="rough" type="saturate" values="0" result="gray"/>
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="grain"/>
       <feColorMatrix in="grain" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="grainGray"/>
-      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.3" k4="-0.15" result="noisy"/>
+      <feComposite in="gray" in2="grainGray" operator="arithmetic" k1="0" k2="1" k3="0.42" k4="-0.21" result="noisy"/>
       <feComponentTransfer in="noisy">
         <feFuncR type="linear" slope="3.6" intercept="-1.0"/>
         <feFuncG type="linear" slope="3.6" intercept="-1.0"/>

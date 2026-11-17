@@ -63,7 +63,7 @@ body.poster .nav-bar li a:hover { text-decoration: underline; }
 /* Shared page frame, matched to Works: same top padding, same left edge, same title size.
    Works keeps its own rules (css/works-page.css); this brings bio, notes and contact in line. */
 body.poster main { max-width: none; margin: 0; padding: 5.5rem var(--gutter) 5rem; }
-@media (min-width: 1100px) { body.poster main { padding-left: 11rem; } }
+@media (min-width: 1100px) { body.poster main { padding-left: 14rem; } }
 
 body.bio-page main h1.display,
 body.other-page main h1.display,
