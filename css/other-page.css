@@ -23,19 +23,6 @@ body.other-page { overflow-x: clip; }
   pointer-events: none;
 }
 
-/* a printer's gray-scale step wedge caps the bottom of the date ruler */
-.notes-field::after {
-  content: "";
-  position: absolute;
-  left: -0.5rem; bottom: -1.1rem;
-  width: 8rem; height: 0.7rem;
-  border: 1px solid var(--ink);
-  background: linear-gradient(90deg,
-    #e9e6df 0 12.5%, #cfccc4 12.5% 25%, #b5b2aa 25% 37.5%, #9a978f 37.5% 50%,
-    #7a7771 50% 62.5%, #5a5853 62.5% 75%, #3a3935 75% 87.5%, #0f0f0e 87.5%);
-  pointer-events: none;
-}
-@media (max-width: 800px) { .notes-field::after { display: none; } }
 
 .slot {
   position: relative;
@@ -180,3 +167,18 @@ body.other-page { overflow-x: clip; }
   .slot[data-no="05"] .blog-entry h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
   .slot[data-no="01"] .blog-entry { transform: none; }
 }
+
+/* a printer's gray-scale step wedge across the right end of the title row, where it is the first thing you see */
+#other-content { position: relative; }
+#other-content::after {
+  content: "";
+  position: absolute;
+  right: 0; bottom: 3.4rem;
+  width: min(19rem, 28vw); height: 2.6rem;
+  border: 1px solid var(--ink);
+  background: linear-gradient(90deg,
+    #e9e6df 0 12.5%, #cfccc4 12.5% 25%, #b5b2aa 25% 37.5%, #9a978f 37.5% 50%,
+    #7a7771 50% 62.5%, #5a5853 62.5% 75%, #3a3935 75% 87.5%, #0f0f0e 87.5%);
+  pointer-events: none;
+}
+@media (max-width: 800px) { #other-content::after { width: 11rem; height: 1.6rem; bottom: 3.2rem; } }

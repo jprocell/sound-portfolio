@@ -116,14 +116,14 @@ body.bio-page .nav-bar.on-dark li::before { color: rgba(217, 214, 207, 0.6); }
 body.bio-page .nav-bar.on-dark li a { color: var(--bg); }
 body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(--ink); }
 
-/* the dark band and spill you get down one edge of a photocopy when the lid did not close */
-#personal .bio-media { position: relative; }
+/* the dark band and spill down the edge of a photocopy where the lid did not close; it hugs the page edge so it reads against paper */
+#personal { position: relative; }
 .lid {
   position: absolute; z-index: 2;
-  left: -0.45rem; top: -0.5rem; bottom: 38%;
-  width: 1.7rem;
-  background: linear-gradient(90deg, var(--ink) 0 52%, rgba(15, 15, 14, 0.55) 78%, transparent);
-  clip-path: polygon(0 0, 100% 0, 80% 7%, 94% 19%, 68% 31%, 90% 44%, 72% 57%, 92% 71%, 64% 85%, 82% 100%, 0 100%);
+  right: -3rem; top: 3.5rem; height: 62%;
+  width: 3.2rem;
+  background: linear-gradient(270deg, var(--ink) 0 50%, rgba(15, 15, 14, 0.6) 74%, transparent);
+  clip-path: polygon(100% 0, 24% 0, 46% 7%, 14% 17%, 40% 28%, 8% 41%, 36% 54%, 12% 66%, 42% 78%, 18% 90%, 34% 100%, 100% 100%);
   pointer-events: none;
 }
 @media (max-width: 800px) { .lid { display: none; } }
