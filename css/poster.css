@@ -56,3 +56,15 @@ body.poster .nav-bar li a:hover { text-decoration: underline; }
 .reg.tl { display: none; }   /* nav lives top-left */
 
 .meta-line { font-family: var(--mono); font-size: 0.72rem; text-transform: lowercase; letter-spacing: 0.02em; }
+
+/* =========================== */
+/* Inner pages (bio, notes, contact): bare, so the work stays the loudest thing */
+body.poster main { max-width: 56rem; }
+body.poster .bio-text p,
+body.poster .blog-entry p,
+body.poster #contact-info header p { font-size: 1rem; line-height: 1.5; max-width: 40rem; }
+body.poster .bio-panel,
+body.poster .blog-entry,
+body.poster .contact-block { border-top-color: var(--ink); }
+body.poster .contact-form button:hover { background: var(--ink); color: var(--bg); }
+body.poster .other-link, body.poster .modal-external-link { font-family: var(--mono); }
