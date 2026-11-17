@@ -231,3 +231,21 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .modal-cols { grid-template-columns: 1fr; gap: 2rem 0; }
   .modal-head { position: static; }
 }
+
+/* film leader: countdown frame from the head of a reel, cropped by the right edge of the page */
+body.works-page { overflow-x: clip; }
+#works-content { position: relative; }
+.leader {
+  position: absolute;
+  right: -9rem; top: -0.5rem;
+  width: 20rem; height: 20rem;
+  stroke: var(--ink); stroke-width: 1.1; fill: none;
+  filter: url(#rough-ink);
+  pointer-events: none;
+}
+.leader .sweep { fill: var(--ink); stroke: none; opacity: 0.3; }
+.leader .num {
+  font-family: var(--sans); font-weight: 900; font-stretch: 112%;
+  font-size: 96px; fill: none; stroke: var(--ink); stroke-width: 1.8;
+}
+@media (max-width: 1000px) { .leader { display: none; } }
