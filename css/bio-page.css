@@ -119,3 +119,16 @@ body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(-
 
 
 
+
+/* the real waveform of drum-kit.wav (peak amplitude per slice), standing on the heavy rule beside the title and cropped by the page edge */
+body.bio-page { overflow-x: clip; }
+#personal { position: relative; }
+.wave {
+  position: absolute;
+  right: -3.2rem; bottom: 100%;
+  width: 22.4rem; height: 8.2rem;
+  fill: var(--ink);
+  filter: url(#rough-ink);
+  pointer-events: none;
+}
+@media (max-width: 1299px) { .wave { display: none; } }
