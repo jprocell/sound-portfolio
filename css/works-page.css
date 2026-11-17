@@ -244,8 +244,8 @@ body.works-page { overflow-x: clip; }
 }
 .leader-crop img {
   position: absolute;
-  left: -0.95rem; top: 1.3rem;
-  width: 27.1rem; height: auto;
+  left: -0.7rem; top: 0;
+  width: 30.9rem; height: auto;
   mix-blend-mode: multiply;
   filter: contrast(1.25) brightness(1.08);   /* pushes the near-white ground to paper so no box shows */
 }
