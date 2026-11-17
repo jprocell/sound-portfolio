@@ -116,24 +116,17 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   filter: url(#torn-soft);
   pointer-events: none;
 }
-.barcode svg {
-  display: block; width: 100%; height: 1.9rem; fill: var(--ink);
-  /* ink breaks where the label has been folded */
-  -webkit-mask-image: linear-gradient(112deg, #000 0 21%, transparent 21% 22.2%, #000 22.2% 58%, transparent 58% 58.8%, #000 58.8% 83%, transparent 83% 83.7%, #000 83.7%);
-          mask-image: linear-gradient(112deg, #000 0 21%, transparent 21% 22.2%, #000 22.2% 58%, transparent 58% 58.8%, #000 58.8% 83%, transparent 83% 83.7%, #000 83.7%);
-  filter: url(#worn-ink);
-}
-/* crease and crumple shading across the whole label */
+.barcode svg { display: block; width: 100%; height: 1.9rem; fill: var(--ink); }
+/* folds: each is a hairline dark/light pair, like a creased sticker; plus faint mottling */
 .barcode::after {
-  content: "crease";
+  content: "";
   position: absolute; inset: 0;
-  font-size: 0; color: transparent;
   pointer-events: none;
   background:
-    linear-gradient(112deg, transparent 0 20.2%, rgba(15,15,14,0.16) 21% 21.4%, rgba(255,255,255,0.34) 21.6% 26%, transparent 29% 56%, rgba(15,15,14,0.13) 58% 58.3%, rgba(255,255,255,0.3) 58.5% 63%, transparent 66% 82%, rgba(15,15,14,0.12) 83% 83.3%, rgba(255,255,255,0.28) 83.5% 87%, transparent 90%),
-    linear-gradient(8deg, transparent 0 44%, rgba(15,15,14,0.12) 44.6% 45.2%, rgba(255,255,255,0.3) 45.4% 50%, transparent 53%),
-    radial-gradient(ellipse at 18% 30%, rgba(15,15,14,0.10), transparent 40%),
-    radial-gradient(ellipse at 82% 80%, rgba(15,15,14,0.09), transparent 45%);
+    linear-gradient(112deg, transparent 0 21%, rgba(15,15,14,0.2) 21% 21.5%, rgba(255,255,255,0.28) 21.5% 22.3%, transparent 22.3% 58%, rgba(15,15,14,0.16) 58% 58.4%, rgba(255,255,255,0.24) 58.4% 59.1%, transparent 59.1% 84%, rgba(15,15,14,0.14) 84% 84.4%, rgba(255,255,255,0.2) 84.4% 85%, transparent 85%),
+    linear-gradient(8deg, transparent 0 44.5%, rgba(15,15,14,0.14) 44.5% 45%, rgba(255,255,255,0.22) 45% 45.8%, transparent 45.8%),
+    radial-gradient(ellipse at 15% 25%, rgba(15,15,14,0.06), transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(15,15,14,0.05), transparent 50%);
 }
 .barcode span {
   display: block;
