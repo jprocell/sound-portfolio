@@ -55,20 +55,6 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .project-card:hover, .project-card:focus-visible { background: var(--ink); color: var(--bg); outline: none; }
 .project-card:hover .p-title, .project-card:focus-visible .p-title { color: var(--bg); -webkit-text-stroke: 0; }
 
-/* Cover that follows the cursor, tilted (desktop only; positioned by js/filtering.js) */
-#cover-preview {
-  position: fixed;
-  z-index: 5;
-  width: 300px;
-  height: auto;
-  pointer-events: none;
-  transform: rotate(-3deg);
-  border: 1px solid var(--ink);
-  background: var(--bg);
-}
-#cover-preview[hidden] { display: none; }
-@media (hover: none), (max-width: 900px) { #cover-preview { display: none !important; } }
-
 @media (max-width: 700px) {
   .project-card { grid-template-columns: 2rem 1fr auto; row-gap: 0.1rem; }
   .project-card .p-cat { display: none; }

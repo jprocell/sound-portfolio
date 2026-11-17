@@ -66,21 +66,35 @@
         <feFuncB type="linear" slope="5" intercept="-2.35"/>
       </feComponentTransfer>
     </filter>
-      <filter id="torn" x="-10%" y="-12%" width="120%" height="124%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="3" result="shape"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="8" result="fiber"/>
-      <feDisplacementMap in="SourceAlpha" in2="shape" scale="14" xChannelSelector="R" yChannelSelector="G" result="a1"/>
-      <feDisplacementMap in="a1" in2="fiber" scale="5" xChannelSelector="G" yChannelSelector="B" result="a2"/>
-      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="5" intercept="-2"/></feComponentTransfer>
-      <feComposite in="SourceGraphic" in2="a3" operator="in"/>
+      <filter id="torn" x="-10%" y="-14%" width="120%" height="128%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="3" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="3" seed="8" result="fiber"/>
+      <feDisplacementMap in="SourceAlpha" in2="shape" scale="30" xChannelSelector="R" yChannelSelector="G" result="a1"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="9" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="a3" operator="in" result="img"/>
+      <!-- toner build-up: black speckle along the torn rim -->
+      <feMorphology in="a3" operator="erode" radius="2" result="inner"/>
+      <feComposite in="a3" in2="inner" operator="out" result="rim"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" seed="21" result="speck"/>
+      <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 5.4" result="speckA"/>
+      <feComposite in="speckA" in2="rim" operator="in" result="rimSpeck"/>
+      <feMerge><feMergeNode in="img"/><feMergeNode in="rimSpeck"/></feMerge>
     </filter>
-    <filter id="torn-soft" x="-10%" y="-12%" width="120%" height="124%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="6" result="shape"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="12" result="fiber"/>
-      <feDisplacementMap in="SourceAlpha" in2="shape" scale="5" xChannelSelector="R" yChannelSelector="G" result="a1"/>
-      <feDisplacementMap in="a1" in2="fiber" scale="2" xChannelSelector="G" yChannelSelector="B" result="a2"/>
-      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="5" intercept="-2"/></feComponentTransfer>
-      <feComposite in="SourceGraphic" in2="a3" operator="in"/>
+    <filter id="torn-soft" x="-10%" y="-14%" width="120%" height="128%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="6" result="shape"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="3" seed="12" result="fiber"/>
+      <feDisplacementMap in="SourceAlpha" in2="shape" scale="13" xChannelSelector="R" yChannelSelector="G" result="a1"/>
+      <feDisplacementMap in="a1" in2="fiber" scale="5" xChannelSelector="G" yChannelSelector="B" result="a2"/>
+      <feComponentTransfer in="a2" result="a3"><feFuncA type="linear" slope="6" intercept="-2.4"/></feComponentTransfer>
+      <feComposite in="SourceGraphic" in2="a3" operator="in" result="img"/>
+      <!-- toner build-up: black speckle along the torn rim -->
+      <feMorphology in="a3" operator="erode" radius="2" result="inner"/>
+      <feComposite in="a3" in2="inner" operator="out" result="rim"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" seed="21" result="speck"/>
+      <feColorMatrix in="speck" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 5.2" result="speckA"/>
+      <feComposite in="speckA" in2="rim" operator="in" result="rimSpeck"/>
+      <feMerge><feMergeNode in="img"/><feMergeNode in="rimSpeck"/></feMerge>
     </filter>
   </svg>
 

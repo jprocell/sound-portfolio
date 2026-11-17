@@ -38,8 +38,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   pointer-events: none;
   mix-blend-mode: multiply;
   background:
-    repeating-linear-gradient(90deg, transparent 0 41px, rgba(15,15,14,0.28) 41px 42px, transparent 42px 97px, rgba(15,15,14,0.14) 97px 100px),
-    linear-gradient(180deg, rgba(15,15,14,0.35), transparent 7%, transparent 93%, rgba(15,15,14,0.3));
+    repeating-linear-gradient(90deg, transparent 0 41px, rgba(15,15,14,0.28) 41px 42px, transparent 42px 97px, rgba(15,15,14,0.14) 97px 100px);
 }
 .piece .n {
   position: absolute;
