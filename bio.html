@@ -11,7 +11,17 @@
     <script src="js/bio.js" defer></script>
 </head>
 <body class="bio-page poster">
-  <i class="lid-corner" aria-hidden="true"></i>
+  <!-- rough ink: slight wobble and a few specks of dropout so thin lines look photocopied -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="rough-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="23" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -16 11.2" result="keep"/>
+      <feComposite in="d" in2="keep" operator="in"/>
+    </filter>
+  </svg>
+
 
   <!-- Xerox filter: warps edges, adds toner grain, then crushes to near black-and-white -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -59,6 +69,7 @@
   <main>
     <section id="bio-content">
       <h1 class="display">About</h1>
+      <svg class="reel" viewBox="0 0 240 124" aria-hidden="true" focusable="false"><circle cx="58" cy="62" r="50"/><circle cx="58" cy="62" r="43"/><circle class="pack" cx="58" cy="62" r="33"/><line class="spoke" x1="58" y1="62" x2="58.0" y2="19.0"/><line class="spoke" x1="58" y1="62" x2="20.8" y2="83.5"/><line class="spoke" x1="58" y1="62" x2="95.2" y2="83.5"/><circle class="hub" cx="58" cy="62" r="11"/><circle class="dot" cx="58" cy="62" r="3.2"/><circle cx="182" cy="62" r="50"/><circle cx="182" cy="62" r="43"/><circle class="pack" cx="182" cy="62" r="20"/><line class="spoke" x1="182" y1="62" x2="182.0" y2="19.0"/><line class="spoke" x1="182" y1="62" x2="144.8" y2="83.5"/><line class="spoke" x1="182" y1="62" x2="219.2" y2="83.5"/><circle class="hub" cx="182" cy="62" r="11"/><circle class="dot" cx="182" cy="62" r="3.2"/><circle class="roller" cx="98" cy="104" r="4.5"/><circle class="roller" cx="142" cy="104" r="4.5"/><rect class="head" x="108" y="97" width="24" height="12"/><line class="gap" x1="120" y1="97" x2="120" y2="109"/><path class="tape" d="M78.0 88.0 L96 99 L144 99 L168.0 77.0"/><path class="tape" d="M102 101 L108 100"/></svg>
       <p class="page-sub">&nbsp;</p>
 
       <div class="bio-panels">
