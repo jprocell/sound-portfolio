@@ -189,7 +189,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   font-weight: 900; font-stretch: 112%; text-transform: uppercase;
   letter-spacing: -0.045em; line-height: 0.84;
   font-size: clamp(3rem, 11vw, 9rem);
-  margin: 0 0 2.5rem; text-align: left; overflow-wrap: anywhere;
+  margin: 0 0 2.5rem; text-align: left; overflow-wrap: normal; hyphens: none;
 }
 
 .modal-cols {
@@ -206,10 +206,10 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   font-family: var(--mono); font-size: 0.9rem; line-height: 1.7;
   white-space: pre-line; margin: 0; color: var(--ink);
 }
-/* the first line of the description is set tall and condensed, like a standfirst */
-.modal-body .project-description::first-line {
+/* text listed under "highlight" in the project JSON is set tall and condensed */
+.modal-body .project-description .hl {
   font-family: var(--sans); font-weight: 800; font-stretch: 62%;
-  text-transform: uppercase; font-size: 1.7rem; line-height: 1;
+  text-transform: uppercase; font-size: 1.55rem; line-height: 1.05; letter-spacing: 0;
 }
 
 /* samples: numbered, condensed labels */

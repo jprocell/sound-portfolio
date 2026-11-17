@@ -7,6 +7,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeAudioRow = null;
   let activeAudio = null;
 
+  // Wrap any phrase listed in the project's "highlight" JSON field (a string or an array of strings) so CSS can style it.
+  const withHighlights = (text, highlight) => {
+    let out = text;
+    [].concat(highlight || []).forEach(phrase => {
+      if (phrase && out.includes(phrase)) out = out.replace(phrase, `<strong class="hl">${phrase}</strong>`);
+    });
+    return out;
+  };
+
+  // Shrink the title just enough that its longest word fits on one line instead of breaking mid-word.
+  const fitTitle = () => {
+    const h2 = modalBody.querySelector("h2");
+    if (!h2) return;
+    h2.style.fontSize = "";
+    let size = parseFloat(getComputedStyle(h2).fontSize);
+    while (h2.scrollWidth > h2.clientWidth + 1 && size > 28) {
+      size *= 0.94;
+      h2.style.fontSize = `${size}px`;
+    }
+  };
+  window.addEventListener("resize", () => { if (!modal.classList.contains("hidden")) fitTitle(); });
+
   const formatTime = s => {
     const m = Math.floor(s / 60);
     const sec = Math.floor(s % 60).toString().padStart(2, "0");
@@ -35,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2>${project.title}</h2>
           <div class="modal-cols">
           <div class="modal-head">
-            <p class="project-description">${project.description}</p>
+            <p class="project-description">${withHighlights(project.description, project.highlight)}</p>
           </div>
           <div class="modal-samples">
 
@@ -180,6 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Show modal
         modal.classList.remove("hidden");
+        fitTitle();
+        document.fonts?.ready.then(fitTitle);
         setTimeout(() => modal.classList.add("show"), 20);
         document.body.style.overflow = "hidden";
 

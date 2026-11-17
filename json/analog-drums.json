@@ -1,6 +1,7 @@
 {
     "title": "Analog Drums",
     "description": "An exercise in synthesizing common drum sounds using analog methods, all built in Phaseplant with oscillators, basic filtering, and envelope manipulation. The techniques mirror what you'd find in hardware like an 808, minus the non-ideal circuit characteristics that we've all come to love.",
+    "highlight": "synthesizing common drum sounds using analog methods",
     "audio": [
       {
         "label": "Latin Groove",
