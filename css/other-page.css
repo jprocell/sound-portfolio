@@ -127,17 +127,17 @@ body.other-page { overflow-x: clip; }
 
 /* Variety: each entry gets its own shape, size and type so the page stops reading as a row of identical cards */
 
-/* 05, the latest: an open banner, not a card */
-.slot[data-no="05"] .blog-entry {
+/* 06, the latest: an open banner, not a card */
+.slot[data-no="06"] .blog-entry {
   background: none; border: 0;
   border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
   clip-path: none;
   display: grid; grid-template-columns: minmax(0, 24rem) 1fr; gap: 0 3rem;
   padding: 1.2rem 0 1.5rem 1.5rem;
 }
-.slot[data-no="05"] .blog-entry h2 { grid-row: 1 / span 3; font-size: clamp(3.2rem, 8vw, 6.2rem); margin: 0; }
-.slot[data-no="05"] .blog-entry > :not(h2) { grid-column: 2; }
-.slot[data-no="05"] .blog-entry::before { top: 0.5rem; right: 0; }
+.slot[data-no="06"] .blog-entry h2 { grid-row: 1 / span 3; font-size: clamp(3.2rem, 8vw, 6.2rem); margin: 0; }
+.slot[data-no="06"] .blog-entry > :not(h2) { grid-column: 2; }
+.slot[data-no="06"] .blog-entry::before { top: 0.5rem; right: 0; }
 
 /* 04: small card, opposite corner cut */
 .slot[data-no="04"] .blog-entry { clip-path: polygon(0 0, 100% 0, 100% 100%, 26px 100%, 0 calc(100% - 26px)); }
@@ -163,8 +163,8 @@ body.other-page { overflow-x: clip; }
   .notes-field { display: block; margin-left: 0; }
   .notes-field::before, .slot::before, .when, .big-no { display: none; }
   .slot { margin: 0 0 2.5rem !important; }
-  .slot[data-no="05"] .blog-entry { display: block; }
-  .slot[data-no="05"] .blog-entry h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
+  .slot[data-no="06"] .blog-entry { display: block; }
+  .slot[data-no="06"] .blog-entry h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
   .slot[data-no="01"] .blog-entry { transform: none; }
 }
 
