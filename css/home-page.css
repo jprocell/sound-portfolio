@@ -116,7 +116,25 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   filter: url(#torn-soft);
   pointer-events: none;
 }
-.barcode svg { display: block; width: 100%; height: 1.9rem; fill: var(--ink); }
+.barcode svg {
+  display: block; width: 100%; height: 1.9rem; fill: var(--ink);
+  /* ink breaks where the label has been folded */
+  -webkit-mask-image: linear-gradient(112deg, #000 0 21%, transparent 21% 22.2%, #000 22.2% 58%, transparent 58% 58.8%, #000 58.8% 83%, transparent 83% 83.7%, #000 83.7%);
+          mask-image: linear-gradient(112deg, #000 0 21%, transparent 21% 22.2%, #000 22.2% 58%, transparent 58% 58.8%, #000 58.8% 83%, transparent 83% 83.7%, #000 83.7%);
+  filter: url(#worn-ink);
+}
+/* crease and crumple shading across the whole label */
+.barcode::after {
+  content: "crease";
+  position: absolute; inset: 0;
+  font-size: 0; color: transparent;
+  pointer-events: none;
+  background:
+    linear-gradient(112deg, transparent 0 20.2%, rgba(15,15,14,0.16) 21% 21.4%, rgba(255,255,255,0.34) 21.6% 26%, transparent 29% 56%, rgba(15,15,14,0.13) 58% 58.3%, rgba(255,255,255,0.3) 58.5% 63%, transparent 66% 82%, rgba(15,15,14,0.12) 83% 83.3%, rgba(255,255,255,0.28) 83.5% 87%, transparent 90%),
+    linear-gradient(8deg, transparent 0 44%, rgba(15,15,14,0.12) 44.6% 45.2%, rgba(255,255,255,0.3) 45.4% 50%, transparent 53%),
+    radial-gradient(ellipse at 18% 30%, rgba(15,15,14,0.10), transparent 40%),
+    radial-gradient(ellipse at 82% 80%, rgba(15,15,14,0.09), transparent 45%);
+}
 .barcode span {
   display: block;
   margin-top: 0.2rem;
@@ -130,7 +148,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 /* halftone patch: dot size swells downward until the dots merge into the horizontal rule */
 .halftone {
   position: absolute;
-  left: 83%; top: 15.5%;
+  left: 83%; top: 19.5%;
   width: 6.5%;
   aspect-ratio: 40 / 100;
   filter: url(#torn-soft);
@@ -138,23 +156,6 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 }
 .halftone svg { display: block; width: 100%; height: 100%; fill: var(--ink); overflow: hidden; }
 
-/* masking tape: pale and translucent, torn at both ends, laid diagonally across sheet corners.
-   The wrapper carries the tear filter and the translucency; the strip inside is opaque and clipped to ragged ends. */
-.tape {
-  position: absolute;
-  aspect-ratio: 4.2 / 1;
-  transform: rotate(var(--rot, 0deg));
-  filter: url(#torn-soft);
-  opacity: 0.66;
-  pointer-events: none;
-}
-.tape i {
-  display: block;
-  width: 100%; height: 100%;
-  background:
-    repeating-linear-gradient(90deg, rgba(15, 15, 14, 0.05) 0 1px, transparent 1px 6px),
-    #efece4;
-}
 
 .blk {
   position: absolute;
@@ -224,7 +225,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .p-organ   { left: 20%; top: 24%; width: 58%; }
   .p-academy { right: 2%; top: 54%; width: 36%; }
   .p-machine { left: 2%;  top: 48%; width: 38%; }
-  .p-horse, .p-eyes, .p-figure, .blk, .barcode, .halftone, .tape, .l-v, .l-v2, .l-diag2, .ticks, .mark { display: none; }
+  .p-horse, .p-eyes, .p-figure, .blk, .barcode, .halftone, .l-v, .l-v2, .l-diag2, .ticks, .mark { display: none; }
   .hero-left-inner h1 { font-size: 17.5vw; }
   .reg { display: none; }
   #clock { display: none; }
