@@ -13,16 +13,20 @@
   <script src="js/mini-waveform.js" defer></script>
 </head>
 <body class="works-page poster">
-  <!-- rough ink: wobbles line work slightly and drops out a few specks, so thin strokes look photocopied -->
+  <!-- toner: rough edges, sparse speckle and uneven black coverage, so big solid shapes look photocopied (keeps transparency) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <filter id="rough-ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="wob"/>
-      <feDisplacementMap in="SourceGraphic" in2="wob" scale="2" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="23" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -12 8.1" result="keep"/>
-      <feComposite in="d" in2="keep" operator="in"/>
+    <filter id="toner" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="4" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="17" result="fine"/>
+      <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -14 9.9" result="speck"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="29" result="blotch"/>
+      <feColorMatrix in="blotch" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -5 3.6" result="patch"/>
+      <feComposite in="d" in2="speck" operator="in" result="d2"/>
+      <feComposite in="d2" in2="patch" operator="in"/>
     </filter>
   </svg>
+
 
 
   <i class="reg tr" aria-hidden="true">+</i>
@@ -43,16 +47,6 @@
     <section id="works-content">
       <h1 class="display">Works <span class="count">(13)</span></h1>
       <p>Noises I've made, solo and with others.</p>
-      <!-- film leader: the countdown frame from the head of a reel -->
-      <svg class="leader" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-        <path class="sweep" d="M100 100 L100 12 A88 88 0 0 1 188 100 Z"/>
-        <circle cx="100" cy="100" r="88" fill="none"/>
-        <circle cx="100" cy="100" r="74" fill="none"/>
-        <circle cx="100" cy="100" r="46" fill="none"/>
-        <line x1="0" y1="100" x2="200" y2="100"/>
-        <line x1="100" y1="0" x2="100" y2="200"/>
-        <text x="100" y="125" text-anchor="middle" class="num">8</text>
-      </svg>
 
     </section>
 
@@ -159,6 +153,8 @@
       </div>
 
       <!-- Add more project cards as needed -->
+          <!-- film leader, enlarged and cropped: the page edge cuts it on the right and the rule cuts it along the bottom -->
+      <svg class="leader-big" viewBox="0 0 544 344" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false"><path class="sweep" d="M400 262 L400 72 A190 190 0 0 1 590 262 Z"/><circle class="ring1" cx="400" cy="262" r="190"/><circle class="ring2" cx="400" cy="262" r="156"/><line class="cross" x1="205" y1="262" x2="544" y2="262"/><line class="cross" x1="400" y1="0" x2="400" y2="344"/><line class="tick major" x1="604.0" y1="262.0" x2="624.0" y2="262.0"/><line class="tick" x1="602.9" y1="240.7" x2="612.8" y2="239.6"/><line class="tick" x1="599.5" y1="219.6" x2="609.3" y2="217.5"/><line class="tick" x1="594.0" y1="199.0" x2="603.5" y2="195.9"/><line class="tick" x1="586.4" y1="179.0" x2="595.5" y2="175.0"/><line class="tick major" x1="576.7" y1="160.0" x2="594.0" y2="150.0"/><line class="tick" x1="565.0" y1="142.1" x2="573.1" y2="136.2"/><line class="tick" x1="551.6" y1="125.5" x2="559.0" y2="118.8"/><line class="tick" x1="536.5" y1="110.4" x2="543.2" y2="103.0"/><line class="tick" x1="519.9" y1="97.0" x2="525.8" y2="88.9"/><line class="tick major" x1="502.0" y1="85.3" x2="512.0" y2="68.0"/><line class="tick" x1="483.0" y1="75.6" x2="487.0" y2="66.5"/><line class="tick" x1="463.0" y1="68.0" x2="466.1" y2="58.5"/><line class="tick" x1="442.4" y1="62.5" x2="444.5" y2="52.7"/><line class="tick" x1="421.3" y1="59.1" x2="422.4" y2="49.2"/><line class="tick major" x1="400.0" y1="58.0" x2="400.0" y2="38.0"/><line class="tick" x1="378.7" y1="59.1" x2="377.6" y2="49.2"/><line class="tick" x1="357.6" y1="62.5" x2="355.5" y2="52.7"/><line class="tick" x1="337.0" y1="68.0" x2="333.9" y2="58.5"/><line class="tick" x1="317.0" y1="75.6" x2="313.0" y2="66.5"/><line class="tick major" x1="298.0" y1="85.3" x2="288.0" y2="68.0"/><line class="tick" x1="280.1" y1="97.0" x2="274.2" y2="88.9"/><line class="tick" x1="263.5" y1="110.4" x2="256.8" y2="103.0"/><line class="tick" x1="248.4" y1="125.5" x2="241.0" y2="118.8"/><line class="tick" x1="235.0" y1="142.1" x2="226.9" y2="136.2"/><line class="tick major" x1="223.3" y1="160.0" x2="206.0" y2="150.0"/><line class="tick" x1="213.6" y1="179.0" x2="204.5" y2="175.0"/><line class="tick" x1="206.0" y1="199.0" x2="196.5" y2="195.9"/><line class="tick" x1="200.5" y1="219.6" x2="190.7" y2="217.5"/><line class="tick" x1="197.1" y1="240.7" x2="187.2" y2="239.6"/><line class="tick major" x1="196.0" y1="262.0" x2="176.0" y2="262.0"/><line class="tick" x1="197.1" y1="283.3" x2="187.2" y2="284.4"/><line class="tick" x1="200.5" y1="304.4" x2="190.7" y2="306.5"/><line class="tick" x1="206.0" y1="325.0" x2="196.5" y2="328.1"/><line class="tick" x1="213.6" y1="345.0" x2="204.5" y2="349.0"/><line class="tick major" x1="223.3" y1="364.0" x2="206.0" y2="374.0"/><line class="tick" x1="235.0" y1="381.9" x2="226.9" y2="387.8"/><line class="tick" x1="248.4" y1="398.5" x2="241.0" y2="405.2"/><line class="tick" x1="263.5" y1="413.6" x2="256.8" y2="421.0"/><line class="tick" x1="280.1" y1="427.0" x2="274.2" y2="435.1"/><line class="tick major" x1="298.0" y1="438.7" x2="288.0" y2="456.0"/><line class="tick" x1="317.0" y1="448.4" x2="313.0" y2="457.5"/><line class="tick" x1="337.0" y1="456.0" x2="333.9" y2="465.5"/><line class="tick" x1="357.6" y1="461.5" x2="355.5" y2="471.3"/><line class="tick" x1="378.7" y1="464.9" x2="377.6" y2="474.8"/><line class="tick major" x1="400.0" y1="466.0" x2="400.0" y2="486.0"/><line class="tick" x1="421.3" y1="464.9" x2="422.4" y2="474.8"/><line class="tick" x1="442.4" y1="461.5" x2="444.5" y2="471.3"/><line class="tick" x1="463.0" y1="456.0" x2="466.1" y2="465.5"/><line class="tick" x1="483.0" y1="448.4" x2="487.0" y2="457.5"/><line class="tick major" x1="502.0" y1="438.7" x2="512.0" y2="456.0"/><line class="tick" x1="519.9" y1="427.0" x2="525.8" y2="435.1"/><line class="tick" x1="536.5" y1="413.6" x2="543.2" y2="421.0"/><line class="tick" x1="551.6" y1="398.5" x2="559.0" y2="405.2"/><line class="tick" x1="565.0" y1="381.9" x2="573.1" y2="387.8"/><line class="tick major" x1="576.7" y1="364.0" x2="594.0" y2="374.0"/><line class="tick" x1="586.4" y1="345.0" x2="595.5" y2="349.0"/><line class="tick" x1="594.0" y1="325.0" x2="603.5" y2="328.1"/><line class="tick" x1="599.5" y1="304.4" x2="609.3" y2="306.5"/><line class="tick" x1="602.9" y1="283.3" x2="612.8" y2="284.4"/><text class="num" x="400" y="374" text-anchor="middle">8</text></svg>
     </section>
 
     <!-- Modal for project details -->

@@ -232,20 +232,25 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .modal-head { position: static; }
 }
 
-/* film leader: countdown frame from the head of a reel, cropped by the right edge of the page */
+/* film leader, enlarged: only a slice shows. The page edge crops it on the right; the heavy rule above the list crops it along the bottom. */
 body.works-page { overflow-x: clip; }
-#works-content { position: relative; }
-.leader {
+#works-gallery { position: relative; }
+.leader-big {
   position: absolute;
-  right: -9rem; top: -0.5rem;
-  width: 20rem; height: 20rem;
-  stroke: var(--ink); stroke-width: 1.1; fill: none;
-  filter: url(#rough-ink);
+  right: -8.6rem; bottom: 100%;
+  width: 34rem; height: 21.5rem;
   pointer-events: none;
+  filter: url(#toner);
+  z-index: 0;
 }
-.leader .sweep { fill: var(--ink); stroke: none; opacity: 0.3; }
-.leader .num {
+.leader-big .sweep { fill: var(--ink); fill-opacity: 0.3; }
+.leader-big .ring1 { fill: none; stroke: var(--ink); stroke-width: 20; }
+.leader-big .ring2 { fill: none; stroke: var(--ink); stroke-width: 5; }
+.leader-big .cross { stroke: var(--ink); stroke-width: 4; }
+.leader-big .tick  { stroke: var(--ink); stroke-width: 3; }
+.leader-big .tick.major { stroke-width: 5; }
+.leader-big .num {
   font-family: var(--sans); font-weight: 900; font-stretch: 112%;
-  font-size: 96px; fill: none; stroke: var(--ink); stroke-width: 1.8;
+  font-size: 330px; fill: var(--ink);
 }
-@media (max-width: 1000px) { .leader { display: none; } }
+@media (max-width: 1000px) { .leader-big { display: none; } }
