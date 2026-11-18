@@ -132,10 +132,10 @@
   .bio-dropdown.years .dropdown-content > ul > li { font-size: 2rem; grid-template-columns: 1fr; }
 }
 
-/* Nav stays readable over the dark slab: js/bio.js adds .on-dark while the nav overlaps it */
-body.bio-page .nav-bar.on-dark li::before { color: rgba(217, 214, 207, 0.6); }
-body.bio-page .nav-bar.on-dark li a { color: var(--bg); }
-body.bio-page .nav-bar.on-dark li a.active { background: var(--bg); color: var(--ink); }
+/* Nav stays readable over the dark slab: js/bio.js adds .on-dark to each nav item while it sits over the slab */
+body.bio-page .nav-bar li.on-dark::before { color: rgba(217, 214, 207, 0.6); }
+body.bio-page .nav-bar li.on-dark a { color: var(--bg); }
+body.bio-page .nav-bar li.on-dark a.active { background: var(--bg); color: var(--ink); }
 
 
 

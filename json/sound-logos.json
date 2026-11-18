@@ -6,17 +6,17 @@
       {
         "label": "Fantasy/Children",
         "desc": "Whimsical and jovial. Mallet instruments, swung rhythms, and a major key. Think kid's toy brand.",
-        "src": "audio-samples/sound-design/sound-logos/fantasy.wav"
+        "src": "audio-samples/sound-design/sound-logos/sound-logo-fantasy.wav"
       },
       {
         "label": "Lifestyle",
         "desc": "Calm and soothing. Warm strings and extended chords that breathe without overwhelming. Think spa or wellness product.",
-        "src": "audio-samples/sound-design/sound-logos/lifestyle.wav"
+        "src": "audio-samples/sound-design/sound-logos/sound-logo-lifestyle.wav"
       },
       {
         "label": "Horror",
         "desc": "Footsteps, screams, a chainsaw. Built mostly from samples to tell a quick story. The chainsaw was originally a sheep's bleat and the scream at the end was a hawk's cry. Think horror film studio.",
-        "src": "audio-samples/sound-design/sound-logos/spooky.wav"
+        "src": "audio-samples/sound-design/sound-logos/sound-logo-spooky.wav"
       }
     ]
 }

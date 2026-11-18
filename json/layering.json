@@ -6,32 +6,32 @@
       {
         "label": "Cohesive - 1",
         "desc": "The first of two cohesive pads.",
-        "src": "audio-samples/synthesis/layering/cohesive-1.wav"
+        "src": "audio-samples/synthesis/layering/layering-cohesive-1.wav"
       },
       {
         "label": "Cohesive - 2",
         "desc": "The second of two cohesive pads.",
-        "src": "audio-samples/synthesis/layering/cohesive-2.wav"
+        "src": "audio-samples/synthesis/layering/layering-cohesive-2.wav"
       },
       {
-        "label": "Complimentary - 1",
-        "desc": "The first of two complimentary pads.",
-        "src": "audio-samples/synthesis/layering/complimentary-1.wav"
+        "label": "Complementary - 1",
+        "desc": "The first of two complementary pads.",
+        "src": "audio-samples/synthesis/layering/layering-complementary-1.wav"
       },
       {
-        "label": "Complimentary - 2",
-        "desc": "The second of two complimentary pads.",
-        "src": "audio-samples/synthesis/layering/complimentary-2.wav"
+        "label": "Complementary - 2",
+        "desc": "The second of two complementary pads.",
+        "src": "audio-samples/synthesis/layering/layering-complementary-2.wav"
       },
       {
         "label": "Contrasting - 1",
         "desc": "The first of two contrasting pads.",
-        "src": "audio-samples/synthesis/layering/contrasting-1.wav"
+        "src": "audio-samples/synthesis/layering/layering-contrasting-1.wav"
       },
       {
         "label": "Contrasting - 2",
         "desc": "The second of two contrasting pads.",
-        "src": "audio-samples/synthesis/layering/contrasting-2.wav"
+        "src": "audio-samples/synthesis/layering/layering-contrasting-2.wav"
       }
     ]
 }

@@ -6,7 +6,7 @@
       {
         "label": "Generative Sample",
         "desc": "A rendered recording of the project. A single chord is held while automation runs its course across the full track.",
-        "src": "audio-samples/sound-design/generative/generative.wav"
+        "src": "audio-samples/sound-design/generative/generative-sample.wav"
       }
     ],
     "videos": [
