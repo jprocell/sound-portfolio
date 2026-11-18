@@ -307,6 +307,13 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   #art-credit .cl-5 { display: block; }   /* the figure print is on this layout */
 }
 
+/* landscape tablets (nav is a horizontal row across the top, up to 1100px): keep the organ and the vertical hairline
+   clear of the nav row */
+@media (max-width: 1099px) and (orientation: landscape) and (min-height: 521px) {
+  .p-organ { top: 15%; }
+  .l-v { top: 9%; }
+}
+
 /* short landscape windows (phones on their side): the vw-sized name would fill the whole screen, so size it by height
    and drop the secondary decoration */
 @media (max-height: 520px) and (orientation: landscape) {

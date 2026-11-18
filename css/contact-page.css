@@ -103,7 +103,12 @@
   body.contact-page main { padding-bottom: 2rem; }
   #art-credit { margin-bottom: 2rem; }
 }
-/* tablets: the blurb is sized for the big title, the same as the tagline on Works and Other */
+/* tablets: the blurb is sized for the big title, the same as the tagline on Works and Other; the credit flows at the end
+   instead of sitting fixed on top of the links, and the page end matches the other pages */
 @media (min-width: 701px) and (max-width: 1099px) {
   body.poster #contact-info header p { font-size: 0.95rem; }
+}
+@media (min-width: 801px) and (max-width: 1099px) {
+  #art-credit { position: static; max-width: none; text-align: left; background: none; padding: 0; margin: 0 var(--gutter) 2rem; }
+  body.contact-page main { padding-bottom: 2rem; }
 }

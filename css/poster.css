@@ -50,16 +50,16 @@ body.poster .nav-bar li a.active::before { content: none; }
 body.poster .nav-bar li a:hover { text-decoration: underline; }
 /* the title's line box leaves empty space under the letters, so take a little off the gap below it; the gap then looks
    the same as the one below the tagline (Works does the same in its own stylesheet) */
-@media (max-width: 800px) {
-  body.other-page main h1.display, body.contact-page main h1.display { margin-bottom: calc(1.25rem - 0.065em); }
+@media (max-width: 1099px) {
+  body.poster.other-page main h1.display, body.poster.contact-page main h1.display { margin-bottom: calc(1.25rem - 0.065em); }
 }
 /* left-aligned titles (tablets): the big letters have built-in space at their left, so the ink sits a few pixels right of
    the subtitle, chips and rules below. Pull each title left by its own first letter's space (measured per letter). */
 @media (min-width: 601px) and (max-width: 1099px) {
   #works-content h1 { margin-left: -0.013em; }                  /* W */
-  body.other-page main h1.display { margin-left: -0.045em; }    /* O */
-  body.contact-page main h1.display { margin-left: -0.033em; }  /* C */
-  body.bio-page main h1.display { margin-left: -0.05em; }       /* B */
+  body.poster.other-page main h1.display { margin-left: -0.045em; }    /* O */
+  body.poster.contact-page main h1.display { margin-left: -0.033em; }  /* C */
+  body.poster.bio-page main h1.display { margin-left: -0.05em; }       /* B */
 }
 /* tablets: the single-row nav gets more air between items */
 @media (min-width: 601px) and (max-width: 1099px) {

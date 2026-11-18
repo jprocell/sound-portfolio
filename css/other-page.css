@@ -202,9 +202,10 @@ body.other-page { overflow-x: clip; }
   /* width = room left of the title word (the title is at least 3.5rem, about 3.1em wide) so the wedge never covers the R */
   #other-content::after { width: clamp(3rem, calc(100vw - 17rem), 11rem); height: 1.6rem; bottom: 3.2rem; }
 }
-/* tablets: the tagline is sized for the big title, the same as on Works */
+/* tablets: the tagline is sized for the big title, the same as on Works; tagline gap and page end match the other pages */
 @media (min-width: 701px) and (max-width: 1099px) {
-  #other-content p { font-size: 0.95rem; }
+  #other-content p { font-size: 0.95rem; margin-bottom: 2rem; }
+  body.other-page main { padding-bottom: 3rem; }
 }
 /* phones: title, wedge, tagline, stacked and centred. The wedge is an ordinary flex item ordered between the title and the tagline. */
 @media (max-width: 600px) {

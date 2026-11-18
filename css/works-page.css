@@ -56,7 +56,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .project-card:hover .p-title, .project-card:focus-visible .p-title { color: var(--bg); -webkit-text-stroke: 0; }
 
 /* tablets and phones: the header rhythm (title, tagline, chips, list rule all 1.25rem apart) and a shorter end of page */
-@media (max-width: 800px) {
+@media (max-width: 1099px) {
   /* the title's line box leaves empty space under the letters; take some off so the gap below the title
      looks the same as the gap below the tagline */
   #works-content h1 { margin-bottom: calc(1.25rem - 0.065em); }
@@ -259,6 +259,12 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 }
 .modal-body p.desc, .modal-audio p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
 
+/* tablets (two-column project view): the heavy bar gets the same 1.5rem on each side, and a shorter end */
+@media (min-width: 901px) and (max-width: 1099px) {
+  .modal-body h2 { margin-bottom: 1.5rem; }
+  .modal-cols { padding-top: 1.5rem; }
+  .modal-content { padding-bottom: 2rem; }
+}
 @media (max-width: 900px) {
   /* one rhythm: every rule in the project view (the heavy bar and the thin ones) has 1.5rem of air on both sides */
   .modal-body h2 { margin-bottom: 1.5rem; }
@@ -285,7 +291,7 @@ body.works-page { overflow-x: clip; }
   mix-blend-mode: multiply;
   filter: contrast(1.25) brightness(1.08);   /* pushes the near-white ground to paper so no box shows */
 }
-@media (max-width: 1000px) { .leader-crop { display: none; } }
+@media (max-width: 1099px) { .leader-crop { display: none; } }   /* below the desktop layout it would sit on the full-width filter chips */
 
 /* credit for the leader frame */
 #art-credit {
@@ -295,4 +301,4 @@ body.works-page { overflow-x: clip; }
   background: rgba(217, 214, 207, 0.9); padding: 0.25rem 0.4rem;
 }
 #art-credit a { color: inherit; }
-@media (max-width: 1000px) { #art-credit { display: none; } }   /* the leader frame it credits is hidden here */
+@media (max-width: 1099px) { #art-credit { display: none; } }   /* the leader frame it credits is hidden here */

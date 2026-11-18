@@ -168,10 +168,22 @@ body.bio-page { overflow-x: clip; }
   position: absolute; right: 0; top: 0;
   font: 400 0.62rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
 }
+/* tablets: the subtitle is sized for the big title, the same as on Works, Other and Contact */
+@media (min-width: 701px) and (max-width: 1099px) {
+  body.bio-page .page-sub { font-size: 0.95rem; }
+}
+/* tablets and phones: shorter run-outs into the dark section and at the bottom of the page */
+@media (max-width: 1099px) {
+  body.bio-page #personal { padding-bottom: 1.25rem; }
+  body.bio-page #engineering { padding-bottom: 0; }
+  body.bio-page main { padding-bottom: 3rem; }
+}
 /* phones: the figure becomes a plain strip under the title instead of sitting in the title row */
 @media (max-width: 800px) {
-  /* title, spectrogram, rule: the spacer under the title reserves the strip's height and the spectrogram stands on the rule, as on desktop */
-  body.bio-page .page-sub { height: 7.25rem; margin: 0; font-size: 0; overflow: hidden; }
+  /* title, subtitle, spectrogram, rule: the empty block after the subtitle reserves the strip's height (the strip plus its lift off
+     the rule plus 1.25rem under the subtitle) and the spectrogram stands on the rule, as on desktop */
+  body.bio-page .page-sub { margin: 0; }
+  body.bio-page .page-sub::after { content: ""; display: block; height: 8.5rem; }
   body.bio-page #personal { padding-top: 1.45rem; padding-bottom: 1.25rem; }   /* shorter run-out into the dark section */
   body.bio-page #engineering { padding-bottom: 0; }                              /* and a shorter run-out at the bottom of the page */
   body.bio-page main { padding-bottom: 3rem; }   /* so the space under the rule matches the space above it */
