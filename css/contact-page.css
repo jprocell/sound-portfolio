@@ -84,8 +84,22 @@
   background: rgba(217, 214, 207, 0.9); padding: 0.25rem 0.4rem;
 }
 #art-credit a { color: inherit; }
+/* on phones a fixed credit sits on top of the form, so let it flow at the end of the page */
+@media (max-width: 800px) {
+  #art-credit { position: static; max-width: none; text-align: left; background: none; padding: 0; margin: 0 var(--gutter) 2.5rem; }
+}
 
 @media (max-width: 800px) {
-  #contact-info { grid-template-columns: 1fr; }
+  #contact-info { grid-template-columns: 1fr; gap: 2rem 0; }
   .contact-block.social, .contact-block:not(.social) { grid-column: 1; grid-row: auto; }
+
+  /* type: the blurb is a tagline like the other pages' (0.78rem), the tab is the size of body text, the form keeps 16px inputs */
+  body.poster #contact-info header p { font-size: 0.78rem; line-height: 1.5; }
+  .contact-block:not(.social) > h2 { font-size: 1rem; padding: 0.55rem 1.1rem 0.57rem; }
+
+  /* spacing: 32px between blocks, as on the other pages */
+  #contact-info header { padding-bottom: 0; }
+  .contact-block:not(.social) { margin-top: 1.1rem; }   /* the tab overhangs the panel's top edge, so it needs the extra room above */
+  body.contact-page main { padding-bottom: 2rem; }
+  #art-credit { margin-bottom: 2rem; }
 }

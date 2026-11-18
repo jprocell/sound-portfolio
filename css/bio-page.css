@@ -101,7 +101,10 @@
   clip-path: inset(0 -100vmax);
   border-top: 0;
   margin: 1rem 0 2rem; padding-top: 3rem;
+  position: relative;
 }
+/* the same heavy rule that opens 01 and 03, in paper colour on the dark slab */
+#audio::before { content: ""; position: absolute; left: 0; right: 0; top: 1.5rem; border-top: 2px solid var(--bg); }
 #audio ::selection { background: var(--bg); color: var(--ink); }
 #audio > h2 .num { -webkit-text-stroke-color: var(--bg); }
 #audio .bio-media img { filter: url(#xerox) invert(1); mix-blend-mode: screen; }
@@ -167,5 +170,10 @@ body.bio-page { overflow-x: clip; }
 }
 /* phones: the figure becomes a plain strip under the title instead of sitting in the title row */
 @media (max-width: 800px) {
-  .wave { position: relative; bottom: auto; right: auto; left: auto; height: 5.5rem; padding-top: var(--cap); margin: 0 0 2rem 3rem; }
+  /* title, spectrogram, rule: the spacer under the title reserves the strip's height and the spectrogram stands on the rule, as on desktop */
+  body.bio-page .page-sub { height: 7.25rem; margin: 0; font-size: 0; overflow: hidden; }
+  body.bio-page #personal { padding-top: 1.45rem; padding-bottom: 1.25rem; }   /* shorter run-out into the dark section */
+  body.bio-page #engineering { padding-bottom: 0; }                              /* and a shorter run-out at the bottom of the page */
+  body.bio-page main { padding-bottom: 3rem; }   /* so the space under the rule matches the space above it */
+  .wave { bottom: calc(100% + 2px + 1.75rem); right: 0;   /* lifted off the rule so the two read as separate things */ left: 3rem; height: 5.5rem; padding-top: var(--cap); margin: 0; }
 }

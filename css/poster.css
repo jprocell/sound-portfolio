@@ -48,6 +48,12 @@ body.poster .nav-bar li a { color: var(--ink); }
 body.poster .nav-bar li a.active { background: var(--ink); color: var(--bg); padding: 0 0.3em; }
 body.poster .nav-bar li a.active::before { content: none; }
 body.poster .nav-bar li a:hover { text-decoration: underline; }
+/* phones: three across then two, every item the same distance from its neighbour and each row centred.
+   The list is just narrow enough that the fourth item has to wrap. */
+@media (max-width: 600px) {
+  body.poster .nav-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem 2rem; left: 50%; right: auto; transform: translateX(-50%); width: min(19.5rem, calc(100vw - 2rem)); }
+  .reg.tr { top: 0.35rem; right: 0.35rem; }   /* out of the way of the last nav item */
+}
 
 /* Registration marks in the corners */
 .reg { position: fixed; font-family: var(--mono); font-size: 0.8rem; line-height: 1; color: var(--ink); z-index: 3; pointer-events: none; }
@@ -71,6 +77,13 @@ body.other-page main h1.display,
 body.contact-page main h1.display {
   font-size: clamp(3.5rem, 14vw, 12rem);
   margin: 0 0 1.25rem;
+}
+/* phones: page titles (bio, works, other, contact) are centred */
+@media (max-width: 600px) {
+  body.poster main h1.display, #works-content h1,
+  body.poster .page-sub, #works-content > p, #contact-info header p { text-align: center; }
+  #contact-info header p { margin-inline: auto; }
+  #filter-bar { justify-content: center; }   /* Works filter chips follow the centred title */
 }
 /* the strip of small mono text under each title */
 .page-sub { font-family: var(--mono); font-size: 0.78rem; text-transform: lowercase; margin: 0 0 2rem; }

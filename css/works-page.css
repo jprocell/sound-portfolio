@@ -58,6 +58,13 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 @media (max-width: 700px) {
   .project-card { grid-template-columns: 2rem 1fr auto; row-gap: 0.1rem; }
   .project-card .p-cat { display: none; }
+  /* header rhythm: title, tagline, filter chips and the list's top rule are all 1.25rem apart */
+  #works-content p { margin-bottom: 1.25rem; }
+  /* the chips wrap three then two, centred (a narrow bar stops "other" being left on its own) */
+  #filter-bar { max-width: 19.5rem; margin: 0 auto 1.25rem; justify-content: center; }
+  body.works-page main { padding-bottom: 3rem; }
+  /* narrower and smaller so the longest word (notifications) fits on one line */
+  .project-card .p-title { font-size: clamp(1.45rem, 6.6vw, 2.2rem); font-stretch: 85%; word-spacing: 0.15em; overflow-wrap: break-word; }
 }
 
 /* =========================== */
@@ -95,6 +102,10 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 }
 .modal-close::after { content: "close"; font-family: var(--mono); font-size: 0.78rem; }
 .modal-close:hover { color: var(--accent); }
+/* on small screens the fixed button sits over scrolling text: give it a paper ground and a larger tap target */
+@media (max-width: 900px) {
+  .modal-close { z-index: 5; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); padding: 0.5rem 0.8rem; }
+}
 
 .modal-body h2 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; margin-bottom: 1.25rem; }
 .modal-body p { margin: 0 0 1.5rem; white-space: pre-line; }
@@ -228,7 +239,11 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .modal-body p.desc, .modal-audio p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
 
 @media (max-width: 900px) {
-  .modal-cols { grid-template-columns: 1fr; gap: 2rem 0; }
+  /* one rhythm: every rule in the project view (the heavy bar and the thin ones) has 1.5rem of air on both sides */
+  .modal-body h2 { margin-bottom: 1.5rem; }
+  .modal-cols { grid-template-columns: 1fr; gap: 1.5rem 0; padding-top: 1.5rem; }
+  .modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box { padding: 1.5rem 0; }
+  .modal-content { padding-bottom: 2rem; }
   .modal-head { position: static; }
 }
 
@@ -259,3 +274,4 @@ body.works-page { overflow-x: clip; }
   background: rgba(217, 214, 207, 0.9); padding: 0.25rem 0.4rem;
 }
 #art-credit a { color: inherit; }
+@media (max-width: 1000px) { #art-credit { display: none; } }   /* the leader frame it credits is hidden here */

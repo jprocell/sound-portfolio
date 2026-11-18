@@ -164,8 +164,24 @@ body.other-page { overflow-x: clip; }
   .notes-field::before, .slot::before, .when, .big-no { display: none; }
   .slot { margin: 0 0 2.5rem !important; }
   .slot[data-no="06"] .blog-entry { display: block; }
-  .slot[data-no="06"] .blog-entry h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 1rem; }
   .slot[data-no="01"] .blog-entry { transform: none; }
+
+  /* one type scale for every note: the same date size (the banner and the heavy 01 used to differ), one label size for
+     "no." and "links", body and link cards unchanged */
+  .blog-entry h2,
+  .slot[data-no="06"] .blog-entry h2,
+  .slot[data-no="01"] .blog-entry h2 { font-size: 2.3rem; }
+  .blog-entry::before, .blog-entry[data-links]::after { font-size: 0.7rem; }
+
+  /* one gap between the links chip and the date, and the same gap between the date and the body text */
+  .blog-entry h2,
+  .slot[data-no="06"] .blog-entry h2 { margin: 0.4rem 0 0.65rem; }
+  .blog-entry[data-links] h2,
+  .slot[data-no="06"] .blog-entry[data-links] h2 { margin-top: 1.2rem; }
+
+  /* a shorter run-out at the bottom of the page */
+  .slot:last-child { margin-bottom: 0 !important; }
+  body.other-page main { padding-bottom: 3rem; }
 }
 
 /* a printer's gray-scale step wedge across the right end of the title row, where it is the first thing you see */
@@ -181,4 +197,14 @@ body.other-page { overflow-x: clip; }
     #7a7771 50% 62.5%, #5a5853 62.5% 75%, #3a3935 75% 87.5%, #0f0f0e 87.5%);
   pointer-events: none;
 }
-@media (max-width: 800px) { #other-content::after { width: 11rem; height: 1.6rem; bottom: 3.2rem; } }
+@media (max-width: 800px) {
+  /* width = room left of the title word (the title is at least 3.5rem, about 3.1em wide) so the wedge never covers the R */
+  #other-content::after { width: clamp(3rem, calc(100vw - 17rem), 11rem); height: 1.6rem; bottom: 3.2rem; }
+}
+/* phones: title, wedge, tagline, stacked and centred. The wedge is an ordinary flex item ordered between the title and the tagline. */
+@media (max-width: 600px) {
+  #other-content { display: flex; flex-direction: column; }
+  #other-content h1 { order: 0; margin-bottom: 1.25rem; }
+  #other-content::after { order: 1; position: static; width: 8rem; height: 0.9rem; align-self: center; margin-bottom: 1.25rem; }
+  #other-content p { order: 2; margin-bottom: 2rem; }
+}
