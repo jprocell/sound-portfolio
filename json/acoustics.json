@@ -1,0 +1,59 @@
+{
+  "title": "Acoustics",
+  "description": "Coursework from MUSC 1325: Acoustics, spring 2026. Two projects: a gobo built in the scene shop, and a treatment plan for my old home studio.\n\nThe studio is a 7'9\" x 9'8\" x 8' room. I measured it, calculated its room modes and RT60, modeled it in SketchUp, and designed a DIY fix with Owens Corning 703 fiberglass panels and corner bass traps. Untreated, the mids ring for over a second. With treatment, every band lands inside my 0.2 to 0.5 second target.",
+  "highlight": "a gobo built in the scene shop",
+  "sections": [
+    {
+      "label": "Gobo",
+      "desc": "A gobo is a portable absorber, a go-between that can be moved around a room to control reflections. I built this one in the scene shop with a wood frame, fiberglass absorption, and a fabric cover.",
+      "images": [
+        { "src": "images/acoustics/gobo-front.jpg", "alt": "Finished gobo: a 2 by 4 foot wooden frame covered in grey fabric", "caption": "Front" },
+        { "src": "images/acoustics/gobo-side.jpg", "alt": "The same gobo from the side, showing the depth of the frame", "caption": "Side" }
+      ]
+    },
+    {
+      "label": "Room modes",
+      "desc": "Axial modes for the studio and the gap to the next mode up. The pairs at 70.6 / 72.9 Hz and 291.6 / 292.2 Hz stack almost on top of each other, which is why the low end needed attention.",
+      "table": {
+        "head": ["Mode (Hz)", "Gap (Hz)", "Mode (Hz)", "Gap (Hz)"],
+        "rows": [
+          ["58.4", "12.2", "218.7", "15.1"],
+          ["70.6", "2.3", "233.8", "48.7"],
+          ["72.9", "44.0", "282.5", "9.1"],
+          ["116.9", "24.4", "291.6", "0.6"],
+          ["141.3", "4.6", "292.2", "60.9"],
+          ["145.8", "29.5", "353.1", "11.4"],
+          ["175.3", "36.5", "364.5", "-"],
+          ["211.9", "6.8", "", ""]
+        ]
+      }
+    },
+    {
+      "label": "RT60",
+      "desc": "Reverb time before and after treatment, calculated from the room's surfaces and the added absorption. The target was 0.2 to 0.5 seconds in every band.",
+      "table": {
+        "head": ["Band", "Untreated (s)", "Treated (s)"],
+        "rows": [
+          ["125 Hz", "0.30", "0.22"],
+          ["250 Hz", "0.73", "0.36"],
+          ["500 Hz", "1.10", "0.50"],
+          ["1 kHz", "0.98", "0.41"],
+          ["2 kHz", "0.51", "0.29"],
+          ["4 kHz", "0.37", "0.25"]
+        ]
+      },
+      "images": [
+        { "src": "images/acoustics/rt60-chart.png", "alt": "Chart of RT60 by frequency: untreated peaks at 1.1 seconds near 500 Hz, treated stays at or under the 0.5 second target", "caption": "RT60 untreated, treated, and target" }
+      ]
+    },
+    {
+      "label": "Treatment plan",
+      "desc": "Six 2' x 4' panels (48 sq ft) of 703 fiberglass in plywood frames: two behind the monitors and two on each side wall at the first reflection points. Triangular DIY bass traps go in the corners that have room. A rug already covers most of the floor, and the wall behind the listening position is all doors, so there is no room for diffusion.",
+      "images": [
+        { "src": "images/acoustics/studio-plan.jpg", "alt": "Top-down SketchUp plan of the studio with panels and corner traps", "caption": "Plan view" },
+        { "src": "images/acoustics/studio-front.jpg", "alt": "SketchUp view of the front wall with panels behind the monitors and on the side walls", "caption": "Monitor wall" },
+        { "src": "images/acoustics/studio-entry-wall.jpg", "alt": "SketchUp view of the entry and closet wall", "caption": "Entry and closet wall" }
+      ]
+    }
+  ]
+}

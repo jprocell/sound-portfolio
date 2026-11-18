@@ -246,18 +246,29 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 
 /* samples: numbered, condensed labels */
 .modal-samples { counter-reset: sample; }
-.modal-audio { counter-increment: sample; }
-.modal-body .modal-audio p.label {
+.modal-audio, .modal-section { counter-increment: sample; }
+.modal-body .modal-audio p.label, .modal-body .modal-section p.label {
   font-family: var(--sans); font-weight: 800; font-stretch: 62%;
   text-transform: uppercase; font-size: 1.8rem; line-height: 1; letter-spacing: 0;
   display: flex; align-items: baseline; gap: 0.8rem;
 }
-.modal-audio p.label::before {
+.modal-audio p.label::before, .modal-section p.label::before {
   content: counter(sample, decimal-leading-zero);
   font-family: var(--mono); font-weight: 400; font-stretch: 100%;
   font-size: 0.72rem; letter-spacing: 0;
 }
-.modal-body p.desc, .modal-audio p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+.modal-body p.desc, .modal-audio p.desc, .modal-section p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+
+/* sections: tables and images (Acoustics) */
+.modal-section p.desc { white-space: pre-line; }
+.modal-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 0.78rem; margin: 0 0 0.5rem; }
+.modal-table th { text-align: left; font-weight: 400; text-transform: lowercase; color: var(--muted); padding: 0.25rem 0.75rem 0.35rem 0; border-bottom: 1px solid var(--ink); }
+.modal-table td { padding: 0.25rem 0.75rem 0.25rem 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.modal-images { display: grid; gap: 1rem; }
+.modal-images.multi { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.modal-images figure { margin: 0; }
+.modal-images img { display: block; width: 100%; height: auto; }
+.modal-images figcaption { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; text-transform: lowercase; }
 
 /* tablets (two-column project view): the heavy bar gets the same 1.5rem on each side, and a shorter end */
 @media (min-width: 901px) and (max-width: 1099px) {
@@ -269,7 +280,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   /* one rhythm: every rule in the project view (the heavy bar and the thin ones) has 1.5rem of air on both sides */
   .modal-body h2 { margin-bottom: 1.5rem; }
   .modal-cols { grid-template-columns: 1fr; gap: 1.5rem 0; padding-top: 1.5rem; }
-  .modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box { padding: 1.5rem 0; }
+  .modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box, .modal-section { padding: 1.5rem 0; }
   .modal-content { padding-bottom: 2rem; }
   .modal-head { position: static; }
 }

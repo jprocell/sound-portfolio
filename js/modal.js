@@ -119,6 +119,25 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `).join("")}
           </div>` : ""}
+
+          ${(project.sections || []).map(sec => `
+            <div class="modal-section">
+              ${sec.label ? `<p class="label">${sec.label}</p>` : ""}
+              ${sec.desc ? `<p class="desc">${sec.desc}</p>` : ""}
+              ${sec.table ? `<table class="modal-table">
+                <thead><tr>${sec.table.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>
+                <tbody>${sec.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
+              </table>` : ""}
+              ${sec.images?.length ? `<div class="modal-images${sec.images.length > 1 ? " multi" : ""}">
+                ${sec.images.map(img => `
+                  <figure>
+                    <img src="${img.src}" alt="${img.alt || ""}" loading="lazy">
+                    ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
+                  </figure>
+                `).join("")}
+              </div>` : ""}
+            </div>
+          `).join("")}
           </div>
           </div>
         `;
