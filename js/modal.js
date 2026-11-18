@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${sec.images?.length ? `<div class="modal-images${sec.images.length > 1 ? " multi" : ""}">
                 ${sec.images.map(img => `
                   <figure>
-                    <img src="${img.src}" alt="${img.alt || ""}" loading="lazy">
+                    <img${img.narrow ? ' class="narrow"' : ""} src="${img.src}" alt="${img.alt || ""}" loading="lazy">
                     ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
                   </figure>
                 `).join("")}

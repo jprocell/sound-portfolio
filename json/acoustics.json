@@ -1,14 +1,13 @@
 {
   "title": "Acoustics",
-  "description": "Coursework from MUSC 1325: Acoustics, spring 2026. Two projects: a gobo built in the scene shop, and a treatment plan for my old home studio.\n\nThe studio is a 7'9\" x 9'8\" x 8' room. I measured it, calculated its room modes and RT60, modeled it in SketchUp, and designed a DIY fix with Owens Corning 703 fiberglass panels and corner bass traps. Untreated, the mids ring for over a second. With treatment, every band lands inside my 0.2 to 0.5 second target.",
-  "highlight": "a gobo built in the scene shop",
+  "description": "Coursework from MUSC 1325: Acoustics, spring 2026. Two projects: a gobo built in the scene shop, and a treatment plan for the home studio in my apartment office.\n\nThe studio is a 7'9\" x 9'8\" x 8' room. I measured it, calculated its room modes and RT60, modeled it in SketchUp, and designed a DIY fix. I was renting and on a budget, so the plan sticks to reasonable suggestions: Owens Corning 703 fiberglass panels and corner bass traps I could build myself. Untreated, the mids ring for over a second. With treatment, every band lands inside my 0.2 to 0.5 second target.",
+  "highlight": ["a gobo built in the scene shop", "a treatment plan for the home studio in my apartment office"],
   "sections": [
     {
       "label": "Gobo",
       "desc": "A gobo is a portable absorber, a go-between that can be moved around a room to control reflections. I built this one in the scene shop with a wood frame, fiberglass absorption, and a fabric cover.",
       "images": [
-        { "src": "images/acoustics/gobo-front.jpg", "alt": "Finished gobo: a 2 by 4 foot wooden frame covered in grey fabric", "caption": "Front" },
-        { "src": "images/acoustics/gobo-side.jpg", "alt": "The same gobo from the side, showing the depth of the frame", "caption": "Side" }
+        { "src": "images/acoustics/gobo-front.jpg", "alt": "Finished gobo: a 2 by 4 foot wooden frame covered in grey fabric", "narrow": true }
       ]
     },
     {

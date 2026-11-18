@@ -267,6 +267,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .modal-images { display: grid; gap: 1rem; }
 .modal-images.multi { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
 .modal-images figure { margin: 0; }
+.modal-images img.narrow { max-width: 22rem; }
 .modal-images img { display: block; width: 100%; height: auto; }
 .modal-images figcaption { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; text-transform: lowercase; }
 
