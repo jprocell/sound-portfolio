@@ -1,16 +1,21 @@
 // Bio page: the nav is fixed on wide screens and the Audio section is a dark slab.
-// While the nav overlaps the slab, swap it to light colours so it stays readable.
+// Each nav item switches to light colours the moment it crosses the slab, so a nav that straddles
+// the slab edge never shows dark text on dark or light text on light.
 document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav-bar");
   const slab = document.getElementById("audio");
   if (!nav || !slab) return;
+  const items = [...nav.querySelectorAll("li")];
 
   const update = () => {
-    if (getComputedStyle(nav).position !== "fixed") { nav.classList.remove("on-dark"); return; }
-    const n = nav.getBoundingClientRect();
+    const fixed = getComputedStyle(nav).position === "fixed";
     const s = slab.getBoundingClientRect();
-    const overlaps = n.bottom > s.top && n.top < s.bottom;
-    nav.classList.toggle("on-dark", overlaps);
+    items.forEach(li => {
+      const r = li.getBoundingClientRect();
+      // use the item's vertical centre so the colour flips as its text crosses the edge
+      const mid = (r.top + r.bottom) / 2;
+      li.classList.toggle("on-dark", fixed && mid > s.top && mid < s.bottom);
+    });
   };
 
   update();
