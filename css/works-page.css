@@ -68,11 +68,11 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 /* tablets: the tags get a fixed, left-aligned column so they line up like a table (they were right-aligned and ragged),
    and the tagline and chips are sized for the big title */
 @media (min-width: 701px) and (max-width: 1099px) {
-  .project-card { grid-template-columns: 2.2rem 1fr 5.6rem 2.7rem; gap: 0.6rem; }
-  .project-card .p-cat { text-align: left; }
+  .project-card { grid-template-columns: 2.2rem 1fr 8rem 2.7rem; gap: 0.6rem; }
+  .project-card .p-cat { text-align: left; white-space: normal; }
   #works-content p { font-size: 0.95rem; }
   /* the chips become an even row the full width of the list below, instead of different-width chips bunched at the left */
-  #filter-bar { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+  #filter-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
   #filter-bar button { font-size: 0.85rem; padding: 0.4rem 0.5rem; text-align: center; }
 }
 
@@ -81,8 +81,8 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   .project-card .p-cat { display: none; }
   /* header rhythm: title, tagline, filter chips and the list's top rule are all 1.25rem apart */
   #works-content p { margin-bottom: 1.25rem; }
-  /* the chips wrap three then two, centred (a narrow bar stops "other" being left on its own) */
-  #filter-bar { max-width: 19.5rem; margin: 0 auto 1.25rem; justify-content: center; }
+  /* the chips wrap three then three, centred (a narrow bar stops the last chip being left on its own) */
+  #filter-bar { max-width: 22rem; margin: 0 auto 1.25rem; justify-content: center; }
   body.works-page main { padding-bottom: 3rem; }
   /* narrower and smaller so the longest word (notifications) fits on one line */
   .project-card .p-title { font-size: clamp(1.45rem, 6.6vw, 2.2rem); font-stretch: 85%; word-spacing: 0.15em; overflow-wrap: break-word; }
@@ -132,7 +132,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .modal-body p { margin: 0 0 1.5rem; white-space: pre-line; }
 
 /* Sample / video / soundcloud / text boxes share one look */
-.modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box {
+.modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box, .modal-section {
   border-top: 1px solid var(--rule);
   padding: 1rem 0 1.25rem;
   display: flex;
@@ -246,18 +246,48 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 
 /* samples: numbered, condensed labels */
 .modal-samples { counter-reset: sample; }
-.modal-audio { counter-increment: sample; }
-.modal-body .modal-audio p.label {
+.modal-audio, .modal-section { counter-increment: sample; }
+.modal-body .modal-audio p.label, .modal-body .modal-section p.label {
   font-family: var(--sans); font-weight: 800; font-stretch: 62%;
   text-transform: uppercase; font-size: 1.8rem; line-height: 1; letter-spacing: 0;
   display: flex; align-items: baseline; gap: 0.8rem;
 }
-.modal-audio p.label::before {
+.modal-audio p.label::before, .modal-section p.label::before {
   content: counter(sample, decimal-leading-zero);
   font-family: var(--mono); font-weight: 400; font-stretch: 100%;
   font-size: 0.72rem; letter-spacing: 0;
 }
-.modal-body p.desc, .modal-audio p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+.modal-body p.desc, .modal-audio p.desc, .modal-section p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+
+/* when a project has no audio, its videos are the main content: number and label them like samples */
+.lead-media .modal-video-box { counter-increment: sample; }
+.modal-body .lead-media .modal-video-box p.label {
+  font-family: var(--sans); font-weight: 800; font-stretch: 62%;
+  text-transform: uppercase; font-size: 1.8rem; line-height: 1; letter-spacing: 0;
+  display: flex; align-items: baseline; gap: 0.8rem;
+}
+.lead-media .modal-video-box p.label::before {
+  content: counter(sample, decimal-leading-zero);
+  font-family: var(--mono); font-weight: 400; font-stretch: 100%;
+  font-size: 0.72rem; letter-spacing: 0;
+}
+.lead-media .modal-video-box p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+
+/* sections: tables and images (Acoustics) */
+.modal-section p.desc { white-space: pre-line; }
+.modal-table { width: 100%; max-width: 34rem; border-collapse: collapse; font-family: var(--mono); font-size: 0.78rem; margin: 0 0 0.5rem; }
+.modal-table th { text-align: left; font-weight: 400; text-transform: lowercase; color: var(--muted); padding: 0.25rem 0.75rem 0.35rem 0; border-bottom: 1px solid var(--ink); }
+.modal-table td { padding: 0.25rem 0.75rem 0.25rem 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.modal-images { display: grid; gap: 1rem; }
+.modal-images.multi { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.modal-images figure { margin: 0; }
+.modal-section iframe.section-video { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+.modal-images a { display: block; cursor: zoom-in; }
+.modal-images img.narrow { max-width: 22rem; }
+.modal-images.multi img { aspect-ratio: 4 / 3; object-fit: cover; }
+.modal-images img.blend { mix-blend-mode: multiply; }
+.modal-images img { display: block; width: 100%; height: auto; }
+.modal-images figcaption { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; text-transform: lowercase; }
 
 /* tablets (two-column project view): the heavy bar gets the same 1.5rem on each side, and a shorter end */
 @media (min-width: 901px) and (max-width: 1099px) {
@@ -269,7 +299,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
   /* one rhythm: every rule in the project view (the heavy bar and the thin ones) has 1.5rem of air on both sides */
   .modal-body h2 { margin-bottom: 1.5rem; }
   .modal-cols { grid-template-columns: 1fr; gap: 1.5rem 0; padding-top: 1.5rem; }
-  .modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box { padding: 1.5rem 0; }
+  .modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box, .modal-section { padding: 1.5rem 0; }
   .modal-content { padding-bottom: 2rem; }
   .modal-head { position: static; }
 }

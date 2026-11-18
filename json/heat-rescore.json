@@ -1,0 +1,18 @@
+{
+  "title": "Heat Rescore",
+  "description": "For my Audio Engineering III class, I scored a clip from Heat and did the sound design and basic level mixing. I went a step further and made everything in VCV Rack, a software modular synth, since I was taking the modular synthesis class at the same time.\n\nIt came together in a few days. The levels and even some of the tones aren't to my satisfaction, but as a quick draft I think it's neat. VCV Rack isn't ideal for every sound here, so for a commercial project I'd tweak them or reach for a more fitting synthesis method.",
+  "highlight": "VCV Rack",
+  "sections": [
+    {
+      "label": "The patch",
+      "desc": "The full VCV Rack patch behind the score. Click to open it full size.",
+      "images": [
+        { "src": "images/heat-patch.jpg", "alt": "Screenshot of a large VCV Rack patch: several rows of modules joined by colored cables", "zoom": true }
+      ]
+    },
+    {
+      "label": "Heat clip",
+      "video": "_mrkdH_jKyY"
+    }
+  ]
+}

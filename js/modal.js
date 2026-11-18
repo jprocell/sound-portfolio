@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="modal-head">
             <p class="project-description">${withHighlights(project.description, project.highlight)}</p>
           </div>
-          <div class="modal-samples">
+          <div class="modal-samples${project.audio?.length ? "" : " lead-media"}">
 
           ${project.audio?.map(sample => {
             const audioSrc = `./${sample.src}`; 
@@ -92,13 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="modal-video-box">
                 ${video.label ? `<p class="label">${video.label}</p>` : ""}
                 ${video.caption ? `<p class="desc">${video.caption}</p>` : ""}
-                <iframe
+                ${video.id ? `<iframe
                   src="https://www.youtube.com/embed/${video.id}"
                   title="${video.caption || video.label || project.title}"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
-                  loading="lazy"></iframe>
+                  loading="lazy"></iframe>` : ""}
+                ${video.link ? `<a href="${video.link.url}" target="_blank" rel="noopener" class="modal-external-link">${video.link.label}</a>` : ""}
               </div>
             `).join("")}
           </div>` : ""}
@@ -119,6 +120,26 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             `).join("")}
           </div>` : ""}
+
+          ${(project.sections || []).map(sec => `
+            <div class="modal-section">
+              ${sec.label ? `<p class="label">${sec.label}</p>` : ""}
+              ${sec.desc ? `<p class="desc">${sec.desc}</p>` : ""}
+              ${sec.table ? `<table class="modal-table">
+                <thead><tr>${sec.table.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>
+                <tbody>${sec.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
+              </table>` : ""}
+              ${sec.video ? `<iframe class="section-video" src="https://www.youtube.com/embed/${sec.video}" title="${sec.label || project.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>` : ""}
+              ${sec.images?.length ? `<div class="modal-images${sec.images.length > 1 ? " multi" : ""}">
+                ${sec.images.map(img => `
+                  <figure>
+                    ${img.zoom ? `<a href="${img.src}" target="_blank" rel="noopener">` : ""}<img${img.narrow ? ' class="narrow"' : img.blend ? ' class="blend"' : ""} src="${img.src}" alt="${img.alt || ""}" loading="lazy">${img.zoom ? "</a>" : ""}
+                    ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
+                  </figure>
+                `).join("")}
+              </div>` : ""}
+            </div>
+          `).join("")}
           </div>
           </div>
         `;

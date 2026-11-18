@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const category = button.dataset.category;
       projects.forEach(project => {
-        const show = category === "all" || project.dataset.category === category;
+        const show = category === "all" || project.dataset.category.split(/\s+/).includes(category);
         project.style.display = show ? "" : "none";
       });
     });
