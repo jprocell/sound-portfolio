@@ -1,0 +1,18 @@
+{
+  "title": "Of Grace",
+  "description": "of grace is a shoegaze and noise rock band from Austin. I joined as a member in 2026, playing bass at the shows, and later moved over to guitar and electronics.",
+  "highlight": ["bass", "guitar", "electronics"],
+  "videos": [
+    {
+      "label": "Mother",
+      "link": {
+        "url": "https://ofgracetx.bandcamp.com/album/mother",
+        "label": "Listen on Bandcamp"
+      }
+    },
+    {
+      "id": "RXCc9nKBxWw",
+      "label": "The Sun Has Eyes"
+    }
+  ]
+}
