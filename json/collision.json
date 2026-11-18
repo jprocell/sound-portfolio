@@ -6,22 +6,22 @@
       {
         "label": "Bass",
         "desc": "Bass patch",
-        "src": "audio-samples/sound-design/collision/bass.wav"
+        "src": "audio-samples/sound-design/collision/collision-bass.wav"
       },
       {
         "label": "Lead",
         "desc": "Lead patch",
-        "src": "audio-samples/sound-design/collision/lead.wav"
+        "src": "audio-samples/sound-design/collision/collision-lead.wav"
       },
       {
         "label": "Pad",
         "desc": "Pad patch. My personal favorite of the bunch, ended up with a nice organ-like quality to it.",
-        "src": "audio-samples/sound-design/collision/pads.wav"
+        "src": "audio-samples/sound-design/collision/collision-pad.wav"
       },
       {
         "label": "Pluck",
         "desc": "Pluck patch",
-        "src": "audio-samples/sound-design/collision/pluck.wav"
+        "src": "audio-samples/sound-design/collision/collision-pluck.wav"
       }
     ]
 }
