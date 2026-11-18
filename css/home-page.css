@@ -229,14 +229,14 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .p-horse { display: none; }      /* it sat on the top-right tagline */
 }
 /* tall tablets: the name is huge and the credits would sit on it, so lift them above it (same as phones) */
-@media (max-width: 1000px) and (orientation: portrait) {
+@media (max-width: 1100px) and (orientation: portrait) {
   #art-credit { left: var(--gutter); right: var(--gutter); bottom: 36vw; max-width: none; text-align: left; background: none; padding: 0; }
   #art-credit .cl-4, #art-credit .cl-5, #art-credit .cl-6 { display: none; }
   #updated { display: none; }
 }
 
-@media (max-width: 700px) {
-  /* phone layout, top to bottom: nav, name, ruler band, prints, then tagline / coordinates / credits */
+@media (max-width: 700px), (max-width: 1100px) and (orientation: portrait) {
+  /* phone layout (also used on tall tablets, with the art respaced below): nav, name, ruler band, prints, then tagline / coordinates / credits */
   .p-organ   { left: 20%; top: 31%; width: 58%; }
   .p-academy { right: 2%; top: 51%; width: 36%; }
   .p-machine { left: 2%;  top: 45%; width: 38%; }
@@ -250,7 +250,8 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .hero-left { bottom: auto; top: 5.4rem; }
   /* both lines sit inside the page gutters like everything else: PROCELL (5.35em wide) is sized to fill the space between them,
      JOSH is right-aligned to the same right edge */
-  .hero-left-inner h1 { font-size: calc((100vw - 2 * var(--gutter)) / 5.35); padding: 0 var(--gutter); transform: none; }
+  #hero { --nf: calc((100vw - 2 * var(--gutter)) / 5.35); }   /* the name's font size: PROCELL is 5.35em wide */
+  .hero-left-inner h1 { font-size: var(--nf); padding: 0 var(--gutter); transform: none; }
   .hero-left-inner h1 span:first-child { text-align: right; }
 
   /* barcode sticker turned on its side so it fits the gap to the right of the organ */
@@ -259,7 +260,8 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .barcode span { font-size: 0.55rem; letter-spacing: 0.22em; }
 
   /* halftone patch turned on its side beside the name, on the opposite side from JOSH: dots swell to the left and run off the page edge */
-  .halftone { left: 0; top: 11.1%; width: 11.2vw; height: 36vw; aspect-ratio: auto; transform-origin: 0 0; transform: translateX(36vw) rotate(90deg); }   /* 11.2vw = JOSH's cap height */
+  /* sized and placed from the name's own font size (cap height 0.67em, first line starts 0.065em below the block top), so it stays level with JOSH at any screen size */
+  .halftone { left: 0; top: calc(5.4rem + var(--nf) * 0.065); width: calc(var(--nf) * 0.67); height: 36vw; aspect-ratio: auto; transform-origin: 0 0; transform: translateX(36vw) rotate(90deg); }
 
   /* ruler band under the name */
   .mark { display: none; }
@@ -282,6 +284,27 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   #clock { display: none; }
   #updated { display: none; }
   .hero-right { display: none; }
+}
+
+/* tall tablets: same order as the phone, but with the extra width the prints are pasted down loosely, overlapping and at
+   uneven heights like the desktop collage (not a tidy grid), and the anatomical figure fills the bottom-right corner.
+   The art band is built in one unit, --u (1vw on a 3:4 screen), which shrinks when the window is shorter than that so the band
+   always stays between the name and the text stack instead of running into it. Numbers below are in 3:4-screen percent:
+   left is measured from the centre so the band shrinks around the middle, top from just under the name. */
+@media (min-width: 701px) and (max-width: 1100px) and (orientation: portrait) {
+  #hero { --u: min(1vw, calc((100vh - 46.7vw - 190px) / 60)); }   /* the organ's foot is 60u below the band top; the text stack needs 190px */
+  .p-organ   { left: calc(50% - 46 * var(--u)); top: calc(46.7vw + 6.7 * var(--u));  width: calc(40 * var(--u)); }
+  .p-academy { left: calc(50% - 11 * var(--u)); top: calc(46.7vw + 3.3 * var(--u));  width: calc(29 * var(--u)); right: auto; }   /* overlaps the organ's right edge */
+  .p-machine { left: calc(50% - 9 * var(--u));  top: calc(46.7vw + 25.3 * var(--u)); width: calc(35 * var(--u)); }                /* under the academy, tucked against the organ */
+  .p-eyes    { left: calc(50% + 12 * var(--u)); top: 46.7vw;                          width: calc(36 * var(--u)); }                /* overlaps the academy's top corner */
+  .p-horse   { left: calc(50% + 17 * var(--u)); top: calc(46.7vw + 18.7 * var(--u)); width: calc(31 * var(--u)); right: auto; }   /* overlaps the machine's right edge */
+  .p-figure  { display: block; left: calc(50% + 25 * var(--u)); top: calc(46.7vw + 36 * var(--u)); width: calc(12 * var(--u)); right: auto; }   /* hangs down from the horse into the corner */
+  .barcode   { display: none; }
+  .ticks { top: 44.7vw; }
+  .mark[style*="top:20%"] { top: 41.3vw !important; }
+  .mark.ring { top: 48.7vw !important; }
+  #art-credit { font-size: 0.6rem; }
+  #art-credit .cl-5 { display: block; }   /* the figure print is on this layout */
 }
 
 /* short landscape windows (phones on their side): the vw-sized name would fill the whole screen, so size it by height

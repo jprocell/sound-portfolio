@@ -103,3 +103,7 @@
   body.contact-page main { padding-bottom: 2rem; }
   #art-credit { margin-bottom: 2rem; }
 }
+/* tablets: the blurb is sized for the big title, the same as the tagline on Works and Other */
+@media (min-width: 701px) and (max-width: 1099px) {
+  body.poster #contact-info header p { font-size: 0.95rem; }
+}
