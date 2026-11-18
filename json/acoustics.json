@@ -42,7 +42,7 @@
         ]
       },
       "images": [
-        { "src": "images/acoustics/rt60-chart.png", "alt": "Chart of RT60 by frequency: untreated peaks at 1.1 seconds near 500 Hz, treated stays at or under the 0.5 second target", "caption": "RT60 untreated, treated, and target" }
+        { "src": "images/acoustics/rt60-chart.png", "blend": true, "alt": "Chart of RT60 by frequency: untreated peaks at 1.1 seconds near 500 Hz, treated stays at or under the 0.5 second target", "caption": "RT60 untreated, treated, and target" }
       ]
     },
     {

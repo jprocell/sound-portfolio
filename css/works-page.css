@@ -132,7 +132,7 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .modal-body p { margin: 0 0 1.5rem; white-space: pre-line; }
 
 /* Sample / video / soundcloud / text boxes share one look */
-.modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box {
+.modal-audio, .modal-video-box, .modal-soundcloud-box, .modal-text-box, .modal-section {
   border-top: 1px solid var(--rule);
   padding: 1rem 0 1.25rem;
   display: flex;
@@ -261,13 +261,15 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 
 /* sections: tables and images (Acoustics) */
 .modal-section p.desc { white-space: pre-line; }
-.modal-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 0.78rem; margin: 0 0 0.5rem; }
+.modal-table { width: 100%; max-width: 34rem; border-collapse: collapse; font-family: var(--mono); font-size: 0.78rem; margin: 0 0 0.5rem; }
 .modal-table th { text-align: left; font-weight: 400; text-transform: lowercase; color: var(--muted); padding: 0.25rem 0.75rem 0.35rem 0; border-bottom: 1px solid var(--ink); }
 .modal-table td { padding: 0.25rem 0.75rem 0.25rem 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
 .modal-images { display: grid; gap: 1rem; }
 .modal-images.multi { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
 .modal-images figure { margin: 0; }
 .modal-images img.narrow { max-width: 22rem; }
+.modal-images.multi img { aspect-ratio: 4 / 3; object-fit: cover; }
+.modal-images img.blend { mix-blend-mode: multiply; }
 .modal-images img { display: block; width: 100%; height: auto; }
 .modal-images figcaption { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; text-transform: lowercase; }
 
