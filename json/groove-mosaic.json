@@ -1,0 +1,15 @@
+{
+  "title": "Groove Mosaic",
+  "description": "Groove Mosaic is a jazz ensemble formed by Paolo Dumancas, a former coworker who now runs a nonprofit that gives underprivileged and underrepresented musicians opportunities and support. The group has a rotating cast of local musicians who want to make an impact, and the nonprofit aims to give back to the community through that music.\n\nI recorded these two tracks with local jazz musicians over an 8 hour session. I did the tracking, mixing, and mastering, working one-on-one for a semester under my professor Nick Landis, who guided me on these tracks and other skills.",
+  "highlight": "tracking, mixing, and mastering",
+  "audio": [
+    {
+      "label": "The Jody Grind",
+      "src": "audio-samples/audio-engineering/groove-mosaic/groove-mosaic-the-jody-grind.mp3"
+    },
+    {
+      "label": "September in the Rain",
+      "src": "audio-samples/audio-engineering/groove-mosaic/groove-mosaic-september-in-the-rain.mp3"
+    }
+  ]
+}
