@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="modal-head">
             <p class="project-description">${withHighlights(project.description, project.highlight)}</p>
           </div>
-          <div class="modal-samples">
+          <div class="modal-samples${project.audio?.length ? "" : " lead-media"}">
 
           ${project.audio?.map(sample => {
             const audioSrc = `./${sample.src}`; 
@@ -129,10 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 <thead><tr>${sec.table.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>
                 <tbody>${sec.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
               </table>` : ""}
+              ${sec.video ? `<iframe class="section-video" src="https://www.youtube.com/embed/${sec.video}" title="${sec.label || project.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>` : ""}
               ${sec.images?.length ? `<div class="modal-images${sec.images.length > 1 ? " multi" : ""}">
                 ${sec.images.map(img => `
                   <figure>
-                    <img${img.narrow ? ' class="narrow"' : img.blend ? ' class="blend"' : ""} src="${img.src}" alt="${img.alt || ""}" loading="lazy">
+                    ${img.zoom ? `<a href="${img.src}" target="_blank" rel="noopener">` : ""}<img${img.narrow ? ' class="narrow"' : img.blend ? ' class="blend"' : ""} src="${img.src}" alt="${img.alt || ""}" loading="lazy">${img.zoom ? "</a>" : ""}
                     ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
                   </figure>
                 `).join("")}

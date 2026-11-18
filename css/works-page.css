@@ -259,6 +259,20 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 }
 .modal-body p.desc, .modal-audio p.desc, .modal-section p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
 
+/* when a project has no audio, its videos are the main content: number and label them like samples */
+.lead-media .modal-video-box { counter-increment: sample; }
+.modal-body .lead-media .modal-video-box p.label {
+  font-family: var(--sans); font-weight: 800; font-stretch: 62%;
+  text-transform: uppercase; font-size: 1.8rem; line-height: 1; letter-spacing: 0;
+  display: flex; align-items: baseline; gap: 0.8rem;
+}
+.lead-media .modal-video-box p.label::before {
+  content: counter(sample, decimal-leading-zero);
+  font-family: var(--mono); font-weight: 400; font-stretch: 100%;
+  font-size: 0.72rem; letter-spacing: 0;
+}
+.lead-media .modal-video-box p.desc { font-family: var(--mono); font-size: 0.82rem; line-height: 1.55; }
+
 /* sections: tables and images (Acoustics) */
 .modal-section p.desc { white-space: pre-line; }
 .modal-table { width: 100%; max-width: 34rem; border-collapse: collapse; font-family: var(--mono); font-size: 0.78rem; margin: 0 0 0.5rem; }
@@ -267,6 +281,8 @@ body.works-page main { max-width: none; padding: 5.5rem var(--gutter) 5rem; marg
 .modal-images { display: grid; gap: 1rem; }
 .modal-images.multi { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
 .modal-images figure { margin: 0; }
+.modal-section iframe.section-video { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+.modal-images a { display: block; cursor: zoom-in; }
 .modal-images img.narrow { max-width: 22rem; }
 .modal-images.multi img { aspect-ratio: 4 / 3; object-fit: cover; }
 .modal-images img.blend { mix-blend-mode: multiply; }
