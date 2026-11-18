@@ -6,52 +6,52 @@
       {
         "label": "Mix 1 - Bomb Defusal",
         "desc": "All the instruments from the bomb defusal track combined. The drums are a standard Ableton sample loop.",
-        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-mix.wav"
+        "src": "audio-samples/synthesis/presets/presets-bomb-mix.wav"
       },
       {
         "label": "808 Bass",
         "desc": "A classic 808 bass. The mod wheel adds a transient click to the attack for extra customization.",
-        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-808-bass.wav"
+        "src": "audio-samples/synthesis/presets/presets-bomb-808-bass.wav"
       },
       {
         "label": "FM Pluck",
         "desc": "Built using FM synthesis. Velocity controls how much FM is applied, while the mod wheel drives the amount of distortion on a percussive envelope.",
-        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-fm-pluck.wav"
+        "src": "audio-samples/synthesis/presets/presets-bomb-fm-pluck.wav"
       },
       {
         "label": "KG Lead",
         "desc": "A lead made famous by a Kool & the Gang track. Overdrive, delay, and a trace gate were added on top. The gate toggles in the second half via MIDI automation.",
-        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-kg-lead.wav"
+        "src": "audio-samples/synthesis/presets/presets-bomb-kg-lead.wav"
       },
       {
         "label": "Wavetable Pad",
         "desc": "Built from two wavetables, each with its own LFO modulating volume and wavetable frame at different rates to keep it moving. The mod wheel is tied to filter cutoff.",
-        "src": "audio-samples/synthesis/presets/bomb-defusal-beat-wavetable-pad.wav"
+        "src": "audio-samples/synthesis/presets/presets-bomb-wavetable-pad.wav"
       },
       {
         "label": "Mix 2 - Space Tetris",
         "desc": "All the instruments from the space tetris track combined. The drums are a standard Ableton sample loop.",
-        "src": "audio-samples/synthesis/presets/space-tetris-beat-mix.wav"
+        "src": "audio-samples/synthesis/presets/presets-tetris-mix.wav"
       },
       {
         "label": "FM Bass",
         "desc": "FM-based bass where a percussive envelope adds FM to the carrier. The mod wheel throws in a quick pitch shift transient for extra punch.",
-        "src": "audio-samples/synthesis/presets/space-tetris-beat-fm-bass.wav"
+        "src": "audio-samples/synthesis/presets/presets-tetris-fm-bass.wav"
       },
       {
         "label": "Wavetable Bell Pluck",
         "desc": "Two wavetables with random LFOs modulating each frame. The mod wheel controls filter cutoff and each wavetable's detune.",
-        "src": "audio-samples/synthesis/presets/space-tetris-beat-wavetable-bell-pluck.wav"
+        "src": "audio-samples/synthesis/presets/presets-tetris-bell-pluck.wav"
       },
       {
         "label": "Theremin Lead",
         "desc": "Built to mimic a theremin. Composed of just an oscillator, overdrive, filter, and some modulation. The mod wheel controls LFO-driven pitch shift amount. Velocity is tied to filter cutoff.",
-        "src": "audio-samples/synthesis/presets/space-tetris-beat-theremin-lead.wav"
+        "src": "audio-samples/synthesis/presets/presets-tetris-theremin-lead.wav"
       },
       {
         "label": "Layered Pad",
         "desc": "An analog oscillator layered over a xylophone sample, with distortion and filtering applied to each independently. A modulator envelope rides the distortion drive on the analog oscillator.",
-        "src": "audio-samples/synthesis/presets/space-tetris-beat-layered-pad.wav"
+        "src": "audio-samples/synthesis/presets/presets-tetris-layered-pad.wav"
       }
     ]
 }
