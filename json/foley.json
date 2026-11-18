@@ -6,12 +6,12 @@
       {
         "label": "Summer Evening",
         "desc": "Crickets, cicadas, and frogs doing their thing while a bottle rocket goes up in the distance.",
-        "src": "audio-samples/sound-design/foley/summer-evening.wav"
+        "src": "audio-samples/sound-design/foley/foley-summer-evening.wav"
       },
       {
         "label": "Thunderstorm",
         "desc": "Heavy sheets of rain, individual droplets, and rolling thunder.",
-        "src": "audio-samples/sound-design/foley/thunderstorm.wav"
+        "src": "audio-samples/sound-design/foley/foley-thunderstorm.wav"
       }
     ],
     "videos": [

@@ -6,37 +6,37 @@
       {
         "label": "Mix",
         "desc": "A short snippet putting all the instruments together. A bit hectic and cluttered, but maybe that was the intention... (it wasn't).",
-        "src": "audio-samples/synthesis/fm/hectic-mix.wav"
+        "src": "audio-samples/synthesis/fm/fm-mix.wav"
       },
       {
         "label": "Lead",
         "desc": "The lead isolated. An aggressive, percussive voicing with velocity variation driving the dynamics.",
-        "src": "audio-samples/synthesis/fm/hectic-lead.wav"
+        "src": "audio-samples/synthesis/fm/fm-lead.wav"
       },
       {
         "label": "Drums",
         "desc": "The drums isolated. Idk what else to specify, it's drums.",
-        "src": "audio-samples/synthesis/fm/hectic-drums.wav"
+        "src": "audio-samples/synthesis/fm/fm-drums.wav"
       },
       {
         "label": "Bass",
         "desc": "The bass isolated. If memory serves, I wrote the tune in Phrygian after sketching out the bass part first.",
-        "src": "audio-samples/synthesis/fm/hectic-bass.wav"
+        "src": "audio-samples/synthesis/fm/fm-bass.wav"
       },
       {
         "label": "Layered Pad",
         "desc": "The pad isolated. A contrasting layer built from a swelling pad with a mallet strike on the attack.",
-        "src": "audio-samples/synthesis/fm/hectic-mallet-and-pad.wav"
+        "src": "audio-samples/synthesis/fm/fm-layered-pad.wav"
       },
       {
         "label": "Bells",
         "desc": "You can't do FM without making bells. Not quite suited for the mix above, but a good standalone sample.",
-        "src": "audio-samples/synthesis/fm/bells.wav"
+        "src": "audio-samples/synthesis/fm/fm-bells.wav"
       },
       {
         "label": "Aux Percussion",
         "desc": "Some additional percussion sounds I created with FM.",
-        "src": "audio-samples/synthesis/fm/aux-percussion.wav"
+        "src": "audio-samples/synthesis/fm/fm-aux-percussion.wav"
       }
     ]
 }
