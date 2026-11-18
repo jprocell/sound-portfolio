@@ -228,14 +228,19 @@ body.home-page { min-height: 100vh; overflow: hidden; }
 
 @media (max-width: 700px), (max-width: 1100px) and (orientation: portrait) {
   /* phone layout (also used on tall tablets, with the art respaced below): nav, name, ruler band, prints, then tagline / coordinates / credits */
-  .p-organ   { left: 20%; top: 31%; width: 58%; }
-  .p-academy { right: 2%; top: 51%; width: 36%; }
-  .p-machine { left: 2%;  top: 45%; width: 38%; }
+  /* The prints are sized in --u (1vw on a normal phone) and stacked from the top of the band (31% of the screen height) so the
+     whole band always ends above the tagline and credits. On a short screen (Safari with its toolbars, an SE) --u shrinks and
+     the band scales down with it instead of running over the text. The 97 is the band's depth in u (organ top to eyes bottom);
+     184px is the text stack beneath it. */
+  #hero { --band: max(31%, 12.9rem); --u: min(1vw, calc((100vh - 184px - max(31vh, 12.9rem)) / 97)); }   /* 12.9rem keeps the band under the name on very short screens */
+  .p-organ   { left: 20%; top: var(--band);                                 width: calc(58 * var(--u)); }
+  .p-academy { right: 2%; top: calc(var(--band) + 43.2 * var(--u));         width: calc(36 * var(--u)); }
+  .p-machine { left: 2%;  top: calc(var(--band) + 30.1 * var(--u));         width: calc(38 * var(--u)); }
   .p-figure, .blk, .l-v, .l-v2, .l-diag2 { display: none; }
   /* the long eyes strip runs under the other prints and overlaps the organ's foot */
-  .p-eyes { left: 12%; top: 62%; width: 80%; }
+  .p-eyes { left: 12%; top: calc(var(--band) + 67 * var(--u)); width: calc(80 * var(--u)); }
   /* the horse print is a wide landscape, so it shows whole here, bottom right under the eyes strip */
-  .p-horse { display: block; left: auto; right: var(--gutter); top: 75%; width: 34%; --ar: 3 / 2; --pos: 50% 50%; }
+  .p-horse { display: block; left: auto; right: var(--gutter); top: calc(var(--band) + 95.2 * var(--u)); width: calc(34 * var(--u)); --ar: 3 / 2; --pos: 50% 50%; }
 
   /* name at the top */
   .hero-left { bottom: auto; top: 5.4rem; }
@@ -246,7 +251,7 @@ body.home-page { min-height: 100vh; overflow: hidden; }
   .hero-left-inner h1 span:first-child { text-align: right; }
 
   /* barcode sticker turned on its side so it fits the gap to the right of the organ */
-  .barcode { left: 78%; top: 38%; width: 34%; padding: 0.4rem 0.55rem 0.3rem; transform: rotate(-90deg); }
+  .barcode { left: 78%; top: max(38%, 15rem); width: 34%; padding: 0.4rem 0.55rem 0.3rem; transform: rotate(-90deg); }
   .barcode svg { height: 2rem; }
 
   /* halftone patch turned on its side beside the name, on the opposite side from JOSH: dots swell to the left and run off the page edge */
